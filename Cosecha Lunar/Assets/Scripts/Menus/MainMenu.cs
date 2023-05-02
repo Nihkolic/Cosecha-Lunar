@@ -20,12 +20,13 @@ public class MainMenu : MonoBehaviour
     {
         ChangePanel(true, false, false, false, false);
         _audioSource = GetComponent<AudioSource>();
+        isQuitPanelUp = false;
     }
     private void Update()
     {
-        if (Input.GetKeyDown(ExitKey))
+        if (Input.GetKeyDown(ExitKey) && !isQuitPanelUp)
         {
-            QuitGame();
+            ToQuit();
         }
     }
     private void ChangePanel(bool main, bool credits, bool score, bool options, bool quit)
@@ -55,6 +56,7 @@ public class MainMenu : MonoBehaviour
     public void BackFromQuitPanel()
     {
         quitPanel.SetActive(false);
+        isQuitPanelUp = false;
     }
     public void ChangeScene(int index)
     {
@@ -63,6 +65,7 @@ public class MainMenu : MonoBehaviour
     public void ToQuit()
     {
         quitPanel.SetActive(true);
+        isQuitPanelUp = true;
     }
     public void QuitGame()
     {
