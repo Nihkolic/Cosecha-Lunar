@@ -16,7 +16,7 @@ public class PlayerMovement_Esencial : MonoBehaviour
     private float moveSpeed;
     [SerializeField] private float walkSpeed;
     [SerializeField] private float groundDrag;
-    [SerializeField] private bool dashing; //
+    [SerializeField] private bool dashing; 
 
     [Header("Jumping")]
     [SerializeField] private float jumpForce;

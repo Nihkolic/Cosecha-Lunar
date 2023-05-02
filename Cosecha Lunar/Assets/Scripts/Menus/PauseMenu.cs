@@ -6,20 +6,27 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
-    [SerializeField] private GameObject pauseMenuUI;
+    [Header("Pause")]
+    [SerializeField] private GameObject pauseMenu;
+    public static bool GAME_IS_PAUSED = false;
+    
+    [Header("Keybinds")]
+    [SerializeField] private KeyCode ExitKey = KeyCode.Escape;
+
+    [Header("Panels")]
+    [SerializeField] private GameObject quitPanel;
+    [SerializeField] private GameObject optionsPanel;
+    [SerializeField] private GameObject pausePanel;
 
     private void Start()
     {
         Resume();
-
-
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(ExitKey))
         {
-            if (GameIsPaused)
+            if (GAME_IS_PAUSED)
             {
                 Resume();
             }
@@ -29,16 +36,6 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
-
-    public void Resume()
-    {
-        pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
     public void Retry()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -47,24 +44,66 @@ public class PauseMenu : MonoBehaviour
     public void ChangeScene()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        if(currentSceneIndex==1)
-            SceneManager.LoadScene(2);
-        else if(currentSceneIndex == 2)
-            SceneManager.LoadScene(1);
-    }
 
+        if(currentSceneIndex==0)
+            SceneManager.LoadScene(1);
+        else if(currentSceneIndex == 1)
+            SceneManager.LoadScene(0);
+    }
+    public void Resume()
+    {
+        pauseMenu.SetActive(false);
+        optionsPanel.SetActive(false);
+        pausePanel.SetActive(false);
+        quitPanel.SetActive(false);
+
+        Time.timeScale = 1f;
+        GAME_IS_PAUSED = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
     void Pause()
     {
-        pauseMenuUI.SetActive(true);
+        pauseMenu.SetActive(true);
+        optionsPanel.SetActive(false);
+        pausePanel.SetActive(true);
+        quitPanel.SetActive(false);
+
         Time.timeScale = 0f;
-        GameIsPaused = true;
+        GAME_IS_PAUSED = true;
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
-
+    public void ToQuit()
+    {
+        quitPanel.SetActive(true);
+    }
     public void QuitGame()
     {
         Application.Quit();
+        Debug.Log("quit");
+    }
+    public void BackToPause()
+    {
+        optionsPanel.SetActive(false);
+        pausePanel.SetActive(true);
+    }
+    public void BackFromQuitPanel()
+    {
+        quitPanel.SetActive(false);
+    }
+    public void ChangeScene(int index)
+    {
+        Time.timeScale = 1f;
+        GAME_IS_PAUSED = false;
+
+        SceneManager.LoadScene(index);
+    }
+    public void ToOptions()
+    {
+        optionsPanel.SetActive(true);
+        pausePanel.SetActive(false);
     }
 }
