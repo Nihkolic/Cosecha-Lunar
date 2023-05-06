@@ -34,7 +34,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                compAttack.Play(attack);
+                compAttack.Play(animAttack1);
                 //attackSfx.PlayAttack(num);
                 attackTimer = _attackTimer;
                 anim = !anim;

@@ -13,7 +13,7 @@ public class EnemyAttackCollisions : MonoBehaviour
 	{
 		if (col.transform.tag == "PlayerCollider")
 		{
-			health.Damage(2);
+			//health.Damage(2);
 			
 		}
 	}

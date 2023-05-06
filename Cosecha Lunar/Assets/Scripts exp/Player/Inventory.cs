@@ -27,13 +27,13 @@ public class Inventory : MonoBehaviour
     private void Update()
     {
         if ((Input.GetKeyDown(healKey))&&(num>=1))
-        {
+        {/*
             if (health.hp < health.hpMax) 
             {
                 health.Heal(3);
                 num -= 1;
                 UpdateNum();
-            }
+            }*/
         }
     }
 }

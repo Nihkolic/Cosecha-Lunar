@@ -4,27 +4,28 @@ using UnityEngine;
 
 public class EnemyHealth2 : MonoBehaviour
 {
-    public Renderer rendBody;
-    public Material matCurrent;
-    public Material matHurt;
+    [Header("Materials")]
+    [SerializeField] private Renderer rendBody;
+    [SerializeField] private Material matCurrent;
+    [SerializeField] private Material matHurt;
+    [SerializeField] private GameObject model;
+    private Color _normalColor;
 
-    public float enemyHealth = 100f;
-    public bool isEnemyDead;
+    [SerializeField] private float enemyHealth = 100f;
+    [SerializeField] private bool isEnemyDead;
 
-    //public GameObject goEnemyDeath;
-    //public Transform enemyDeath;
+    //[SerializeField] private GameObject goEnemyDeath;
+    //[SerializeField] private Transform enemyDeath;
     private void Start()
     {
         isEnemyDead = false;
+        _normalColor = model.GetComponent<Renderer>().material.color;
     }
-    public void DeductHealth(float deductHealth)
+    public void DamageEnemy(float deductHealth)
     {
         if (!isEnemyDead)
         {
-            enemyHealth -= deductHealth;
-            rendBody.material = matHurt;
-            StartCoroutine(Back());
-            //sfx here
+            TakeDamage(deductHealth);
         }
         /*
         if (enemyHealth <= 0)
@@ -47,4 +48,19 @@ public class EnemyHealth2 : MonoBehaviour
             yield return null;//wait for hit stop to end
         rendBody.material = matCurrent;
     }
+    void TakeDamage(float deductHealth)
+    {
+        enemyHealth -= deductHealth;
+        //rendBody.material = matHurt;
+        //StartCoroutine(Back());
+        //sfx here
+        model.GetComponent<Renderer>().material.color = Color.red;
+        Invoke("ToggleNormalColor", 0.25f);
+    }
+    void ToggleNormalColor()
+    {
+        model.GetComponent<Renderer>().material.color = _normalColor;
+    }
+
+
 }

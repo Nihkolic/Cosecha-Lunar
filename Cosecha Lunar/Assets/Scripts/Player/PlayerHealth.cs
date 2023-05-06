@@ -6,65 +6,60 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int hp;
-    public int hpMax = 20;
-    public Image hpBar;
- 
-    public Animator screenEffect;
-    public Text textHP;
-
-    public float timeBetweenAttack = 0.9f;
-    float _timeBetweenAttack;
-
-    public PlayerSfx playerSfx;
+    [SerializeField] private int CurrentHealth;
+    [SerializeField] private int MaxHealth = 20;
+    [SerializeField] private PlayerHUD playerHUD;
+    //public PlayerSfx playerSfx;
 
     private void Update()
     {
-        timeBetweenAttack -= Time.deltaTime;
+        Testing();
+        Debug.Log(CurrentHealth);
     }
     private void Start()
     {
-        hpMax *= 10;
-        hp = hpMax;
-        //textHP.text = ("  " + hp.ToString() + " / " + hpMax.ToString());
-        textHP.text = ("  " + hp.ToString());
-        _timeBetweenAttack = timeBetweenAttack;
+        MaxHealth *= 10;
+        CurrentHealth = MaxHealth;
     }
-    public void Damage(int amount)
+    public void TakeDamage(int amount)
     {
-        if (timeBetweenAttack < 0)
-        {
-            hp -= amount * 10;
-            CheckHP();
-            screenEffect.Play("HurtScreen");
-            UpdateUI();
-            timeBetweenAttack = _timeBetweenAttack;
-            playerSfx.PlayHurt();
-        }
+        CurrentHealth -= amount * 10;
+        CheckHP();
+        playerHUD.UpdateHpBar(CurrentHealth, MaxHealth);
+        //playerSfx.PlayHurt();
     }
     public void Heal(int amount)
     {
-        hp += amount*10;
-        if (hp > hpMax) hp = hpMax;
-        screenEffect.Play("HealScreen");
-        UpdateUI();
-        playerSfx.PlayHeal();
-    }
-    private void UpdateUI()
-    {
-        hpBar.fillAmount = GetHealthPercent();
-        //textHP.text = ("  " + hp.ToString() + " / " + hpMax.ToString());
-        textHP.text = ("  " + hp.ToString());
+        CurrentHealth += amount*10;
+        if (CurrentHealth > MaxHealth) CurrentHealth = MaxHealth;
+        playerHUD.UpdateHpBar(CurrentHealth, MaxHealth);
+        //playerSfx.PlayHeal();
     }
     private void CheckHP()
     {
-        if (hp<=0)
+        if (CurrentHealth <= 0)
         {
             SceneManager.LoadScene(2);
         }
-    }
+    }/*
     public float GetHealthPercent()
     {
-        return (float)hp / hpMax;
+        return (float) CurrentHealth / MaxHealth;
+    }*/
+    private void Testing()
+    {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            Heal(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.P))
+        {
+            TakeDamage(1);
+        }
+    }
+    public void Revenge(int amount)
+    {
+        Heal(amount);
+        Debug.Log("revenge");
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AttackCollisions : MonoBehaviour
 {
+	[SerializeField] private GameObject Player;
+
 	/*
 	private void OnCollisionEnter(Collision collision)
 	{
@@ -20,24 +22,24 @@ public class AttackCollisions : MonoBehaviour
 				<EnemyHitStop>().isHit = true;
 		}
 	}*/
-	private void OnTriggerEnter(Collider col)
+	private void OnTriggerEnter(Collider collider)
 	{
-		if (col.transform.tag == "Target")
+		if (collider.transform.tag == "Enemy")
 		{
-
-			FindObjectOfType<HitStop>().Stop(0.05f);//0.03f
-			
+			//FindObjectOfType<HitStop>().Stop(0.05f);//0.03f
 			/*
 			//Toggle "isHit" on target object
 			col.transform.gameObject.GetComponent
 				<TargetScript>().isHit = true;*/
-			
+			/*
 			col.transform.gameObject.GetComponent
-				<EnemyHitStop>().isHit = true;
-			col.transform.gameObject.GetComponent
-				<EnemyHealth>().DeductHealth(20f);
+				<EnemyHitStop>().isHit = true;*/
+			collider.transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(20f);
+			Player.GetComponent<PlayerHealth>().Revenge(1);
 
-		}/*
+
+		}
+		/*
 		if (col.transform.tag == "Enemy")
 		{
 
