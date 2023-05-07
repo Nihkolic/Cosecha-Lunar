@@ -3509,6 +3509,7 @@ GameObject:
   - component: {fileID: 1746811123}
   - component: {fileID: 1746811127}
   - component: {fileID: 1746811128}
+  - component: {fileID: 1746811129}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -11584,7 +11585,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590812862}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71b39848dbc94df44862cf5aaa7cf621, type: 3}
   m_Name: 
@@ -11688,6 +11689,39 @@ MonoBehaviour:
   CurrentHealth: 0
   MaxHealth: 20
   playerHUD: {fileID: 528546463}
+--- !u!114 &1746811129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590812862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d26023abe73f1d43aa38581dcb6703e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 9
+  dashSpeed: 18
+  dashSpeedChangeFactor: 50
+  maxYSpeed: 0
+  groundDrag: 4
+  jumpForce: 10
+  jumpCooldown: 0.25
+  airMultiplier: 0.4
+  jumpKey: 32
+  playerHeight: 2
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 64
+  maxSlopeAngle: 45
+  orientation: {fileID: 2038309251}
+  state: 0
+  dashing: 0
+  estadoText: {fileID: 3521956496354140206}
+  dashText: {fileID: 3521956495993065674}
+  velocidadText: {fileID: 3521956494875780283}
+  saltoText: {fileID: 3521956496417544701}
 --- !u!1 &1748414737
 GameObject:
   m_ObjectHideFlags: 0
