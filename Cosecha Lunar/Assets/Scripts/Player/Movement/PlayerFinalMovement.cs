@@ -11,7 +11,7 @@ public class PlayerFinalMovement : MonoBehaviour
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashSpeedChangeFactor;
 
-    [SerializeField] private float maxYSpeed;
+    [SerializeField] public float maxYSpeed; //for the dashing script
 
     [SerializeField] private float groundDrag;
 
