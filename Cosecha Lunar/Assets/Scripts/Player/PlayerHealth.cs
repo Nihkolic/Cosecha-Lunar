@@ -14,7 +14,6 @@ public class PlayerHealth : MonoBehaviour
     private void Update()
     {
         Testing();
-        Debug.Log(CurrentHealth);
     }
     private void Start()
     {

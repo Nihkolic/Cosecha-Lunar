@@ -223,7 +223,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &159824230
 Mesh:
@@ -2441,7 +2441,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &410087042
 MonoBehaviour:
@@ -3193,7 +3193,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &536579626
 Mesh:
@@ -4838,7 +4838,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1040f55157daf7c4c9db38322a76fb32,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1040f55157daf7c4c9db38322a76fb32,
         type: 3}
@@ -5366,7 +5366,7 @@ Transform:
   - {fileID: 393213332}
   - {fileID: 946764572}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &744600480
 Mesh:
@@ -5967,7 +5967,7 @@ GameObject:
   - component: {fileID: 784024809}
   m_Layer: 8
   m_Name: Cylinder
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6116,7 +6116,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &864852170
 GameObject:
@@ -8746,7 +8746,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1160178271
 GameObject:
@@ -9062,7 +9062,7 @@ GameObject:
   - component: {fileID: 1186014513}
   m_Layer: 8
   m_Name: Cylinder (2)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10745,7 +10745,7 @@ Transform:
   - {fileID: 1834776204}
   - {fileID: 1186014512}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1581918064
 GameObject:
@@ -11018,7 +11018,7 @@ Transform:
   - {fileID: 923001254}
   - {fileID: 28195426}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1637838864
 Mesh:
@@ -11266,7 +11266,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1688060618
 GameObject:
@@ -11622,7 +11622,7 @@ Transform:
   - {fileID: 464900733}
   - {fileID: 872288303}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1746811123
 MonoBehaviour:
@@ -12041,7 +12041,7 @@ GameObject:
   - component: {fileID: 1834776205}
   m_Layer: 8
   m_Name: Cylinder (1)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12304,8 +12304,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d14f514887ba24db7126d1df081e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinTimer: 5
-  speed: 3
+  spinSpeed: 100
+  bounceSpeed: 1
   height: 0.2
 --- !u!43 &1911795065
 Mesh:
@@ -15190,7 +15190,7 @@ RectTransform:
   - {fileID: 3521956495356068853}
   - {fileID: 864852171}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
