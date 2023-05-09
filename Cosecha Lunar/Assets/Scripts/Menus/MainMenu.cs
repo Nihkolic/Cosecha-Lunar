@@ -28,6 +28,10 @@ public class MainMenu : MonoBehaviour
         {
             ToQuit();
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+            BackToMain();
+        }
     }
     private void ChangePanel(bool main, bool credits, bool score, bool options, bool quit)
     {

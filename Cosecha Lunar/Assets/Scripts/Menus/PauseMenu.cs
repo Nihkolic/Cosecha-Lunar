@@ -35,6 +35,10 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+            BackToPause();
+        }
     }
     public void Retry()
     {
@@ -65,7 +69,7 @@ public class PauseMenu : MonoBehaviour
     }
     void Pause()
     {
-        pauseMenu.SetActive(true);
+        pauseMenu.SetActive(true); 
         optionsPanel.SetActive(false);
         pausePanel.SetActive(true);
         quitPanel.SetActive(false);
@@ -93,6 +97,7 @@ public class PauseMenu : MonoBehaviour
     public void BackFromQuitPanel()
     {
         quitPanel.SetActive(false);
+
     }
     public void ChangeScene(int index)
     {
