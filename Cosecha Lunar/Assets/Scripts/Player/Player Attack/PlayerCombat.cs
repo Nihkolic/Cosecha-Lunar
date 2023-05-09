@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    // Reference to the weapon object to be used for attacking
     public GameObject weapon;
     public Animator animator;
 
