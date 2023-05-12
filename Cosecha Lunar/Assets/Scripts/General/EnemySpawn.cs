@@ -7,23 +7,21 @@ public class EnemySpawn : MonoBehaviour
     bool hasEntered;
     //public GameObject Enemy1, Enemy2, Enemy3, Enemy4;
     [SerializeField] GameObject[] enemy;
-    /*
+    
     bool activated;
     public GameObject Wall, Entrance;
-    DestructibleWall destructibleWall;
     public GameObject Number;
-    RoomNumber roomNumber;
+    int numberOfEnemies;
 
     private void Awake()
     {
         hasEntered = false;
         activated = false;
-        destructibleWall = Wall.GetComponent<DestructibleWall>();
-        roomNumber = Number.GetComponent<RoomNumber>();
+
     }
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D collider) 
     {
-        if (col.gameObject.tag == "Player")
+        if (collider.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             if (!hasEntered)
             {
@@ -34,8 +32,8 @@ public class EnemySpawn : MonoBehaviour
                     //Instantiate(Enemy1, Enemy2.transform);
                 }
                 Entrance.SetActive(true);
-                RoomNumber.roomNum++;
-                roomNumber.NextRoom();
+                //RoomNumber.roomNum++;
+                //roomNumber.NextRoom();
             }
             else
             {
@@ -45,19 +43,31 @@ public class EnemySpawn : MonoBehaviour
     }
     private void Update()
     {
-        if(EnemyManager.numberOfEnemies == 0 && hasEntered)
+        if(numberOfEnemies == 0 && hasEntered) 
         {
-            ActivateWall();
-            roomNumber.HPtoMax();
+            //roomNumber.HPtoMax();
+            OpenTheDoors();
+        }
+        Testing();
+
+    }
+    public void OpenTheDoors()
+    {
+
+    }
+    public void CloseTheDoors()
+    {
+        hasEntered = true;
+    }
+    private void Testing()
+    {
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            OpenTheDoors();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            CloseTheDoors();
         }
     }
-    void ActivateWall()
-    {
-        if (!activated)
-        {
-            destructibleWall.MakeWallGreen();
-            activated = true;
-        }
-    }*/
-
 }
