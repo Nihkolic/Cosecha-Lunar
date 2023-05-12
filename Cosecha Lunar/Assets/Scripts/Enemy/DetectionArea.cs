@@ -22,7 +22,10 @@ public class DetectionArea : MonoBehaviour
     [SerializeField] private List<Transform> points;
     [SerializeField] private NavMeshAgent IA2;
     [SerializeField] private float distance2;
-    private bool running = false;
+
+    [SerializeField] private Renderer meshRenderer;
+    [SerializeField] private Material runningMaterial;
+    [SerializeField] private Material attackMaterial;
 
 
 
@@ -38,6 +41,7 @@ public class DetectionArea : MonoBehaviour
     {
         while (true)
         {
+            meshRenderer.material = runningMaterial;
             while (Vector3.Distance(transform.position, target.transform.position) > distance2)
             {
                 yield return null;
@@ -80,32 +84,16 @@ public class DetectionArea : MonoBehaviour
     {
         if (detected)
         {
+            meshRenderer.material = attackMaterial;
             timeToShoot -= Time.deltaTime;
 
             if (timeToShoot < 0)
             {
-                //InvokeRepeating("ShootPlayer", 0.0f, 5.0f);
                 StartCoroutine(ShootPlayer());
                 timeToShoot = originalTime;
             }
         }
     }
-
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            detected = true;
-            target = other.gameObject;
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            detected = false;
-        }
-    }*/
 
     private IEnumerator ShootPlayer()
     {

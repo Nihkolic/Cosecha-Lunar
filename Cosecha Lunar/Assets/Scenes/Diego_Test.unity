@@ -731,7 +731,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: dd6b836f573df8f4b8d8d59614cde113, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -771,8 +771,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 100
+  m_Speed: 10
+  m_Acceleration: 10000
   avoidancePriority: 50
   m_AngularSpeed: 1000
   m_StoppingDistance: 0
@@ -1321,6 +1321,9 @@ MonoBehaviour:
   playerLayerMask:
     serializedVersion: 2
     m_Bits: 128
+  meshRenderer: {fileID: 135502977}
+  idleMaterial: {fileID: 2100000, guid: 1097a43e8f0ab47409e29c7ffc69c159, type: 2}
+  attackMaterial: {fileID: 2100000, guid: fb188fdc0347e1c4fbc1afc5751ed289, type: 2}
 --- !u!136 &135502976
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1467,7 +1470,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh38580
+  m_Name: pb_Mesh27666
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13582,7 +13585,7 @@ MonoBehaviour:
   playerLayerMask:
     serializedVersion: 2
     m_Bits: 128
-  distance: 20
+  distance: 15
   enemy: {fileID: 23202314}
   bullet: {fileID: 4716095323277536571, guid: a602deae65157f445a120be522ce7597, type: 3}
   shootPoint: {fileID: 825180460}
@@ -13600,6 +13603,9 @@ MonoBehaviour:
   - {fileID: 852064576}
   IA2: {fileID: 23202318}
   distance2: 5
+  meshRenderer: {fileID: 23202316}
+  runningMaterial: {fileID: 2100000, guid: 1097a43e8f0ab47409e29c7ffc69c159, type: 2}
+  attackMaterial: {fileID: 2100000, guid: fb188fdc0347e1c4fbc1afc5751ed289, type: 2}
 --- !u!1 &1597166156
 GameObject:
   m_ObjectHideFlags: 0
