@@ -14,7 +14,8 @@ public class EnemyHealth2 : MonoBehaviour
     [SerializeField] private float enemyHealth = 100f;
     [SerializeField] private bool isEnemyDead;
 
-    //[SerializeField] private GameObject goEnemyDeath;
+    [SerializeField] private GameObject goEnemyDeath;
+    [SerializeField] private GameObject goEnemySpawn;
     //[SerializeField] private Transform enemyDeath;
     private void Start()
     {
@@ -29,6 +30,9 @@ public class EnemyHealth2 : MonoBehaviour
     void OnEnable()
     {
         EnemySpawn.numberOfEnemies++;
+
+        GameObject newGameObject = Instantiate(goEnemySpawn, transform.position, transform.rotation); ;
+        Destroy(newGameObject, 0.5f);
     }
     public void DamageEnemy(float deductHealth)
     {
@@ -43,8 +47,12 @@ public class EnemyHealth2 : MonoBehaviour
     {
         if (isEnemyDead == false)
         {
-            //Instantiate(goEnemyDeath, enemyDeath.position, Quaternion.identity);
+            GameObject newGameObject = Instantiate(goEnemyDeath, transform.position, transform.rotation); ;
+            Destroy(newGameObject, 0.5f);
+
             isEnemyDead = true;
+
+
         }
         Destroy(gameObject);
     }
