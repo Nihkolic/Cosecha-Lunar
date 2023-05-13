@@ -17,12 +17,12 @@ public class PlayerHealth : MonoBehaviour
     }
     private void Start()
     {
-        MaxHealth *= 10;
+        //MaxHealth *= 10;
         CurrentHealth = MaxHealth;
     }
     public void TakeDamage(int amount)
     {
-        CurrentHealth -= amount * 10;
+        CurrentHealth -= amount;
         CheckHP();
         playerHUD.UpdateHpBar(CurrentHealth, MaxHealth);
         //playerSfx.PlayHurt();
@@ -58,7 +58,7 @@ public class PlayerHealth : MonoBehaviour
     }
     public void Revenge(int amount)
     {
-        Heal(amount);
+        Heal(amount+4);
         Debug.Log("revenge");
     }
 }

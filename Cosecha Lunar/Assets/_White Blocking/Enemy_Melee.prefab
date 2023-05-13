@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2743452597357655347
 Transform:
   m_ObjectHideFlags: 0
@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 2743452599051474816}
   - component: {fileID: 2743452599051474815}
   - component: {fileID: 2743452599051474814}
+  - component: {fileID: 390995591}
   m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
@@ -177,3 +178,25 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &390995591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2743452599051474812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7528a666031e97a478206c454d1871e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rendBody: {fileID: 0}
+  matCurrent: {fileID: 0}
+  matHurt: {fileID: 0}
+  model: {fileID: 2743452599051474812}
+  enemyHealth: 40
+  isEnemyDead: 0
+  goEnemyDeath: {fileID: 7240565817734809396, guid: c47588b45ea4c5e4e8bd49495a78e1fd,
+    type: 3}
+  goEnemySpawn: {fileID: 544315450960670248, guid: e4e489d86d9d6d34eb9ec7927d0bc6ba,
+    type: 3}

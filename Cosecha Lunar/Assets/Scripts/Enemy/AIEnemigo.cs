@@ -19,6 +19,7 @@ public class AIEnemigo : MonoBehaviour
     {
         IA.speed = Velocidad;
         StartCoroutine(Logic());
+
     }
     void Update()
     {        
@@ -56,4 +57,5 @@ public class AIEnemigo : MonoBehaviour
         }
        
     }
+  
 }
