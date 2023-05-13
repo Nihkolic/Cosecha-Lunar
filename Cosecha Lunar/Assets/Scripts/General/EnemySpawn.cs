@@ -5,69 +5,60 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     bool hasEntered;
-    //public GameObject Enemy1, Enemy2, Enemy3, Enemy4;
     [SerializeField] GameObject[] enemy;
-    
-    bool activated;
-    public GameObject Wall, Entrance;
-    public GameObject Number;
-    int numberOfEnemies;
+    bool hasBeenActivated;
+    public static int numberOfEnemies;
+    bool _isEnemyCheckOn;
+
+    Animator animatorDoors;
+
+    public string animOpen;
+    public string animClose;
 
     private void Awake()
     {
         hasEntered = false;
-        activated = false;
-
-    }
-    private void OnTriggerEnter2D(Collider2D collider) 
-    {
-        if (collider.gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            if (!hasEntered)
-            {
-                hasEntered = true;
-                for (int i = 0; i < enemy.Length; i++)
-                {
-                    enemy[i].SetActive(true);
-                    //Instantiate(Enemy1, Enemy2.transform);
-                }
-                Entrance.SetActive(true);
-                //RoomNumber.roomNum++;
-                //roomNumber.NextRoom();
-            }
-            else
-            {
-                return;
-            }
-        }
+        hasBeenActivated = false;
+        animatorDoors = GetComponentInChildren<Animator>();
+        _isEnemyCheckOn = false;
     }
     private void Update()
     {
-        if(numberOfEnemies == 0 && hasEntered) 
+        Debug.Log(EnemySpawn.numberOfEnemies);
+        if (_isEnemyCheckOn)
+            EnemyCheck();
+    }
+    public void OpenTheDoors() 
+    {
+        if (!hasBeenActivated)
         {
-            //roomNumber.HPtoMax();
-            OpenTheDoors();
+            animatorDoors.Play(animOpen);
+            hasBeenActivated = true;
         }
-        Testing();
-
+        else
+        {
+            return;
+        }
     }
-    public void OpenTheDoors()
+    public void CloseTheDoors() //when you enter
     {
-
-    }
-    public void CloseTheDoors()
-    {
+        Invoke("SpawnEnemies", 1.0f);
+        animatorDoors.Play(animClose);
         hasEntered = true;
     }
-    private void Testing()
+    void SpawnEnemies()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        for (int i = 0; i < enemy.Length; i++)
+        {
+            enemy[i].SetActive(true);
+        }
+        _isEnemyCheckOn = true;
+    }
+    void EnemyCheck()
+    {
+        if (numberOfEnemies == 0 && hasEntered) //check if all the enemies are dead
         {
             OpenTheDoors();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            CloseTheDoors();
         }
     }
 }

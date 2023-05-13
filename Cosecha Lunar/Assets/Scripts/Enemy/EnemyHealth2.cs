@@ -21,16 +21,23 @@ public class EnemyHealth2 : MonoBehaviour
         isEnemyDead = false;
         _normalColor = model.GetComponent<Renderer>().material.color;
     }
+    private void OnDestroy()
+    {
+        EnemySpawn.numberOfEnemies--;
+        Debug.Log(EnemySpawn.numberOfEnemies);
+    }
+    void OnEnable()
+    {
+        EnemySpawn.numberOfEnemies++;
+    }
     public void DamageEnemy(float deductHealth)
     {
         if (!isEnemyDead)
         {
             TakeDamage(deductHealth);
         }
-        /*
         if (enemyHealth <= 0)
             EnemyDead();
-        */
     }
     void EnemyDead()
     {
