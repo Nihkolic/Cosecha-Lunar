@@ -5,54 +5,74 @@ using UnityEngine.AI;
 
 public class AIEnemigo : MonoBehaviour
 {
-    public Transform Target;
-    public float Velocidad;
-    public NavMeshAgent IA;
-    [SerializeField] private float distance;
-    [SerializeField] private float waitingTime;
-    [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private Renderer meshRenderer;
     [SerializeField] private Material idleMaterial;
     [SerializeField] private Material attackMaterial;
+    [SerializeField] private LayerMask playerLayerMask;
+    [SerializeField] private float distance;
+    [SerializeField] private float waitingTime;
+
+    public Transform Target;
+    public NavMeshAgent IA;
+    public float Velocidad;
 
     private void Start()
     {
-        IA.speed = Velocidad;
-        StartCoroutine(Logic());
+        IA.speed = Velocidad; 
+        // Definición de la velocidad del objeto.
 
-    }
-    void Update()
-    {        
-        
+        StartCoroutine(Logic()); 
+        // Comienza la corrutina.
     }
 
     IEnumerator Logic()
     {
-        while (true)
+        while (true) 
+          // Simulación de update.
         {
-            RaycastHit hit;
-            meshRenderer.material = idleMaterial;
 
-            while (Vector3.Distance(Target.position, transform.position) > distance)
+            meshRenderer.material = idleMaterial; 
+            // Asigna un material al Mesh Renderer cuando el objeto está en movimiento.
+
+            while (Vector3.Distance(Target.position, transform.position) > distance) 
+              // Te acercas al jugador siempre y cuando esté lejos.
             {
                 IA.SetDestination(Target.position);
                 yield return null;
-
             }
 
-            meshRenderer.material = attackMaterial;
-            Physics.Raycast(transform.position, Target.position - transform.position, out hit, Vector3.Distance(transform.position, Target.position), playerLayerMask);
-            Debug.Log("aqui");
-            IA.enabled = false;
-            Rigidbody rigidbody =  gameObject.AddComponent<Rigidbody>();
-            rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-            rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
-            yield return new WaitForSeconds(waitingTime);
-            rigidbody.AddForce((Target.position - transform.position).normalized * 20, ForceMode.Impulse);
-            yield return new WaitForSeconds(waitingTime/2);
-            Destroy(rigidbody);
-            IA.enabled = true;
-            yield return new WaitForEndOfFrame();
+            meshRenderer.material = attackMaterial; 
+            // Asigna un material al mesh renderer cuando está en "Ataque"
+
+            Rigidbody rigidbody = gameObject.AddComponent<Rigidbody>(); 
+            // Añadir Rigibody al objeto.
+
+            rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ; 
+            // Evita que rote el objeto.
+
+            rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic; 
+            // Evita la detección continua.
+
+            IA.enabled = false; 
+            // Es para que se desactive el NavMesh.
+
+            yield return new WaitForSeconds(waitingTime); 
+            // Esperar un cierto tiempo antes de continuar
+
+            rigidbody.AddForce((Target.position - transform.position).normalized * 20, ForceMode.Impulse); 
+            // Aplicar una fuerza de movimiento hacia el jugador.
+
+            yield return new WaitForSeconds(waitingTime/2); 
+            // Esperar un cierto tiempo para continuar.
+
+            IA.enabled = true; 
+            // Activación del NavMesh
+
+            Destroy(rigidbody); 
+            // Destrucción del Rigibody para que el objeto pueda seguir usando el NavMesh.
+
+            yield return new WaitForEndOfFrame(); 
+            // Esperar un frame para seguir ejecutando.
             
         }
        
