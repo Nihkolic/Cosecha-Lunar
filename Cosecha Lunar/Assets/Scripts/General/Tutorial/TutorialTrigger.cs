@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoomTrigger : MonoBehaviour
+public class TutorialTrigger : MonoBehaviour
 {
     bool hasEntered;
-    EnemyRoomSpawn enemyRoomSpawn;
+    Tutorial tutorial;
+    public int tutorialNumber;
 
     private void Awake()
     {
         hasEntered = false;
-        enemyRoomSpawn = GetComponentInParent<EnemyRoomSpawn>();
+        tutorial = GetComponentInParent<Tutorial>();
     }
     public void OnTriggerEnter(Collider collider)
     {
@@ -18,7 +19,7 @@ public class RoomTrigger : MonoBehaviour
         {
             if (!hasEntered)
             {
-                enemyRoomSpawn.CloseTheDoors();
+                tutorial.ShowHint(tutorialNumber);
                 Debug.Log("Entered");
                 hasEntered = true;
             }

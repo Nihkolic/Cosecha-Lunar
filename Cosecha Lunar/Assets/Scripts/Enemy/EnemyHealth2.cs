@@ -24,12 +24,12 @@ public class EnemyHealth2 : MonoBehaviour
     }
     private void OnDestroy()
     {
-        EnemySpawn.numberOfEnemies--;
-        Debug.Log(EnemySpawn.numberOfEnemies);
+        EnemyRoomSpawn.numberOfEnemies--;
+        Debug.Log(EnemyRoomSpawn.numberOfEnemies);
     }
     void OnEnable()
     {
-        EnemySpawn.numberOfEnemies++;
+        EnemyRoomSpawn.numberOfEnemies++;
 
         GameObject newGameObject = Instantiate(goEnemySpawn, transform.position, transform.rotation); ;
         Destroy(newGameObject, 0.5f);
