@@ -7,13 +7,17 @@ public class BlasterBullet : MonoBehaviour
     [SerializeField] private GameObject blasterBulletDeath;
     private void OnTriggerEnter(Collider other)
     {
-        GameObject newGameObject = Instantiate(blasterBulletDeath, transform.position, transform.rotation); ;
-        Destroy(newGameObject, 0.5f);
-        /*
-        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
-            Destroy(gameObject);
-        }*/
+            GameObject newGameObject = Instantiate(blasterBulletDeath, transform.position, transform.rotation); ;
+            Destroy(newGameObject, 0.5f);
+        }
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            other.transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(20f);
+            GameObject newGameObject = Instantiate(blasterBulletDeath, transform.position, transform.rotation); ;
+            Destroy(newGameObject, 0.5f);
+        }
 
     }
     private void Start()

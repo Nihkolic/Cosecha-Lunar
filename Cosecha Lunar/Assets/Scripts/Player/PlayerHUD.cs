@@ -24,10 +24,15 @@ public class PlayerHUD : MonoBehaviour
     {
         return (float)currentHealth / maxHealth;
     }
-    public void TakeDamage(int amount)
+    public void ScreenEffect(int state)
     {
-        screenEffect.Play("HurtScreen");
-
-        screenEffect.Play("HealScreen");
+        if (state == 0)
+        {
+            screenEffect.Play("ScreenEffects_Hurt");
+        }
+        if (state == 1)
+        {
+            screenEffect.Play("ScreenEffects_Heal");
+        }
     }
 }

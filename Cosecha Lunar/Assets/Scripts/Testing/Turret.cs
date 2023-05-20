@@ -36,6 +36,6 @@ public class Turret : MonoBehaviour
         // Set the bullet's speed
         bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
         // Destroy the bullet after 5 seconds to prevent cluttering
-        Destroy(bullet, 5f);
+        //Destroy(bullet, 5f);
     }
 }

@@ -47,7 +47,7 @@ public class EnemyHealth2 : MonoBehaviour
     {
         if (isEnemyDead == false)
         {
-            GameObject newGameObject = Instantiate(goEnemyDeath, transform.position, transform.rotation); ;
+            GameObject newGameObject = Instantiate(goEnemyDeath, transform.position, transform.rotation); 
             Destroy(newGameObject, 0.5f);
 
             isEnemyDead = true;

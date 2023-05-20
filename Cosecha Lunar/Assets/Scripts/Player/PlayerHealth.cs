@@ -25,6 +25,7 @@ public class PlayerHealth : MonoBehaviour
         CurrentHealth -= amount;
         CheckHP();
         playerHUD.UpdateHpBar(CurrentHealth, MaxHealth);
+        playerHUD.ScreenEffect(0);
         //playerSfx.PlayHurt();
     }
     public void Heal(int amount)
@@ -32,6 +33,7 @@ public class PlayerHealth : MonoBehaviour
         CurrentHealth += amount*10;
         if (CurrentHealth > MaxHealth) CurrentHealth = MaxHealth;
         playerHUD.UpdateHpBar(CurrentHealth, MaxHealth);
+        playerHUD.ScreenEffect(1);
         //playerSfx.PlayHeal();
     }
     private void CheckHP()
@@ -58,7 +60,7 @@ public class PlayerHealth : MonoBehaviour
     }
     public void Revenge(int amount)
     {
-        Heal(amount+4);
+        Heal(amount);
         Debug.Log("revenge");
     }
 }

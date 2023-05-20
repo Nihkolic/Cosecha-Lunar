@@ -11,6 +11,7 @@ public class DetroyBullet : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            
             Destroy(gameObject);
         }
 
