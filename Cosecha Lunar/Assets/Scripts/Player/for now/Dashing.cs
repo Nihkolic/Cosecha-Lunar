@@ -29,6 +29,8 @@ public class Dashing : MonoBehaviour
     [Header("Input")]
     private KeyCode dashKey = KeyCode.LeftShift;
 
+    public Camera cam;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -70,6 +72,8 @@ public class Dashing : MonoBehaviour
         Invoke(nameof(DelayedDashForce), 0.025f);
 
         Invoke(nameof(ResetDash), dashDuration);
+
+        //cam.fieldOfView = 110.0f;
     }
 
     private Vector3 delayedForceToApply;
@@ -83,6 +87,8 @@ public class Dashing : MonoBehaviour
 
     private void ResetDash()
     {
+        //cam.fieldOfView = 100.0f;
+
         pm.dashing = false;
         pm.maxYSpeed = 0;
 

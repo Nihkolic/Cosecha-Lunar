@@ -145,17 +145,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8f5e6947ce818e43beab9fdecf326fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
-  Velocidad: 9.5
-  IA: {fileID: 2743452599051474814}
-  distance: 4
-  waitingTime: 0.75
-  playerLayerMask:
-    serializedVersion: 2
-    m_Bits: 128
   meshRenderer: {fileID: 2743452599051474817}
   idleMaterial: {fileID: 2100000, guid: 1097a43e8f0ab47409e29c7ffc69c159, type: 2}
   attackMaterial: {fileID: 2100000, guid: fb188fdc0347e1c4fbc1afc5751ed289, type: 2}
+  playerLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  distance: 4
+  waitingTime: 0.75
+  Target: {fileID: 0}
+  IA: {fileID: 2743452599051474814}
+  Velocidad: 9.5
 --- !u!195 &2743452599051474814
 NavMeshAgent:
   m_ObjectHideFlags: 0
