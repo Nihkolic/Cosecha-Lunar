@@ -36950,7 +36950,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1063774299
 Transform:
   m_ObjectHideFlags: 0
@@ -66663,7 +66663,7 @@ MonoBehaviour:
   orientation: {fileID: 2038309251}
   playerCam: {fileID: 464900733}
   dashForce: 20
-  dashUpwardForce: 0
+  dashUpwardForce: 2
   maxDashYSpeed: 15
   dashDuration: 0.25
   useCameraForward: 0
@@ -66775,7 +66775,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590812862}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7da659131e803045bd1f1ede2becca8, type: 3}
   m_Name: 
@@ -66801,8 +66801,8 @@ MonoBehaviour:
   maxYSpeed: 0
   groundDrag: 4
   jumpForce: 10
-  jumpCooldown: 0.25
-  airMultiplier: 0.4
+  jumpCooldown: 0.5
+  airMultiplier: 0.15
   jumpKey: 32
   playerHeight: 3
   whatIsGround:
@@ -66823,7 +66823,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590812862}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 85e129efe28f3b24caeaf76dc5dda81d, type: 3}
   m_Name: 
@@ -66831,7 +66831,7 @@ MonoBehaviour:
   bullet: {fileID: 5838190205865147539, guid: b42022aa78dc0014d830fe7b49a9803f, type: 3}
   shootForce: 80
   upwardForce: 0
-  timeBetweenShooting: 0.1
+  timeBetweenShooting: 0.4
   spread: 0
   reloadTime: 0
   timeBetweenShots: 0

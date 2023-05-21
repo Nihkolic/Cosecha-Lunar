@@ -20,7 +20,7 @@ public class PlayerFinalMovement : MonoBehaviour
     [SerializeField] private float jumpCooldown;
     [SerializeField] private float airMultiplier;
     bool readyToJump;
-    int jumps;
+    bool jumps;
 
     [Header("Keybinds")]
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
@@ -28,7 +28,9 @@ public class PlayerFinalMovement : MonoBehaviour
     [Header("Ground Check")]
     [SerializeField] private float playerHeight;
     [SerializeField] private LayerMask whatIsGround;
-    bool grounded;
+    bool _isGrounded;
+    bool hasFallen;
+    bool hasJumped;
 
     [Header("Slope Handling")]
     [SerializeField] private float maxSlopeAngle;
@@ -67,14 +69,14 @@ public class PlayerFinalMovement : MonoBehaviour
         rb.freezeRotation = true;
 
         readyToJump = true;
-
+        jumps = true;
         //startYScale = transform.localScale.y;
     }
 
     private void Update()
     {
         // ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        //_isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
         MyInput();
         SpeedControl();
@@ -87,6 +89,8 @@ public class PlayerFinalMovement : MonoBehaviour
             rb.drag = 0;
 
         ParaElPrototipo();
+        Land();
+        Drop();
     }
 
     private void FixedUpdate()
@@ -100,7 +104,7 @@ public class PlayerFinalMovement : MonoBehaviour
         verticalInput = Input.GetAxisRaw("Vertical");
 
         // when to jump
-        if (Input.GetKey(jumpKey) && readyToJump && jumps==1)
+        if (Input.GetKey(jumpKey) && readyToJump && jumps)
         {
             readyToJump = false;
 
@@ -122,11 +126,10 @@ public class PlayerFinalMovement : MonoBehaviour
             desiredMoveSpeed = dashSpeed;
             speedChangeFactor = dashSpeedChangeFactor;
         }
-        else if (grounded)
+        else if (IsGrounded())
         {
             state = MovementState.walking;
             desiredMoveSpeed = walkSpeed;
-            jumps = 1;
         }
         else
         {
@@ -194,11 +197,11 @@ public class PlayerFinalMovement : MonoBehaviour
         }
 
         // on ground
-        else if (grounded)
+        else if (IsGrounded())
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
 
         // in air
-        else if (!grounded)
+        else if (!IsGrounded())
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
 
         // turn gravity off while on slope
@@ -240,7 +243,7 @@ public class PlayerFinalMovement : MonoBehaviour
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
 
-        jumps = 0;
+        jumps = false;
     }
     private void ResetJump()
     {
@@ -263,7 +266,47 @@ public class PlayerFinalMovement : MonoBehaviour
     {
         return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
     }
-
+    void Land()
+    {
+        if (IsGrounded())
+        {
+            if (hasFallen)
+            {
+                //playerSfx.PlayFall();
+                hasFallen = false;
+                jumps = true;
+            }
+        }
+        if (!IsGrounded())
+        {
+            hasFallen = true;
+        }
+    }
+    void Drop()
+    {
+        if (!IsGrounded())
+        {
+            if (hasJumped)
+            {
+                hasJumped = false;
+                Invoke("DropFaster", 0.35f);
+            }
+        }
+        if (IsGrounded())
+        {
+            hasJumped = true;
+        }
+    }
+    void DropFaster()
+    {
+        rb.AddForce(transform.up * -0.95f, ForceMode.Impulse);
+    }
+    bool IsGrounded()
+    {
+        bool grounded;
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        return grounded;
+    }
     private void ParaElPrototipo()
     {
         estadoText.text = "Estado : " + state.ToString();

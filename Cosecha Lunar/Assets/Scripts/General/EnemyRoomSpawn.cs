@@ -24,7 +24,7 @@ public class EnemyRoomSpawn : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(EnemyRoomSpawn.numberOfEnemies);
+        //Debug.Log(EnemyRoomSpawn.numberOfEnemies);
         if (_isEnemyCheckOn)
             EnemyCheck();
     }
