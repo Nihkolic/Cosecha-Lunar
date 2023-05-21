@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour
     }
     private void Start()
     {
-        //MaxHealth *= 10;
+        MaxHealth = 100;
         CurrentHealth = MaxHealth;
     }
     public void TakeDamage(int amount)
@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
     }
     public void Heal(int amount)
     {
-        CurrentHealth += amount*10;
+        CurrentHealth += amount;
         if (CurrentHealth > MaxHealth) CurrentHealth = MaxHealth;
         playerHUD.UpdateHpBar(CurrentHealth, MaxHealth);
         playerHUD.ScreenEffect(1);
@@ -51,11 +51,11 @@ public class PlayerHealth : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
-            Heal(1);
+            Heal(10);
         }
         else if (Input.GetKeyDown(KeyCode.P))
         {
-            TakeDamage(1);
+            TakeDamage(10);
         }
     }
     public void Revenge(int amount)
