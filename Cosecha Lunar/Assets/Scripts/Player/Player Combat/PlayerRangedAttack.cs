@@ -15,8 +15,8 @@ public class PlayerRangedAttack : MonoBehaviour
     public float shootForce, upwardForce;
 
     //Gun stats
-    public float timeBetweenShooting, spread, reloadTime, timeBetweenShots;
-    public int magazineSize, bulletsPerTap;
+    public float timeBetweenShooting, spread, timeBetweenShots;
+    public int bulletsPerTap;
     public bool allowButtonHold;
 
     int bulletsLeft, bulletsShot;

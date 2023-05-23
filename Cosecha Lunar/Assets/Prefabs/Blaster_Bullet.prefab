@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1434627554746548706}
   - component: {fileID: 3188385786046208664}
   - component: {fileID: 6368166885876958723}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Blaster_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5838190205865147539}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1432396924204326438}
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de350051c958504ca6394f8ea81b21e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blasterBulletDeath: {fileID: 544315450960670248, guid: e4e489d86d9d6d34eb9ec7927d0bc6ba,
+  blasterBulletDeath: {fileID: 544315450960670248, guid: 1294a5a0864ccae47ab6d604284d191b,
     type: 3}
 --- !u!135 &6368166885876958723
 SphereCollider:
@@ -73,7 +73,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5838190205865147539}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 1432396924204326438}
   - component: {fileID: 8261660416107443432}
   - component: {fileID: 4621283328622116927}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

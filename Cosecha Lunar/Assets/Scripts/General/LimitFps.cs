@@ -15,7 +15,11 @@ public class LimitFps : MonoBehaviour
     }
     private void Start()
     {
-        Application.targetFrameRate = (int)limit;
         //Application.targetFrameRate = Screen.currentResolution.refreshRate;
+        HazAlgo();
+    }
+    void HazAlgo()
+    {
+        Application.targetFrameRate = (int)limit;
     }
 }

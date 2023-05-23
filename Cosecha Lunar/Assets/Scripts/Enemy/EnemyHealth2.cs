@@ -51,8 +51,6 @@ public class EnemyHealth2 : MonoBehaviour
             Destroy(newGameObject, 0.5f);
 
             isEnemyDead = true;
-
-
         }
         Destroy(gameObject);
     }

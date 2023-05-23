@@ -31,15 +31,15 @@ public class BlasterBullet : MonoBehaviour
             Destroy(newGameObject, 0.5f);
             Destroy(gameObject);
         }
-        if (GetComponent<Collider>().gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            GetComponent<Collider>().transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(20f);
+            //GetComponent<Collider>().transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(20f);
+            other.transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(20f);
             GameObject newGameObject = Instantiate(blasterBulletDeath, transform.position, transform.rotation); ;
             Destroy(newGameObject, 0.5f);
             Destroy(gameObject);
             Debug.Log("222");
         }
-        
     }
     private void Start()
     {
