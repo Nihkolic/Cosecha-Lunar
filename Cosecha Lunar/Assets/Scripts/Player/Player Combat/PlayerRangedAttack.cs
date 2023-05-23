@@ -90,10 +90,10 @@ public class PlayerRangedAttack : MonoBehaviour
         //Calc Direction with Spread
         Vector3 directionWithSpread = directionWithoutSpread + new Vector3(x, y, 0);
 
-
         //Instantiate bullet/projectile
         GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
         Destroy(currentBullet, 2f);
+
         //Rotate bullet to shoot direction
         currentBullet.transform.forward = directionWithSpread.normalized;
 
@@ -101,15 +101,11 @@ public class PlayerRangedAttack : MonoBehaviour
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up, ForceMode.Impulse);
 
-
-
-
         if (allowInvoke)
         {
             Invoke("ShotReset", timeBetweenShooting);
             allowInvoke = false;
         }
-        
     }
     private void ShotReset()
     {

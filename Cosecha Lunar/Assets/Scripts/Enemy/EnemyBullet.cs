@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] private GameObject blasterBulletDeath;
-    public LayerMask layerMask;
 
     private void OnCollisionEnter(Collision other)
     {
@@ -15,9 +14,8 @@ public class EnemyBullet : MonoBehaviour
             //Destroy(newGameObject, 0.5f);
             other.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(10);
             Destroy(gameObject);
-            Debug.Log("00000");
         }
-        Debug.Log("11111");
+        Destroy(gameObject);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -27,8 +25,7 @@ public class EnemyBullet : MonoBehaviour
             //Destroy(newGameObject, 0.5f);
             other.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(10);
             Destroy(gameObject);
-            Debug.Log("00000");
         }
-        Debug.Log("11111");
+        Destroy(gameObject);
     }
 }

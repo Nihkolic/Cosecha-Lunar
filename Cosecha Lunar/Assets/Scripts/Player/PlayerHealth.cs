@@ -10,7 +10,6 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int MaxHealth = 20;
     [SerializeField] private PlayerHUD playerHUD;
     //public PlayerSfx playerSfx;
-
     private void Update()
     {
         Testing();
@@ -40,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (CurrentHealth <= 0)
         {
-            SceneManager.LoadScene(2);
+            //SceneManager.LoadScene(2);
         }
     }/*
     public float GetHealthPercent()
