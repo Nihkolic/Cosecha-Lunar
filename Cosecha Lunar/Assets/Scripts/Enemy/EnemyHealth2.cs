@@ -54,7 +54,6 @@ public class EnemyHealth2 : MonoBehaviour
         }
         Destroy(gameObject);
     }
-
     IEnumerator Back()
     {
         while (Time.timeScale != 1.0f)

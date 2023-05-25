@@ -10,22 +10,24 @@ public class EnemyBullet : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            //GameObject newGameObject = Instantiate(blasterBulletDeath, transform.position, transform.rotation); ;
-            //Destroy(newGameObject, 0.5f);
             other.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(10);
-            Destroy(gameObject);
+            DestroyBullet();
         }
-        Destroy(gameObject);
+
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            //GameObject newGameObject = Instantiate(blasterBulletDeath, transform.position, transform.rotation); ;
-            //Destroy(newGameObject, 0.5f);
             other.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(10);
-            Destroy(gameObject);
+            DestroyBullet();
         }
+
+    }
+    void DestroyBullet()
+    {
+        GameObject newGameObject = Instantiate(blasterBulletDeath, transform.position, transform.rotation); ;
+        Destroy(newGameObject, 0.5f);
         Destroy(gameObject);
     }
 }

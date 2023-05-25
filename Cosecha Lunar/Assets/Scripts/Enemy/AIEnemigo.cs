@@ -16,6 +16,11 @@ public class AIEnemigo : MonoBehaviour
     public NavMeshAgent IA;
     public float Velocidad;
 
+    private void Awake()
+    {
+        IA = GetComponent<NavMeshAgent>();
+
+    }
     private void Start()
     {
         IA.speed = Velocidad; 
