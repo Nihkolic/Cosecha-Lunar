@@ -7,6 +7,7 @@ public class RoomTrigger : MonoBehaviour
     bool hasEntered;
     EnemyRoomSpawn enemyRoomSpawn;
 
+
     private void Awake()
     {
         hasEntered = false;

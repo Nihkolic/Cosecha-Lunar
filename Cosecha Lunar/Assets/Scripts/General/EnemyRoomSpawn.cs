@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EnemyRoomSpawn : MonoBehaviour
 {
@@ -24,10 +25,10 @@ public class EnemyRoomSpawn : MonoBehaviour
     }
     private void Update()
     {
-        //Debug.Log(EnemyRoomSpawn.numberOfEnemies);
-        if (_isEnemyCheckOn)
+        if (_isEnemyCheckOn) //check if the enemies are dead
             EnemyCheck();
     }
+
     public void OpenTheDoors() 
     {
         if (!hasBeenActivated)
@@ -60,5 +61,9 @@ public class EnemyRoomSpawn : MonoBehaviour
         {
             OpenTheDoors();
         }
+    }
+    void RoomCheck()
+    {
+        //estadoText.text = "Presiona CLIC DERECHO para atacar";
     }
 }
