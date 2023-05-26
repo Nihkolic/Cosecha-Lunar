@@ -61,24 +61,32 @@ public class PauseMenu : MonoBehaviour
         pausePanel.SetActive(false);
         quitPanel.SetActive(false);
 
-        Time.timeScale = 1f;
-        GAME_IS_PAUSED = false;
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        ResumeSettings();
     }
-    void Pause()
+    public void Pause()
     {
         pauseMenu.SetActive(true); 
         optionsPanel.SetActive(false);
         pausePanel.SetActive(true);
         quitPanel.SetActive(false);
 
+        PauseSettings();
+    }
+    public void PauseSettings()
+    {
         Time.timeScale = 0f;
         GAME_IS_PAUSED = true;
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+    public void ResumeSettings()
+    {
+        Time.timeScale = 1f;
+        GAME_IS_PAUSED = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     public void ToQuit()
     {
