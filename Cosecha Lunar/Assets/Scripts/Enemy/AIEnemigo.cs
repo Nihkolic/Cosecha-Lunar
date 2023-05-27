@@ -16,9 +16,14 @@ public class AIEnemigo : MonoBehaviour
     public NavMeshAgent IA;
     public float Velocidad;
 
+    [SerializeField] private GameObject nib_Idlee;
+    [SerializeField] private GameObject nib_Attack;
+    [SerializeField] private GameObject nib_Chase;
+
     private void Awake()
     {
         IA = GetComponent<NavMeshAgent>();
+        ChangePose(true, false, false);
 
     }
     private void Start()
@@ -29,14 +34,20 @@ public class AIEnemigo : MonoBehaviour
         StartCoroutine(Logic()); 
         // Comienza la corrutina.
     }
-
+    void ChangePose(bool idlee, bool attack, bool chase)
+    {
+        nib_Idlee.SetActive(idlee);
+        nib_Attack.SetActive(attack);
+        nib_Chase.SetActive(chase);
+    }
     IEnumerator Logic()
     {
         while (true) 
           // Simulación de update.
         {
 
-            meshRenderer.material = idleMaterial; 
+            meshRenderer.material = idleMaterial;
+            ChangePose(false, false, true);
             // Asigna un material al Mesh Renderer cuando el objeto está en movimiento.
 
             while (Vector3.Distance(Target.position, transform.position) > distance) 
@@ -46,7 +57,8 @@ public class AIEnemigo : MonoBehaviour
                 yield return null;
             }
 
-            meshRenderer.material = attackMaterial; 
+            meshRenderer.material = attackMaterial;
+            ChangePose(false, true, false);
             // Asigna un material al mesh renderer cuando está en "Ataque"
 
             Rigidbody rigidbody = gameObject.AddComponent<Rigidbody>(); 

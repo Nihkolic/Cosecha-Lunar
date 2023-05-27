@@ -16,11 +16,10 @@ public class EnemyHealth2 : MonoBehaviour
 
     [SerializeField] private GameObject goEnemyDeath;
     [SerializeField] private GameObject goEnemySpawn;
-    //[SerializeField] private Transform enemyDeath;
     private void Start()
     {
         isEnemyDead = false;
-        _normalColor = model.GetComponent<Renderer>().material.color;
+        //_normalColor = model.GetComponent<Renderer>().material.color;
     }
     private void OnDestroy()
     {
@@ -52,7 +51,7 @@ public class EnemyHealth2 : MonoBehaviour
 
             isEnemyDead = true;
         }
-        Destroy(gameObject);
+        Destroy(transform.parent.gameObject);
     }
     IEnumerator Back()
     {
@@ -66,13 +65,13 @@ public class EnemyHealth2 : MonoBehaviour
         //rendBody.material = matHurt;
         //StartCoroutine(Back());
         //sfx here
-        model.GetComponent<Renderer>().material.color = Color.red;
+        rendBody.material.color = Color.red;
         Invoke("ToggleNormalColor", 0.25f);
     }
     void ToggleNormalColor()
     {
-        model.GetComponent<Renderer>().material.color = _normalColor;
+        //rendBody.material.color = _normalColor;
+        rendBody.material = matCurrent;
     }
-
 
 }
