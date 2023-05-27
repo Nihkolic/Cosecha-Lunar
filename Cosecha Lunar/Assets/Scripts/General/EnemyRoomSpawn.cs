@@ -16,6 +16,7 @@ public class EnemyRoomSpawn : MonoBehaviour
     public string animOpen;
     public string animClose;
 
+
     private void Awake()
     {
         hasEntered = false;
