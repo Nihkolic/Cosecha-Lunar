@@ -9,39 +9,33 @@ public class BlasterBullet : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
-            GameObject newGameObject = Instantiate(blasterBulletDeath, transform.position, transform.rotation); ;
-            Destroy(newGameObject, 0.5f);
-            Destroy(gameObject);
+            DestroyBullet();
         }
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             //GetComponent<Collider>().transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(20f);
             other.transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(20f);
-            GameObject newGameObject = Instantiate(blasterBulletDeath, transform.position, transform.rotation); ;
-            Destroy(newGameObject, 0.5f);
-            Destroy(gameObject);
+            DestroyBullet();
         }
-
+       
     }
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
-            GameObject newGameObject = Instantiate(blasterBulletDeath, transform.position, transform.rotation); ;
-            Destroy(newGameObject, 0.5f);
-            Destroy(gameObject);
+            DestroyBullet();
         }
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             //GetComponent<Collider>().transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(20f);
             other.transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(20f);
-            GameObject newGameObject = Instantiate(blasterBulletDeath, transform.position, transform.rotation); ;
-            Destroy(newGameObject, 0.5f);
-            Destroy(gameObject);
+            DestroyBullet();
         }
     }
-    private void Start()
+    private void DestroyBullet()
     {
-        
+        GameObject newGameObject = Instantiate(blasterBulletDeath, transform.position, transform.rotation); 
+        Destroy(newGameObject, 0.5f);
+        Destroy(gameObject);
     }
 }

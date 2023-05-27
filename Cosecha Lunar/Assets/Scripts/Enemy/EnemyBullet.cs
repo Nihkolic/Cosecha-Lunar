@@ -13,7 +13,7 @@ public class EnemyBullet : MonoBehaviour
             other.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(10);
             DestroyBullet();
         }
-
+        
     }
     private void OnTriggerEnter(Collider other)
     {
