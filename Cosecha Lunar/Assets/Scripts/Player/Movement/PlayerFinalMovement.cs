@@ -299,7 +299,7 @@ public class PlayerFinalMovement : MonoBehaviour
     }
     void DropFaster()
     {
-        rb.AddForce(transform.up * -0.95f, ForceMode.Impulse);
+        rb.AddForce(transform.up * -1.25f, ForceMode.Impulse);
     }
     bool IsGrounded()
     {

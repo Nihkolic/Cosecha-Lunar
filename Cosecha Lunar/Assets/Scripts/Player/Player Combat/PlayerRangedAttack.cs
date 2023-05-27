@@ -45,7 +45,11 @@ public class PlayerRangedAttack : MonoBehaviour
             bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
             Destroy(bullet, 5f);
         }*/
-        MyInput();
+        if (!PauseMenu.GAME_IS_PAUSED)
+        {
+            MyInput();
+        }
+        
     }
     private void Start()
     {

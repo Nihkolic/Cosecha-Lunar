@@ -24,14 +24,14 @@ public class PlayerLook : MonoBehaviour
         Cursor.visible = false;
     }
     private void Update()
-    {
+    {/*
         if (!PauseControl.gameIsPaused)
         {
             MouseInput();
 
             cam.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
             orientation.transform.rotation = Quaternion.Euler(0, yRotation, 0);
-        }
+        }*/
     }
     private void MouseInput()
     {

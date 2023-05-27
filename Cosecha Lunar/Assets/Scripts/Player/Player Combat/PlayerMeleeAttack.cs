@@ -21,18 +21,19 @@ public class PlayerMeleeAttack : MonoBehaviour
     }
 
     void Update()
-    {
+    {/*
         if (!PauseControl.gameIsPaused)
         {
             RandomAttack();
-        }
+        }*/
+        RandomAttack();
     }
     private void Attack(string attack, int num)
     {
         attackTimer -= Time.deltaTime;
         if (attackTimer < 0)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !PauseMenu.GAME_IS_PAUSED)
             {
                 compAttack.Play(animAttack1);
                 //attackSfx.PlayAttack(num);

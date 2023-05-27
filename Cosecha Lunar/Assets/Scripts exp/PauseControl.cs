@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseControl : MonoBehaviour
 {
-    public static bool gameIsPaused;
+    //public static bool gameIsPaused;
 
     [Header("Keybinds")]
     [SerializeField] KeyCode pauseKey = KeyCode.Escape;
@@ -18,7 +18,7 @@ public class PauseControl : MonoBehaviour
     private void Start()
     {
         goPauseMenu.SetActive(false);
-    }
+    }/*
     void Update()
     {
         if (Input.GetKeyDown(pauseKey))
@@ -72,5 +72,5 @@ public class PauseControl : MonoBehaviour
     public void PlayClic()
     {
         audioSource.PlayOneShot(clicClip, 0.8f);
-    }
+    }*/
 }

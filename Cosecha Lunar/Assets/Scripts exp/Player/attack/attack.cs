@@ -23,11 +23,11 @@ public class attack : MonoBehaviour
     }
 
     void Update()
-    {
+    {/*
         if (!PauseControl.gameIsPaused)
         {
             RandomAttack();
-        }
+        }*/
     }
     private void Attack(string attack, int num)
     {
