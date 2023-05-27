@@ -24,7 +24,7 @@ public class PauseMenu : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(ExitKey))
+        if (Input.GetKeyDown(ExitKey) && LevelChange.GAME_CANT_BE_PAUSED==false)
         {
             if (GAME_IS_PAUSED)
             {
@@ -35,7 +35,7 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && GAME_IS_PAUSED)
         {
             BackToPause();
         }
