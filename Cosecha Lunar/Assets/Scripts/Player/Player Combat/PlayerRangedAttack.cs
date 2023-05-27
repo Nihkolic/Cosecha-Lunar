@@ -49,7 +49,6 @@ public class PlayerRangedAttack : MonoBehaviour
     }
     private void Start()
     {
-
         readyToShoot = true;
     }
     private void MyInput()

@@ -5,12 +5,16 @@ using UnityEngine;
 public class EnemyHealth2 : MonoBehaviour
 {
     [Header("Materials")]
+    [SerializeField] private GameObject model;
+    [SerializeField] Renderer[] enemyModel;
+
+    [Header("Materials")]
     [SerializeField] private Renderer rendBody;
     [SerializeField] private Material matCurrent;
     [SerializeField] private Material matHurt;
-    [SerializeField] private GameObject model;
     private Color _normalColor;
 
+    [Header("Other")]
     [SerializeField] private float enemyHealth = 100f;
     [SerializeField] private bool isEnemyDead;
 
@@ -20,6 +24,7 @@ public class EnemyHealth2 : MonoBehaviour
     {
         isEnemyDead = false;
         //_normalColor = model.GetComponent<Renderer>().material.color;
+        enemyHealth = 100f;
     }
     private void OnDestroy()
     {
@@ -63,15 +68,21 @@ public class EnemyHealth2 : MonoBehaviour
     {
         enemyHealth -= deductHealth;
         //rendBody.material = matHurt;
-        //StartCoroutine(Back());
         //sfx here
-        rendBody.material.color = Color.red;
+        //rendBody.material.color = Color.red;
+        for (int i = 0; i < enemyModel.Length; i++)
+        {
+            enemyModel[i].material.color = Color.red;
+        }
         Invoke("ToggleNormalColor", 0.25f);
     }
     void ToggleNormalColor()
     {
         //rendBody.material.color = _normalColor;
-        rendBody.material = matCurrent;
+        for (int i = 0; i < enemyModel.Length; i++)
+        {
+            enemyModel[i].material = matCurrent;
+        }
     }
 
 }

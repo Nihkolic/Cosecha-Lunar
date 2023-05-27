@@ -16,8 +16,9 @@ public class PlayerHealth : MonoBehaviour
     }
     private void Start()
     {
-        MaxHealth = 100;
+        MaxHealth = 200;
         CurrentHealth = MaxHealth;
+        playerHUD.UpdateHpBar(CurrentHealth, MaxHealth);
     }
     public void TakeDamage(int amount)
     {
@@ -39,7 +40,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (CurrentHealth <= 0)
         {
-            //SceneManager.LoadScene(2);
+            
         }
     }/*
     public float GetHealthPercent()

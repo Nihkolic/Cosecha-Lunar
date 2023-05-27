@@ -6,36 +6,68 @@ public class PlayerCombat : MonoBehaviour
 {
     public GameObject weapon;
     public Animator animator;
+    public int selectedWeapon = 0;
+
+    bool hasBlaster;
+    public GameObject meleeCam;
+    public GameObject meleeScript;
+    public GameObject rangedCam;
+    public GameObject rangedScript;
 
     [SerializeField] private MovementState state;
-
     public enum MovementState //dashing, atacking
     {
         melee,
-        shooting
+        ranged
     }
-
+    private void Start()
+    {
+        Melee();
+        hasBlaster = false;
+    }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        // Check input for weapon switching
+        if (Input.GetAxis("Mouse ScrollWheel") != 0f)
         {
-            Attack();
-        }
+            if (hasBlaster)
+            {
+                if (state == MovementState.melee)
+                {
+                    Ranged();
+                }
+                else if (state == MovementState.ranged)
+                {
+                    Melee();
+                }
+            }
+        }/*
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        {
+           
+        }*/
     }
-
-    void Attack()
+    void Melee()
     {
-        weapon.SetActive(true); // Activate weapon collider for a short period of time
-        StartCoroutine(DisableWeaponCollider());
-        animator.SetTrigger("Attack");
+        state = MovementState.melee;
+        meleeCam.SetActive(true);
+        meleeScript.SetActive(true);
+
+        rangedCam.SetActive(false);
+        rangedScript.SetActive(false);
     }
-
-    IEnumerator DisableWeaponCollider()
+    void Ranged()
     {
-        // Wait for a short period of time
-        yield return new WaitForSeconds(0.2f);
+        state = MovementState.ranged;
+        rangedCam.SetActive(true);
+        rangedScript.SetActive(true);
 
-        // Deactivate weapon collider
-        weapon.SetActive(false);
+        meleeCam.SetActive(false);
+        meleeScript.SetActive(false);
+    }
+    public void BlasterGet()
+    {
+        hasBlaster = true;
+        Ranged();
     }
 }

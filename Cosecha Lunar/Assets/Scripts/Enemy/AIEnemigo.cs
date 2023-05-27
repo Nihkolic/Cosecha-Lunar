@@ -12,7 +12,7 @@ public class AIEnemigo : MonoBehaviour
     [SerializeField] private float distance;
     [SerializeField] private float waitingTime;
 
-    public Transform Target;
+    private Transform Target;
     public NavMeshAgent IA;
     public float Velocidad;
 
@@ -24,7 +24,7 @@ public class AIEnemigo : MonoBehaviour
     {
         IA = GetComponent<NavMeshAgent>();
         ChangePose(true, false, false);
-
+        Target = GameObject.FindWithTag("Player").transform;
     }
     private void Start()
     {
