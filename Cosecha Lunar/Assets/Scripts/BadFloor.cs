@@ -11,6 +11,8 @@ public class BadFloor : MonoBehaviour
         {
             other.transform.position = playerRespawnPosition.transform.position;
             other.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(30);
+            other.transform.gameObject.GetComponent<PlayerCombat>().BlasterGet();
+            Debug.Log("Blaster Get");
         }
 
     }
