@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject mainPanel, creditsPanel, scorePanel, optionsPanel, quitPanel;
+    [SerializeField] private GameObject mainPanel, creditsPanel, scorePanel, optionsPanel, confirmExitPanel;
     private bool isQuitPanelUp;
 
     [Header("Audio")]
@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(ExitKey) && !isQuitPanelUp)
         {
-            ToQuit();
+            ToConfirmExitPanel();
         }
         if (Input.GetMouseButtonDown(1))
         {
@@ -39,7 +39,7 @@ public class MainMenu : MonoBehaviour
         creditsPanel.SetActive(credits);
         scorePanel.SetActive(score);
         optionsPanel.SetActive(options);
-        quitPanel.SetActive(quit);
+        confirmExitPanel.SetActive(quit);
     }
     public void ToCredits()
     {
@@ -59,16 +59,16 @@ public class MainMenu : MonoBehaviour
     }
     public void BackFromQuitPanel()
     {
-        quitPanel.SetActive(false);
+        confirmExitPanel.SetActive(false);
         isQuitPanelUp = false;
     }
     public void ChangeScene(int index)
     {
         SceneManager.LoadScene(index);
     }
-    public void ToQuit()
+    public void ToConfirmExitPanel()
     {
-        quitPanel.SetActive(true);
+        confirmExitPanel.SetActive(true);
         isQuitPanelUp = true;
     }
     public void QuitGame()
