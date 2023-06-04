@@ -70,4 +70,9 @@ public class PlayerCombat : MonoBehaviour
         hasBlaster = true;
         Ranged();
     }
+    public void BlasterRevert()
+    {
+        hasBlaster = false;
+        Melee();
+    }
 }

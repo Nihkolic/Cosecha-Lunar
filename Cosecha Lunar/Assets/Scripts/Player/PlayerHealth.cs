@@ -10,10 +10,6 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int MaxHealth = 20;
     [SerializeField] private PlayerHUD playerHUD;
     //public PlayerSfx playerSfx;
-    private void Update()
-    {
-        Testing();
-    }
     private void Start()
     {
         MaxHealth = 200;
@@ -47,17 +43,6 @@ public class PlayerHealth : MonoBehaviour
     {
         return (float) CurrentHealth / MaxHealth;
     }*/
-    private void Testing()
-    {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            Heal(10);
-        }
-        else if (Input.GetKeyDown(KeyCode.P))
-        {
-            TakeDamage(10);
-        }
-    }
     public void Revenge(int amount)
     {
         Heal(amount);

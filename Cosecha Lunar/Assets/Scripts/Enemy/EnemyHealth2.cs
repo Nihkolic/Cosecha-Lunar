@@ -74,7 +74,7 @@ public class EnemyHealth2 : MonoBehaviour
         {
             enemyModel[i].material.color = Color.red;
         }
-        Invoke("ToggleNormalColor", 0.25f);
+        Invoke("ToggleNormalColor", 0.2f); //0.25
     }
     void ToggleNormalColor()
     {
