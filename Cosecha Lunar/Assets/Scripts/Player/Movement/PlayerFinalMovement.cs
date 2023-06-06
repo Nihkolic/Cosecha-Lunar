@@ -71,6 +71,8 @@ public class PlayerFinalMovement : MonoBehaviour
         readyToJump = true;
         jumps = true;
         //startYScale = transform.localScale.y;
+
+        Physics.gravity = new Vector3(0, -20F, 0); //gravity to 20
     }
 
     private void Update()
@@ -242,7 +244,6 @@ public class PlayerFinalMovement : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-
         jumps = false;
     }
     private void ResetJump()
@@ -283,7 +284,7 @@ public class PlayerFinalMovement : MonoBehaviour
         }
     }
     void Drop()
-    {
+    {/*
         if (!IsGrounded())
         {
             if (hasJumped)
@@ -295,11 +296,11 @@ public class PlayerFinalMovement : MonoBehaviour
         if (IsGrounded())
         {
             hasJumped = true;
-        }
+        }*/
     }
     void DropFaster()
     {
-        rb.AddForce(transform.up * -1.25f, ForceMode.Impulse);
+        rb.AddForce(transform.up * -2f, ForceMode.Impulse); //-1.25
     }
     bool IsGrounded()
     {
