@@ -18,9 +18,10 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
-        ChangePanel(true, false, false, false, false);
+        //ChangePanel(true, false, false, false, false);
         _audioSource = GetComponent<AudioSource>();
         isQuitPanelUp = false;
+        
     }
     private void Update()
     {
@@ -33,7 +34,7 @@ public class MainMenu : MonoBehaviour
             BackToMain();
         }
     }
-    private void ChangePanel(bool main, bool credits, bool score, bool options, bool quit)
+    public void ChangePanel(bool main, bool credits, bool score, bool options, bool quit)
     {
         mainPanel.SetActive(main);
         creditsPanel.SetActive(credits);
