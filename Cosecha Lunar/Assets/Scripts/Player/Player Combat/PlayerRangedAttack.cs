@@ -12,12 +12,12 @@ public class PlayerRangedAttack : MonoBehaviour
     public GameObject bullet;
 
     //bullet force
-    public float shootForce, upwardForce;
+    public float shootForce;
 
     //Gun stats
     public float timeBetweenShooting, spread, timeBetweenShots;
-    public int bulletsPerTap;
     public bool allowButtonHold;
+    public int bulletsPerTap;
 
     int bulletsLeft, bulletsShot;
 
