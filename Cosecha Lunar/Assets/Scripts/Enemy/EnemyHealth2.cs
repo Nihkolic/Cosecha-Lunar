@@ -70,11 +70,14 @@ public class EnemyHealth2 : MonoBehaviour
         //rendBody.material = matHurt;
         //sfx here
         //rendBody.material.color = Color.red;
+
+        
         for (int i = 0; i < enemyModel.Length; i++)
         {
             enemyModel[i].material.color = Color.red;
         }
         Invoke("ToggleNormalColor", 0.2f); //0.25
+        
     }
     void ToggleNormalColor()
     {

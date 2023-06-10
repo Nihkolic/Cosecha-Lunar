@@ -22,7 +22,10 @@ public class EnemyBullet : MonoBehaviour
             other.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(10);
             DestroyBullet();
         }
-
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            DestroyBullet();
+        }
     }
     void DestroyBullet()
     {

@@ -871,12 +871,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7528a666031e97a478206c454d1871e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  model: {fileID: 74914355}
+  enemyModel: []
   rendBody: {fileID: 0}
   matCurrent: {fileID: 0}
   matHurt: {fileID: 0}
-  model: {fileID: 74914355}
   enemyHealth: 100
   isEnemyDead: 0
+  goEnemyDeath: {fileID: 0}
+  goEnemySpawn: {fileID: 0}
 --- !u!136 &74914358
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4535,12 +4538,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7528a666031e97a478206c454d1871e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  model: {fileID: 622460125}
+  enemyModel: []
   rendBody: {fileID: 0}
   matCurrent: {fileID: 0}
   matHurt: {fileID: 0}
-  model: {fileID: 622460125}
   enemyHealth: 100
   isEnemyDead: 0
+  goEnemyDeath: {fileID: 0}
+  goEnemySpawn: {fileID: 0}
 --- !u!136 &622460128
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5230,10 +5236,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e129efe28f3b24caeaf76dc5dda81d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 5838190205865147539, guid: b42022aa78dc0014d830fe7b49a9803f,
-    type: 3}
-  bulletSpawnPoint: {fileID: 1332724091}
-  bulletSpeed: 100
+  bullet: {fileID: 0}
+  shootForce: 0
+  timeBetweenShooting: 0
+  spread: 0
+  timeBetweenShots: 0
+  allowButtonHold: 0
+  bulletsPerTap: 0
+  playerRb: {fileID: 0}
+  recoilForce: 0
+  fpsCam: {fileID: 0}
+  attackPoint: {fileID: 0}
+  muzzleFlash: {fileID: 0}
+  allowInvoke: 1
 --- !u!114 &680725047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5322,6 +5337,7 @@ MonoBehaviour:
   disableGravity: 1
   resetVel: 1
   dashCd: 1
+  cam: {fileID: 0}
 --- !u!114 &680725051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6207,6 +6223,7 @@ MonoBehaviour:
   healthBar: {fileID: 1621603137}
   screenEffect: {fileID: 0}
   textHP: {fileID: 0}
+  textRoomName: {fileID: 0}
 --- !u!4 &802166980
 Transform:
   m_ObjectHideFlags: 0
@@ -8186,12 +8203,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7528a666031e97a478206c454d1871e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  model: {fileID: 1035373275}
+  enemyModel: []
   rendBody: {fileID: 0}
   matCurrent: {fileID: 0}
   matHurt: {fileID: 0}
-  model: {fileID: 1035373275}
   enemyHealth: 100
   isEnemyDead: 0
+  goEnemyDeath: {fileID: 0}
+  goEnemySpawn: {fileID: 0}
 --- !u!136 &1035373278
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -17671,6 +17691,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PointsToEscape
       objectReference: {fileID: 0}
+    - target: {fileID: 3282033980065380004, guid: 58d935fcdff5dd042a96557663ff9f85,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3282033980065380005, guid: 58d935fcdff5dd042a96557663ff9f85,
         type: 3}
       propertyPath: m_RootOrder
@@ -17794,6 +17819,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_Distance
+      objectReference: {fileID: 0}
+    - target: {fileID: 3701972753589559161, guid: 99b6729be2a2aa64dab8a94173d4eef7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3701972754918144396, guid: 99b6729be2a2aa64dab8a94173d4eef7,
         type: 3}
