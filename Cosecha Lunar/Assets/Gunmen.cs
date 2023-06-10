@@ -135,7 +135,7 @@ public class Gunmen : MonoBehaviour
 
 
             //Add forces to bullet
-            currentBullet.GetComponent<Rigidbody>().AddForce(transform.forward * 32f, ForceMode.Impulse);
+            currentBullet.GetComponent<Rigidbody>().AddForce(transform.forward * 50f, ForceMode.Impulse);
             //currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up, ForceMode.Impulse);
 
             /*
