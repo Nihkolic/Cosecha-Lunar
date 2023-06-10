@@ -16,15 +16,15 @@ public class Tutorial : MonoBehaviour
         if (tutorialNumber == 1)
         {
             tutorialHint.SetActive(true);
-            estadoText.text = "Presiona CLIC DERECHO para atacar";
+            estadoText.text = "Presiona [CLIC DERECHO] para atacar";
         }
         if (tutorialNumber == 2)
         {
-            estadoText.text = "Presiona ESPACIO para saltar";
+            estadoText.text = "Presiona [ESPACIO] para saltar";
         }
         if (tutorialNumber == 3)
         {
-            estadoText.text = "Presiona SHIFT para usar el dash";
+            estadoText.text = "Presiona [SHIFT] para usar el dash";
         }
         if (tutorialNumber == 4)
         {

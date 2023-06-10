@@ -16,7 +16,6 @@ public class EnemyAttackCollisions : MonoBehaviour
 			if (isAttacking)
 			{
 				Attack(collider);
-				print("sddddddddddddddddd");
 			}/*
 			else if (isAttacking)
 			{

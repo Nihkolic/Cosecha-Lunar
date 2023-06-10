@@ -11,12 +11,15 @@ public class LevelTests : MonoBehaviour
     {
         _player = GameObject.FindWithTag("Player");
         DEBUG_MODE = true;
+
+
+        _player.GetComponent<PlayerCombat>().BlasterGet();
     }
     private void Update()
     {
         if (DEBUG_MODE)
         {
-            LevelChange();
+            //LevelChange();
         }
     }
     private void Health()

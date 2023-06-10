@@ -5,23 +5,39 @@ using TMPro;
 
 public class EnemyRoomSpawn : MonoBehaviour
 {
-    bool hasEntered;
-    [SerializeField] GameObject[] enemy;
-    bool hasBeenActivated;
+    [SerializeField] GameObject[] round01;
+    [SerializeField] GameObject[] round02;
+    bool hasBeenActivated, hasEntered;
     public static int numberOfEnemies;
     bool _isEnemyCheckOn;
 
-    Animator animatorDoors;
+    Animator _animatorDoors;
 
-    public string animOpen;
-    public string animClose;
+    string animOpen = "Doors_Open";
+    string animClose = "Doors_Close";
 
+    [SerializeField] Animator animatorDoor;
+    [SerializeField] Animator animatorExit;
+    [Range(1, 2)] [SerializeField] int numRounds = 1;
 
+    [SerializeField] private SpawnType type;
+    public enum SpawnType
+    {
+       room,
+       hallway
+    }
     private void Awake()
     {
+        if(type == SpawnType.room)
+        {
+            _animatorDoors = GetComponentInChildren<Animator>();
+        }
+        else if (type == SpawnType.hallway)
+        {
+
+        }
         hasEntered = false;
         hasBeenActivated = false;
-        animatorDoors = GetComponentInChildren<Animator>();
         _isEnemyCheckOn = false;
     }
     private void Update()
@@ -34,7 +50,8 @@ public class EnemyRoomSpawn : MonoBehaviour
     {
         if (!hasBeenActivated)
         {
-            animatorDoors.Play(animOpen);
+
+            DoorsAnimation(animOpen);
             hasBeenActivated = true;
         }
         else
@@ -44,23 +61,60 @@ public class EnemyRoomSpawn : MonoBehaviour
     }
     public void CloseTheDoors() //when you enter
     {
-        Invoke("SpawnEnemies", 1.0f);
-        animatorDoors.Play(animClose);
+        Invoke("SpawnRound01", 1.0f);
+        DoorsAnimation(animClose);
         hasEntered = true;
     }
-    void SpawnEnemies()
+    void DoorsAnimation(string anim)
     {
-        for (int i = 0; i < enemy.Length; i++)
+        if (type == SpawnType.room)
         {
-            enemy[i].SetActive(true);
+            _animatorDoors.Play(anim);
+        }
+        else if (type == SpawnType.hallway)
+        {
+            animatorDoor.Play(anim);
+            animatorExit.Play(anim);
+        }
+    }
+    void SpawnRound01()
+    {
+        for (int i = 0; i < round01.Length; i++)
+        {
+            round01[i].SetActive(true);
         }
         _isEnemyCheckOn = true;
+        numRounds--;
+    }
+    void SpawnRound02()
+    {
+        for (int i = 0; i < round02.Length; i++)
+        {
+            round02[i].SetActive(true);
+        }
+        _isEnemyCheckOn = true;
+        numRounds=0;
     }
     void EnemyCheck()
     {
         if (numberOfEnemies == 0 && hasEntered) //check if all the enemies are dead
         {
+            NewRound();
+        }
+    }
+    void NewRound()
+    {
+        if (numRounds > 0)
+        {
+            Invoke("SpawnRound02", 1.0f);
+        }
+        else if(numRounds == 0)
+        {
             OpenTheDoors();
+            if (type == SpawnType.hallway)
+            {
+                animatorDoor.Play(animClose);
+            }
         }
     }
     void RoomCheck()

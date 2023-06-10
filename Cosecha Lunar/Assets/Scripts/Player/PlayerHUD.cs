@@ -19,7 +19,7 @@ public class PlayerHUD : MonoBehaviour
     public void UpdateHpBar(int currentHealth, int maxHealth)
     {
         healthBar.fillAmount = GetHealthPercent(currentHealth, maxHealth);
-        textHP.text = ("HP " + currentHealth.ToString());
+        textHP.text = ("" + currentHealth.ToString());
     }
     public float GetHealthPercent(int currentHealth, int maxHealth)
     {

@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class TitleMenu : MonoBehaviour
 {
-    private bool isQuitPanelUp;
     [SerializeField] private MainMenu mainMenu; 
 
     [Header("Audio")]
@@ -17,7 +16,6 @@ public class TitleMenu : MonoBehaviour
     {
         mainMenu.ChangePanel(false, false, false, false, false);
         _audioSource = GetComponent<AudioSource>();
-        isQuitPanelUp = false;
     }
     private void Update()
     {
