@@ -219,7 +219,9 @@ MonoBehaviour:
   matHurt: {fileID: 2100000, guid: 48d8d9e878bc5274892f58de369d2a44, type: 2}
   enemyHealth: 100
   isEnemyDead: 0
-  goEnemyDeath: {fileID: 7240565817734809396, guid: 1b360fc14f1aa3845918ed1397500456,
+  meleeDeath: {fileID: 7240565817734809396, guid: 1b360fc14f1aa3845918ed1397500456,
+    type: 3}
+  bulletDeath: {fileID: 7240565817734809396, guid: 1b360fc14f1aa3845918ed1397500456,
     type: 3}
   goEnemySpawn: {fileID: 544315450960670248, guid: e4e489d86d9d6d34eb9ec7927d0bc6ba,
     type: 3}

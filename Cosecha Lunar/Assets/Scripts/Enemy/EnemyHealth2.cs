@@ -18,7 +18,8 @@ public class EnemyHealth2 : MonoBehaviour
     [SerializeField] private float enemyHealth = 100f;
     [SerializeField] private bool isEnemyDead;
 
-    [SerializeField] private GameObject goEnemyDeath;
+    [SerializeField] private GameObject meleeDeath;
+    [SerializeField] private GameObject bulletDeath;
     [SerializeField] private GameObject goEnemySpawn;
     private void Start()
     {
@@ -38,20 +39,31 @@ public class EnemyHealth2 : MonoBehaviour
         GameObject newGameObject = Instantiate(goEnemySpawn, transform.position, transform.rotation); ;
         Destroy(newGameObject, 0.5f);
     }
-    public void DamageEnemy(float deductHealth)
+    public void DamageEnemy(float deductHealth, bool isWeaponMelee)
     {
         if (!isEnemyDead)
         {
             TakeDamage(deductHealth);
         }
         if (enemyHealth <= 0)
-            EnemyDead();
+        {
+            if (isWeaponMelee)
+            {
+                FurySystem.FURY_IS_ACTIVE = true;
+                EnemyDead(meleeDeath);
+            }
+            else
+            {
+                EnemyDead(bulletDeath);
+            }
+        }
+            
     }
-    void EnemyDead()
+    void EnemyDead(GameObject enemyExp)
     {
         if (isEnemyDead == false)
         {
-            GameObject newGameObject = Instantiate(goEnemyDeath, transform.position, transform.rotation); 
+            GameObject newGameObject = Instantiate(enemyExp, transform.position, transform.rotation); 
             Destroy(newGameObject, 0.5f);
 
             isEnemyDead = true;

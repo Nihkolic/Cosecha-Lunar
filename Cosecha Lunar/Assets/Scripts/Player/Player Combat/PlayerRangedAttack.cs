@@ -9,7 +9,9 @@ public class PlayerRangedAttack : MonoBehaviour
     public float bulletSpeed = 100f;
     */
     //bullet 
-    public GameObject bullet;
+    public GameObject bulletBasic;
+    public GameObject bulletFury;
+    private GameObject _currentBullet;
 
     //bullet force
     public float shootForce;
@@ -49,11 +51,15 @@ public class PlayerRangedAttack : MonoBehaviour
         {
             MyInput();
         }
-        
+        FuryOn();
     }
     private void Start()
     {
         readyToShoot = true;
+        _currentBullet = bulletBasic;
+        furyHasBeenActivated = false;
+
+        allowButtonHold = false;
     }
     private void MyInput()
     {
@@ -94,7 +100,7 @@ public class PlayerRangedAttack : MonoBehaviour
         Vector3 directionWithSpread = directionWithoutSpread + new Vector3(x, y, 0);
 
         //Instantiate bullet/projectile
-        GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
+        GameObject currentBullet = Instantiate(_currentBullet, attackPoint.position, Quaternion.identity);
         Destroy(currentBullet, 2f);
 
         //Rotate bullet to shoot direction
@@ -114,5 +120,26 @@ public class PlayerRangedAttack : MonoBehaviour
     {
         readyToShoot = true;
         allowInvoke = true;
+    }
+    bool furyHasBeenActivated;
+    void FuryOn()
+    {
+        if (FurySystem.FURY_IS_ACTIVE && !furyHasBeenActivated)
+        {
+            shootForce += 45;
+            timeBetweenShooting = 0.25f;
+            Debug.Log("FURYYY FURY");
+            _currentBullet = bulletFury;
+
+            furyHasBeenActivated = true;
+        }
+        else if(!FurySystem.FURY_IS_ACTIVE && furyHasBeenActivated)
+        {
+            shootForce = 105;
+            timeBetweenShooting = 0.4f;
+            _currentBullet = bulletBasic;
+
+            furyHasBeenActivated = false;
+        }
     }
 }

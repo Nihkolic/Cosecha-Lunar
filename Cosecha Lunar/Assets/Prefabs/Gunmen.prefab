@@ -69,7 +69,9 @@ MonoBehaviour:
   matHurt: {fileID: 2100000, guid: 48d8d9e878bc5274892f58de369d2a44, type: 2}
   enemyHealth: 300
   isEnemyDead: 0
-  goEnemyDeath: {fileID: 7240565817734809396, guid: 1b360fc14f1aa3845918ed1397500456,
+  meleeDeath: {fileID: 7240565817734809396, guid: 1b360fc14f1aa3845918ed1397500456,
+    type: 3}
+  bulletDeath: {fileID: 7240565817734809396, guid: 1b360fc14f1aa3845918ed1397500456,
     type: 3}
   goEnemySpawn: {fileID: 544315450960670248, guid: e4e489d86d9d6d34eb9ec7927d0bc6ba,
     type: 3}
@@ -193,7 +195,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4918455793796211711}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7cfb773b1b26b0041aea326060e902ed, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.6144899
@@ -207,7 +209,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4918455793796211711}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 1.66
   m_Speed: 1.5
