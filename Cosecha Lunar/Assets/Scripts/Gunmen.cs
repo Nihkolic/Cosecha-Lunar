@@ -57,7 +57,7 @@ public class Gunmen : MonoBehaviour
             if (playerInSightRange && !playerInAttackRange) ChasePlayer();
             if (playerInAttackRange && playerInSightRange) AttackPlayer();*/
 
-            if (!playerInSightRange && !playerInAttackRange) Idle();
+            //if (!playerInSightRange && !playerInAttackRange) Idle();
             //if (playerInSightRange && playerInAttackRange) RunFromPlayer();
             if (playerInAttackRange && !playerInSightRange) AttackPlayer();
         }
@@ -124,8 +124,8 @@ public class Gunmen : MonoBehaviour
         ChangePose(true, false);
         //Make sure enemy doesn't move
         //agent.SetDestination(transform.position);
-
-        transform.LookAt(player);
+        if (!playerInSightRange)
+            transform.LookAt(player);
 
         if (!alreadyAttacked)
         {
