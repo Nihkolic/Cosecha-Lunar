@@ -8,12 +8,10 @@ public class ElevatorTrigger : MonoBehaviour
     LevelChange levelChange;
     [SerializeField] private int currentLevel;
     [SerializeField] private Transform newPlayerPosition;
-    private GameObject _player;
     private void Awake()
     {
         hasEntered = false;
         levelChange = GetComponentInParent<LevelChange>();
-        _player = GameObject.FindWithTag("Player");
     }
     public void OnTriggerEnter(Collider collider)
     {
@@ -21,9 +19,8 @@ public class ElevatorTrigger : MonoBehaviour
         {
             if (!hasEntered)
             {
-                LevelEnd();
-                _player.transform.position = newPlayerPosition.transform.position;
-                Debug.Log(currentLevel + " End");
+                levelChange.ToNextLevel(currentLevel);
+                
                 hasEntered = true;
             }
             else
@@ -31,9 +28,5 @@ public class ElevatorTrigger : MonoBehaviour
                 return;
             }
         }
-    }
-    void LevelEnd()
-    {
-        levelChange.ToNextLevel(currentLevel);
     }
 }

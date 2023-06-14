@@ -5,27 +5,28 @@ using TMPro;
 
 public class EnemyRoomSpawn : MonoBehaviour
 {
+    [Header("General")]
+    [SerializeField] private SpawnType type;
+    public enum SpawnType
+    {
+        room,
+        hallway
+    }
+    [Range(1, 2)] [SerializeField] int numRounds = 1;
     [SerializeField] GameObject[] round01;
     [SerializeField] GameObject[] round02;
+
     bool hasBeenActivated, hasEntered;
     public static int numberOfEnemies;
     bool _isEnemyCheckOn;
-
     Animator _animatorDoors;
 
     string animOpen = "Doors_Open";
     string animClose = "Doors_Close";
 
+    [Header("Hallway")]
     [SerializeField] Animator animatorDoor;
     [SerializeField] Animator animatorExit;
-    [Range(1, 2)] [SerializeField] int numRounds = 1;
-
-    [SerializeField] private SpawnType type;
-    public enum SpawnType
-    {
-       room,
-       hallway
-    }
     private void Awake()
     {
         if(type == SpawnType.room)
