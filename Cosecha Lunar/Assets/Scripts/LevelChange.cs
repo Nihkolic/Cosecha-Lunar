@@ -14,6 +14,8 @@ public class LevelChange : MonoBehaviour
     [SerializeField] private Transform position_3;
 
     [SerializeField] private GameObject endPanel;     //change later
+
+    [SerializeField] private GameAudio gameAudio;
     private void Start()
     {
         endPanel.SetActive(false);
@@ -66,24 +68,32 @@ public class LevelChange : MonoBehaviour
             _player.GetComponent<PlayerCombat>().BlasterRevert();
             _player.transform.position = position_0.transform.position;
             print("Nivel 0");
+
+            gameAudio.PlayBackground(1);
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            _player.GetComponent<PlayerCombat>().BlasterRevert();
+            _player.GetComponent<PlayerCombat>().BlasterGet();
             _player.transform.position = position_1.transform.position;
             print("Nivel 1");
+
+            gameAudio.PlayBackground(1);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             _player.GetComponent<PlayerCombat>().BlasterGet();
             _player.transform.position = position_2.transform.position;
             print("Nivel 2");
+
+            gameAudio.PlayBackground(2);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             _player.GetComponent<PlayerCombat>().BlasterGet();
             _player.transform.position = position_3.transform.position;
             print("Nivel 3");
+
+            gameAudio.PlayBackground(3);
         }
     }
 }

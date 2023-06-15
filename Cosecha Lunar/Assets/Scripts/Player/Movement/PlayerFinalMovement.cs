@@ -63,6 +63,7 @@ public class PlayerFinalMovement : MonoBehaviour
     [SerializeField] private TMP_Text velocidadText;
     [SerializeField] private TMP_Text saltoText;
 
+    PlayerAudio playerAudio;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -73,6 +74,7 @@ public class PlayerFinalMovement : MonoBehaviour
         //startYScale = transform.localScale.y;
 
         Physics.gravity = new Vector3(0, -20F, 0); //gravity to 20
+        playerAudio = GetComponentInChildren<PlayerAudio>();
     }
 
     private void Update()

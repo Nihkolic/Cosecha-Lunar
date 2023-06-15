@@ -18,6 +18,12 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject optionsPanel;
     [SerializeField] private GameObject pausePanel;
 
+    [Header("Cursor")]
+    [SerializeField] private GameObject cursorChange;
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource gameAudio;
+
     private void Start()
     {
         Resume();
@@ -79,6 +85,9 @@ public class PauseMenu : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        //cursorChange.SetActive(true);
+
+        gameAudio.volume -= 0.5f;
     }
     public void ResumeSettings()
     {
@@ -87,6 +96,9 @@ public class PauseMenu : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        //cursorChange.SetActive(false);
+
+        gameAudio.volume = 0.8f;
     }
     public void ToQuit()
     {

@@ -9,6 +9,7 @@ public class Dashing : MonoBehaviour
     public Transform playerCam;
     private Rigidbody rb;
     private PlayerFinalMovement pm;
+    PlayerAudio playerAudio;
 
     [Header("Dashing")]
     public float dashForce;
@@ -35,6 +36,7 @@ public class Dashing : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         pm = GetComponent<PlayerFinalMovement>();
+        playerAudio = GetComponentInChildren<PlayerAudio>();
     }
 
     private void Update()
@@ -55,11 +57,12 @@ public class Dashing : MonoBehaviour
         pm.maxYSpeed = maxDashYSpeed;
 
         Transform forwardT;
+        playerAudio.PlayDash();
 
         if (useCameraForward)
-            forwardT = playerCam; /// where you're looking
+            forwardT = playerCam; //where you're looking
         else
-            forwardT = orientation; /// where you're facing (no up or down)
+            forwardT = orientation; // where you're facing (no up or down)
 
         Vector3 direction = GetDirection(forwardT);
 
@@ -74,6 +77,8 @@ public class Dashing : MonoBehaviour
         Invoke(nameof(ResetDash), dashDuration);
 
         //cam.fieldOfView = 110.0f;
+
+        
     }
 
     private Vector3 delayedForceToApply;
