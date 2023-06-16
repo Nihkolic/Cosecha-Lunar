@@ -10,11 +10,17 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int MaxHealth = 20;
     [SerializeField] private PlayerHUD playerHUD;
     //public PlayerSfx playerSfx;
+
+    [SerializeField]
+    private LevelChange levelChange;
+
+    public static bool PLAYER_IS_DEAD;
     private void Start()
     {
         MaxHealth = 200;
         CurrentHealth = MaxHealth;
         playerHUD.UpdateHpBar(CurrentHealth, MaxHealth);
+        PLAYER_IS_DEAD = false;
     }
     public void TakeDamage(int amount)
     {
@@ -36,7 +42,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (CurrentHealth <= 0)
         {
-            
+            Death();
         }
     }/*
     public float GetHealthPercent()
@@ -47,5 +53,17 @@ public class PlayerHealth : MonoBehaviour
     {
         Heal(amount);
         Debug.Log("revenge");
+    }
+    void Death()
+    {
+        levelChange.PlayerDeath();
+        PLAYER_IS_DEAD = true;
+
+        CurrentHealth = MaxHealth;
+        playerHUD.UpdateHpBar(CurrentHealth, MaxHealth);
+    }
+    void Respawn()
+    {
+        PLAYER_IS_DEAD = false;
     }
 }

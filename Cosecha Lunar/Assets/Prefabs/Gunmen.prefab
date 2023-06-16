@@ -234,8 +234,8 @@ MonoBehaviour:
   walkPointRange: 32
   timeBetweenAttacks: 0.8
   isDead: 0
-  sightRange: 6.38
-  attackRange: 30.17
+  sightRange: 5.3
+  attackRange: 62.81
   playerInSightRange: 0
   playerInAttackRange: 0
   green: {fileID: 0}

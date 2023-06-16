@@ -29,4 +29,9 @@ public class RoomTrigger : MonoBehaviour
             }
         }
     }
+    private void Update()
+    {
+        if (PlayerHealth.PLAYER_IS_DEAD)
+            hasEntered = false;
+    }
 }

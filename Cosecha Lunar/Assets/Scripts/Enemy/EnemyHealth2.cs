@@ -27,6 +27,13 @@ public class EnemyHealth2 : MonoBehaviour
         //_normalColor = model.GetComponent<Renderer>().material.color;
         enemyHealth = 100f;
     }
+    private void Update()
+    {
+        if (PlayerHealth.PLAYER_IS_DEAD)
+        {
+            Destroy(transform.parent.gameObject);
+        }
+    }
     private void OnDestroy()
     {
         EnemyRoomSpawn.numberOfEnemies--;

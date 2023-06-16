@@ -20,6 +20,7 @@ public class GameAudio : MonoBehaviour
         if (level == 1)
         {
             audioSource.clip = level1CLip;
+            audioSource.Play();
 
         }
         else if (level == 2)

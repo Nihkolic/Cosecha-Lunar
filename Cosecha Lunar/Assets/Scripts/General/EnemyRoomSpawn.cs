@@ -13,8 +13,10 @@ public class EnemyRoomSpawn : MonoBehaviour
         hallway
     }
     [Range(1, 2)] [SerializeField] int numRounds = 1;
+    int _totalRounds;
     [SerializeField] GameObject[] round01;
     [SerializeField] GameObject[] round02;
+    [SerializeField] GameObject[] gunmenPosition;
 
     bool hasBeenActivated, hasEntered;
     public static int numberOfEnemies;
@@ -27,9 +29,14 @@ public class EnemyRoomSpawn : MonoBehaviour
     [Header("Hallway")]
     [SerializeField] Animator animatorDoor;
     [SerializeField] Animator animatorExit;
+
+    [Header("Enemies")]
+    [SerializeField] GameObject nibbler;
+    [SerializeField] GameObject gunmen;
+    public bool areGunmenHere;
     private void Awake()
     {
-        if(type == SpawnType.room)
+        if (type == SpawnType.room)
         {
             _animatorDoors = GetComponentInChildren<Animator>();
         }
@@ -40,13 +47,29 @@ public class EnemyRoomSpawn : MonoBehaviour
         hasEntered = false;
         hasBeenActivated = false;
         _isEnemyCheckOn = false;
+
+        _totalRounds = numRounds;
     }
     private void Update()
     {
         if (_isEnemyCheckOn) //check if the enemies are dead
             EnemyCheck();
-    }
 
+        Reset();
+    }
+    private void Reset()
+    {
+        if (PlayerHealth.PLAYER_IS_DEAD &&(hasBeenActivated || hasEntered))
+        {
+            hasBeenActivated = false;
+            hasEntered = false;
+            _isEnemyCheckOn = false;
+            DoorsAnimation(animOpen);
+            numRounds = _totalRounds;
+
+            Debug.Log("reset on");
+        }
+    }
     public void OpenTheDoors() 
     {
         if (!hasBeenActivated)
@@ -63,6 +86,10 @@ public class EnemyRoomSpawn : MonoBehaviour
     public void CloseTheDoors() //when you enter
     {
         Invoke("SpawnRound01", 1.0f);
+        if (areGunmenHere)
+        {
+            Invoke("SpawnRound01_Gunmen", 1.0f);
+        }
         DoorsAnimation(animClose);
         hasEntered = true;
     }
@@ -82,10 +109,19 @@ public class EnemyRoomSpawn : MonoBehaviour
     {
         for (int i = 0; i < round01.Length; i++)
         {
-            round01[i].SetActive(true);
+            Instantiate(nibbler, round01[i].transform.position, round01[i].transform.rotation);
         }
         _isEnemyCheckOn = true;
         numRounds--;
+
+        Debug.Log("spawn 01");
+    }
+    void SpawnRound01_Gunmen()
+    {
+        for (int i = 0; i < gunmenPosition.Length; i++)
+        {
+            Instantiate(gunmen, gunmenPosition[i].transform.position, gunmenPosition[i].transform.rotation);
+        }
     }
     void SpawnRound02()
     {
@@ -118,8 +154,5 @@ public class EnemyRoomSpawn : MonoBehaviour
             }
         }
     }
-    void RoomCheck()
-    {
-        //estadoText.text = "Presiona CLIC DERECHO para atacar";
-    }
+    
 }
