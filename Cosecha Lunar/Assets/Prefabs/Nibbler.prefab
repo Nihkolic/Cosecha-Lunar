@@ -213,7 +213,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 4140513216539826445}
-  enemyModel: []
+  enemyModel:
+  - {fileID: 8495904251708695258}
+  - {fileID: 877797016671730063}
+  - {fileID: 8103681453774574979}
+  - {fileID: 6593634338422247411}
+  - {fileID: 2355443428373842711}
+  - {fileID: 4840479793092453236}
+  - {fileID: 4013309492027516677}
+  - {fileID: 1380599077600270846}
+  - {fileID: 4292102675209457715}
+  - {fileID: 6240247005560822828}
   rendBody: {fileID: 526759019934874817}
   matCurrent: {fileID: 2100000, guid: dd6b836f573df8f4b8d8d59614cde113, type: 2}
   matHurt: {fileID: 2100000, guid: 48d8d9e878bc5274892f58de369d2a44, type: 2}

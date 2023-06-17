@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerRangedAttack : MonoBehaviour
 {/*
@@ -52,6 +53,7 @@ public class PlayerRangedAttack : MonoBehaviour
             MyInput();
         }
         FuryOn();
+
     }
     private void Start()
     {
@@ -60,6 +62,7 @@ public class PlayerRangedAttack : MonoBehaviour
         furyHasBeenActivated = false;
 
         allowButtonHold = false;
+
     }
     private void MyInput()
     {
@@ -142,4 +145,5 @@ public class PlayerRangedAttack : MonoBehaviour
             furyHasBeenActivated = false;
         }
     }
+
 }
