@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4918455792862363935}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -0.49}
+  m_LocalPosition: {x: -0, y: -0.32, z: -0.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -66,7 +66,7 @@ MonoBehaviour:
   rendBody: {fileID: 4585234799542220969}
   matCurrent: {fileID: 2100000, guid: 9e301c4d5f3a23045a1f3eae1c2c25ec, type: 2}
   matHurt: {fileID: 2100000, guid: 48d8d9e878bc5274892f58de369d2a44, type: 2}
-  enemyHealth: 300
+  enemyHealth: 100
   isEnemyDead: 0
   meleeDeath: {fileID: 7240565817734809396, guid: 1b360fc14f1aa3845918ed1397500456,
     type: 3}
@@ -84,8 +84,8 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: 7cfb773b1b26b0041aea326060e902ed, type: 2}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.82
-  m_Height: 2.71
+  m_Radius: 1.25
+  m_Height: 4
   m_Direction: 1
   m_Center: {x: 0.16999996, y: 0.68, z: 0.73}
 --- !u!1 &4918455793051694754
