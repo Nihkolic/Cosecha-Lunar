@@ -57,9 +57,12 @@ public class EnemyHealth2 : MonoBehaviour
         {
             if (isWeaponMelee)
             {
-                FurySystem.FURY_IS_ACTIVE = true;
+                
                 EnemyDead(meleeDeath);
                 GameObject sphere = Instantiate(healthPrefab, transform.position, Quaternion.identity);
+
+                if(PlayerCombat.FURY_CAN_BE_ON)
+                    FurySystem.FURY_IS_ACTIVE = true;
             }
             else
             {

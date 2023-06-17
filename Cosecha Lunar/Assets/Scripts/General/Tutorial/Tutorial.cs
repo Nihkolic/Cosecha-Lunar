@@ -16,17 +16,29 @@ public class Tutorial : MonoBehaviour
         if (tutorialNumber == 1)
         {
             tutorialHint.SetActive(true);
-            estadoText.text = "Presiona [CLIC DERECHO] para atacar";
+            estadoText.text = "Usa [WASD] para moverte";
         }
         if (tutorialNumber == 2)
         {
-            estadoText.text = "Presiona [ESPACIO] para saltar";
+            estadoText.text = "Presiona [CLIC IZQUIERDO] para atacar";
         }
         if (tutorialNumber == 3)
         {
-            estadoText.text = "Presiona [SHIFT] para usar el dash";
+            estadoText.text = "Presiona [ESPACIO] para saltar";
         }
         if (tutorialNumber == 4)
+        {
+            estadoText.text = "Presiona [SHIFT] para realizar un dash";
+        }
+        if (tutorialNumber == 5)
+        {
+            estadoText.text = "Al atacar enemigos con tu hoz puedes recuperar vida";
+        }
+        if (tutorialNumber == 6)
+        {
+            estadoText.text = "Usa la [RUEDA DEL MOUSE] para cambiar de armas";
+        }
+        if (tutorialNumber == 10)
         {
             tutorialHint.SetActive(false);
         }

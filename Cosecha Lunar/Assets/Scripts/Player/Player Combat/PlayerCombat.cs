@@ -14,6 +14,8 @@ public class PlayerCombat : MonoBehaviour
     public  GameObject rangedCam;
     public  GameObject rangedScript;
 
+    public static bool FURY_CAN_BE_ON;
+
     [SerializeField] public static MovementState state;
     public enum MovementState //dashing, atacking
     {
@@ -24,6 +26,8 @@ public class PlayerCombat : MonoBehaviour
     {
         Melee();
         hasBlaster = false;
+
+        FURY_CAN_BE_ON = false;
     }
     void Update()
     {

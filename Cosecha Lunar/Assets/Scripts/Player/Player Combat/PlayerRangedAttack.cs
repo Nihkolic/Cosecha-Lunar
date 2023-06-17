@@ -127,10 +127,10 @@ public class PlayerRangedAttack : MonoBehaviour
     bool furyHasBeenActivated;
     void FuryOn()
     {
-        if (FurySystem.FURY_IS_ACTIVE && !furyHasBeenActivated)
+        if (FurySystem.FURY_IS_ACTIVE && !furyHasBeenActivated && PlayerCombat.FURY_CAN_BE_ON)
         {
             shootForce += 45;
-            timeBetweenShooting = 0.25f;
+            timeBetweenShooting = 0.1f;
             Debug.Log("FURYYY FURY");
             _currentBullet = bulletFury;
 
@@ -138,8 +138,8 @@ public class PlayerRangedAttack : MonoBehaviour
         }
         else if(!FurySystem.FURY_IS_ACTIVE && furyHasBeenActivated)
         {
-            shootForce = 105;
-            timeBetweenShooting = 0.4f;
+            shootForce = 120;
+            timeBetweenShooting = 0.2f;
             _currentBullet = bulletBasic;
 
             furyHasBeenActivated = false;
