@@ -10,6 +10,8 @@ public class Dashing : MonoBehaviour
     private Rigidbody rb;
     private PlayerFinalMovement pm;
     PlayerAudio playerAudio;
+    public GameObject speedlinesPos;
+    public GameObject speedlinesPrefab;
 
     [Header("Dashing")]
     public float dashForce;
@@ -57,7 +59,9 @@ public class Dashing : MonoBehaviour
         pm.maxYSpeed = maxDashYSpeed;
 
         Transform forwardT;
+        
         playerAudio.PlayDash();
+        Speedlines();
 
         if (useCameraForward)
             forwardT = playerCam; //where you're looking
@@ -117,5 +121,11 @@ public class Dashing : MonoBehaviour
             direction = forwardT.forward;
 
         return direction.normalized;
+    }
+    void Speedlines()
+    {
+        var newGameObject = Instantiate(speedlinesPrefab, speedlinesPos.transform.position, speedlinesPos.transform.rotation);
+
+        newGameObject.transform.parent = cam.transform;
     }
 }
