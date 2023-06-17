@@ -21,6 +21,7 @@ public class EnemyHealth2 : MonoBehaviour
     [SerializeField] private GameObject meleeDeath;
     [SerializeField] private GameObject bulletDeath;
     [SerializeField] private GameObject goEnemySpawn;
+    [SerializeField] private GameObject healthPrefab;
     private void Start()
     {
         isEnemyDead = false;
@@ -58,6 +59,7 @@ public class EnemyHealth2 : MonoBehaviour
             {
                 FurySystem.FURY_IS_ACTIVE = true;
                 EnemyDead(meleeDeath);
+                GameObject sphere = Instantiate(healthPrefab, transform.position, Quaternion.identity);
             }
             else
             {
@@ -70,6 +72,7 @@ public class EnemyHealth2 : MonoBehaviour
     {
         if (isEnemyDead == false)
         {
+            
             GameObject newGameObject = Instantiate(enemyExp, transform.position, transform.rotation); 
             Destroy(newGameObject, 0.5f);
 
@@ -93,7 +96,7 @@ public class EnemyHealth2 : MonoBehaviour
         
         for (int i = 0; i < enemyModel.Length; i++)
         {
-            enemyModel[i].material.color = Color.red;
+            enemyModel[i].material = matHurt;
         }
         Invoke("ToggleNormalColor", 0.2f); //0.25
         

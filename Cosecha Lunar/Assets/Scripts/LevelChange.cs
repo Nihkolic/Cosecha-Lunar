@@ -88,11 +88,13 @@ public class LevelChange : MonoBehaviour
             Debug.Log(1 + " End");
         }
         if (currentArea == 2)
-        {
+        {/*
             pointSystem.ToResultsMenu(2);
             _player.transform.position = position_3.transform.position;
             CURRENT_LEVEL = 3;
-            Debug.Log(2 + " End");
+            Debug.Log(2 + " End");*/
+            pointSystem.ToResultsMenu(3);
+            LevelEnd();
         }
         if (currentArea == 3)
         {

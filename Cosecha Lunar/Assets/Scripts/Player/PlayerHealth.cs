@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
         MaxHealth = 200;
-        CurrentHealth = MaxHealth;
+        CurrentHealth = MaxHealth - 50;
         playerHUD.UpdateHpBar(CurrentHealth, MaxHealth);
         PLAYER_IS_DEAD = false;
     }

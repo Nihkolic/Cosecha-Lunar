@@ -8,13 +8,13 @@ public class PlayerCombat : MonoBehaviour
     public Animator animator;
     public int selectedWeapon = 0;
 
-    bool hasBlaster;
+    public static bool hasBlaster;
     public GameObject meleeCam;
     public GameObject meleeScript;
-    public GameObject rangedCam;
-    public GameObject rangedScript;
+    public  GameObject rangedCam;
+    public  GameObject rangedScript;
 
-    [SerializeField] private MovementState state;
+    [SerializeField] public static MovementState state;
     public enum MovementState //dashing, atacking
     {
         melee,
@@ -27,7 +27,6 @@ public class PlayerCombat : MonoBehaviour
     }
     void Update()
     {
-        // Check input for weapon switching
         if (Input.GetAxis("Mouse ScrollWheel") != 0f)
         {
             if (hasBlaster)
@@ -41,11 +40,9 @@ public class PlayerCombat : MonoBehaviour
                     Melee();
                 }
             }
-        }/*
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0f)
-        {
-           
-        }*/
+        }
+
+
     }
     void Melee()
     {

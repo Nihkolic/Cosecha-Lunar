@@ -39,6 +39,9 @@ public class PlayerMeleeAttack : MonoBehaviour
                 //attackSfx.PlayAttack(num);
                 attackTimer = _attackTimer;
                 anim = !anim;
+
+                //PlayerCombat.rangedCam.SetActive(false);
+                //PlayerCombat.rangedScript.SetActive(false);
             }
         }
     }
