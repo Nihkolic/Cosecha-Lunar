@@ -98,7 +98,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = false;
         //cursorChange.SetActive(false);
 
-        gameAudio.volume = 0.8f;
+        gameAudio.volume = 0.45f;
     }
     public void ToQuit()
     {

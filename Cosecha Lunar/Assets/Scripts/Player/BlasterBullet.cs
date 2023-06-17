@@ -14,7 +14,7 @@ public class BlasterBullet : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             //GetComponent<Collider>().transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(20f);
-            other.transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(30f, false);
+            other.transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(40f, false);
             DestroyBullet();
         }
        
@@ -32,7 +32,7 @@ public class BlasterBullet : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             //GetComponent<Collider>().transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(20f);
-            other.transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(30f, false);
+            other.transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(40f, false);
             DestroyBullet();
         }
     }

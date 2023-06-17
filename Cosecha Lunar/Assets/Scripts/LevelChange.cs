@@ -45,7 +45,7 @@ public class LevelChange : MonoBehaviour
     }
     private void Update()
     {
-        LevelChangeDebug();
+       
     }
     public void Continue_Button() //Player Respawn
     {
@@ -57,14 +57,17 @@ public class LevelChange : MonoBehaviour
         if (CURRENT_LEVEL == 0)
         {
             _player.transform.position = position_0.transform.position;
+            gameAudio.PlayBackground(1);
         }
         if (CURRENT_LEVEL == 1)
         {
             _player.transform.position = position_1.transform.position;
+            gameAudio.PlayBackground(1);
         }
         if (CURRENT_LEVEL == 2)
         {
             _player.transform.position = position_2.transform.position;
+            gameAudio.PlayBackground(2);
         }
         if (CURRENT_LEVEL == 3)
         {
@@ -79,6 +82,7 @@ public class LevelChange : MonoBehaviour
             _player.transform.position = position_1.transform.position;
             CURRENT_LEVEL = 1;
             Debug.Log(0 + " End");
+
         }
         if (currentArea == 1)
         {
@@ -86,6 +90,7 @@ public class LevelChange : MonoBehaviour
             _player.transform.position = position_2.transform.position;
             CURRENT_LEVEL = 2;
             Debug.Log(1 + " End");
+
         }
         if (currentArea == 2)
         {/*
@@ -112,7 +117,7 @@ public class LevelChange : MonoBehaviour
         pauseMenu.PauseSettings();
 
         GAME_CANT_BE_PAUSED = true;
-    }
+    }/*
     private void LevelChangeDebug()
     {
         if (Input.GetKeyDown(KeyCode.Alpha0))
@@ -147,5 +152,5 @@ public class LevelChange : MonoBehaviour
             CURRENT_LEVEL = 3;
             gameAudio.PlayBackground(3);
         }
-    }
+    }*/
 }

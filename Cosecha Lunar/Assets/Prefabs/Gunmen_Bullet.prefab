@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9e301c4d5f3a23045a1f3eae1c2c25ec, type: 2}
+  - {fileID: 2100000, guid: 990a06ffeda43734e864d545330e132e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,5 +127,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3414f3e1020ee243a7d85001e3105df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blasterBulletDeath: {fileID: 544315450960670248, guid: 1294a5a0864ccae47ab6d604284d191b,
+  blasterBulletDeath: {fileID: 544315450960670248, guid: 9810dce7455c46847bc34718bd9bc477,
     type: 3}

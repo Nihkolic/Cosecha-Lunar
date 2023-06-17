@@ -16,7 +16,7 @@ public class GameAudio : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
     public void PlayBackground(int level)
-    {
+    {/*
         if (level == 1)
         {
             audioSource.clip = level1CLip;
@@ -32,11 +32,11 @@ public class GameAudio : MonoBehaviour
         {
             audioSource.clip = level3CLip;
             audioSource.Play();
-        }
+        }*/
     }
     public void PlayResults()
     {
-        audioSource.clip = resultsCLip;
-        audioSource.Play();
+        //audioSource.clip = resultsCLip;
+        //audioSource.Play();
     }
 }
