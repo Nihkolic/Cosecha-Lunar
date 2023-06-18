@@ -5,9 +5,9 @@ using UnityEngine.AI;
 
 public class AIEnemigo : MonoBehaviour
 {
-    [SerializeField] private Renderer meshRenderer;
-    [SerializeField] private Material idleMaterial;
-    [SerializeField] private Material attackMaterial;
+    //[SerializeField] private Renderer meshRenderer;
+    //[SerializeField] private Material idleMaterial;
+    //[SerializeField] private Material attackMaterial;
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private float distance;
     [SerializeField] private float waitingTime;
@@ -46,7 +46,7 @@ public class AIEnemigo : MonoBehaviour
           // Simulación de update.
         {
 
-            meshRenderer.material = idleMaterial;
+            //meshRenderer.material = idleMaterial;
             ChangePose(false, false, true);
             // Asigna un material al Mesh Renderer cuando el objeto está en movimiento.
 
@@ -57,7 +57,7 @@ public class AIEnemigo : MonoBehaviour
                 yield return null;
             }
 
-            meshRenderer.material = attackMaterial;
+            //meshRenderer.material = attackMaterial;
             ChangePose(false, true, false);
             // Asigna un material al mesh renderer cuando está en "Ataque"
 

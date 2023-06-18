@@ -5,14 +5,12 @@ using UnityEngine;
 public class EnemyHealth2 : MonoBehaviour
 {
     [Header("Materials")]
-    [SerializeField] private GameObject model;
     [SerializeField] Renderer[] enemyModel;
 
     [Header("Materials")]
     [SerializeField] private Renderer rendBody;
     [SerializeField] private Material matCurrent;
     [SerializeField] private Material matHurt;
-    private Color _normalColor;
 
     [Header("Other")]
     [SerializeField] private float enemyHealth = 100f;
@@ -57,7 +55,6 @@ public class EnemyHealth2 : MonoBehaviour
         {
             if (isWeaponMelee)
             {
-                
                 EnemyDead(meleeDeath);
                 GameObject sphere = Instantiate(healthPrefab, transform.position, Quaternion.identity);
 

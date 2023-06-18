@@ -20,7 +20,7 @@ TagManager:
   - Enemy_Floor
   - Player_Weapon
   - Wall
-  - 
+  - Ignore P_Attack
   - 
   - 
   - 

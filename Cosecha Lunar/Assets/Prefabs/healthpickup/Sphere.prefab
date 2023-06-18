@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5175041597720528512}
   - component: {fileID: 5608785303880475886}
   - component: {fileID: 2855386907296332209}
+  - component: {fileID: 3765496312384173081}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -64,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 86ca3ae18b6ee474a9d014330e1cf1ec, type: 2}
+  - {fileID: 2100000, guid: 5f53f1784b9c19446b61d231928ca323, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,6 +116,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3765496312384173081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042497816672355472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc15a9ea6c815147a3ec767b5acf89f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinSpeed: 150
+  bounceSpeed: 1
+  height: 0.4
 --- !u!1001 &7086960117446690726
 PrefabInstance:
   m_ObjectHideFlags: 0

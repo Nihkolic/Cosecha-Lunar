@@ -45,7 +45,7 @@ public class LevelChange : MonoBehaviour
     }
     private void Update()
     {
-       
+        LevelChangeDebug();
     }
     public void Continue_Button() //Player Respawn
     {
@@ -117,7 +117,7 @@ public class LevelChange : MonoBehaviour
         pauseMenu.PauseSettings();
 
         GAME_CANT_BE_PAUSED = true;
-    }/*
+    }
     private void LevelChangeDebug()
     {
         if (Input.GetKeyDown(KeyCode.Alpha0))
@@ -152,5 +152,5 @@ public class LevelChange : MonoBehaviour
             CURRENT_LEVEL = 3;
             gameAudio.PlayBackground(3);
         }
-    }*/
+    }
 }
