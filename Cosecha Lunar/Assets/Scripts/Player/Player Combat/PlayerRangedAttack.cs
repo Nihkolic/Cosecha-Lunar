@@ -63,6 +63,7 @@ public class PlayerRangedAttack : MonoBehaviour
 
         allowButtonHold = false;
 
+        PlayerCombat.FURY_CAN_BE_ON = true;
     }
     private void MyInput()
     {
@@ -138,8 +139,8 @@ public class PlayerRangedAttack : MonoBehaviour
         }
         else if(!FurySystem.FURY_IS_ACTIVE && furyHasBeenActivated)
         {
-            shootForce = 120;
-            timeBetweenShooting = 0.2f;
+            shootForce = 125;
+            timeBetweenShooting = 0.15f;
             _currentBullet = bulletBasic;
 
             furyHasBeenActivated = false;

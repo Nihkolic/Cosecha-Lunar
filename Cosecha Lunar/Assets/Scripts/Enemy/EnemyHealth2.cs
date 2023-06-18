@@ -24,7 +24,7 @@ public class EnemyHealth2 : MonoBehaviour
     {
         isEnemyDead = false;
         //_normalColor = model.GetComponent<Renderer>().material.color;
-        enemyHealth = 100f;
+        enemyHealth = 160f;
     }
     private void Update()
     {
