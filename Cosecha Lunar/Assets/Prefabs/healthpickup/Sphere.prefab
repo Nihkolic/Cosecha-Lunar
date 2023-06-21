@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinSpeed: 150
-  bounceSpeed: 1
+  bounceSpeed: 2
   height: 0.4
 --- !u!1001 &7086960117446690726
 PrefabInstance:
@@ -243,7 +243,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.2
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &132084739682971339
 MonoBehaviour:
