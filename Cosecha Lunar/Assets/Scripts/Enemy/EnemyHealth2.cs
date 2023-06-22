@@ -109,5 +109,12 @@ public class EnemyHealth2 : MonoBehaviour
             enemyModel[i].material = matCurrent;
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Acid"))
+        {
+            DamageEnemy(300f, false);
+        }
 
+    }
 }
