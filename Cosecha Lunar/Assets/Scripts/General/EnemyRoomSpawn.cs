@@ -85,10 +85,12 @@ public class EnemyRoomSpawn : MonoBehaviour
     }
     public void CloseTheDoors() //when you enter
     {
-        Invoke("SpawnRound01", 1.0f);
+        //Invoke("SpawnRound01", 1.0f);
+        SpawnRound01();
         if (areGunmenHere)
         {
-            Invoke("SpawnRound01_Gunmen", 1.0f);
+            //Invoke("SpawnRound01_Gunmen", 1.0f);
+            SpawnRound01_Gunmen();
         }
         DoorsAnimation(animClose);
         hasEntered = true;
@@ -143,7 +145,8 @@ public class EnemyRoomSpawn : MonoBehaviour
     {
         if (numRounds > 0)
         {
-            Invoke("SpawnRound02", 1.0f);
+            //Invoke("SpawnRound02", 1.0f);
+            SpawnRound02();
         }
         else if(numRounds == 0)
         {
