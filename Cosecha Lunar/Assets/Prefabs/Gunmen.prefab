@@ -101,7 +101,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.65, y: 5.6615496, z: 4.863798}
+  m_Size: {x: 4.7, y: 5.8, z: 5}
   m_Center: {x: 1.86177e-16, y: 0.05922556, z: 0.2368989}
 --- !u!1 &4918455793051694754
 GameObject:
@@ -249,7 +249,7 @@ MonoBehaviour:
   walkPointRange: 32
   timeBetweenAttacks: 0.8
   isDead: 0
-  sightRange: 4
+  sightRange: 5.5
   attackRange: 125
   playerInSightRange: 0
   playerInAttackRange: 0

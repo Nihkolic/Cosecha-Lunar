@@ -15,6 +15,10 @@ public class PlayerHealth : MonoBehaviour
     private LevelChange levelChange;
 
     public static bool PLAYER_IS_DEAD;
+    private void Update()
+    {
+        HintCheck();
+    }
     private void Start()
     {
         MaxHealth = 200;
@@ -66,4 +70,16 @@ public class PlayerHealth : MonoBehaviour
     {
         PLAYER_IS_DEAD = false;
     }
+    void HintCheck()
+    {
+        // Calculate the health percentage
+        float healthPercentage = (float)CurrentHealth / MaxHealth;
+
+        // Check if health is below 10%
+        if (healthPercentage < 0.15f)
+        {
+            playerHUD.ShowHealthMessage();   
+        }
+    }
+
 }

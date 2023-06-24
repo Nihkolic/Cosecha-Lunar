@@ -12,9 +12,13 @@ public class PlayerHUD : MonoBehaviour
     [SerializeField] private TMP_Text textHP;
     [SerializeField] private TMP_Text textRoomName;
 
+    public GameObject healthMessageText;
+    private bool messageShown = false;
     private void Start()
     {
         //textHP.text = ("  " + CurrentHealth.ToString());
+        healthMessageText.SetActive(false);
+        messageShown = false;
     }
     public void UpdateHpBar(int currentHealth, int maxHealth)
     {
@@ -35,5 +39,31 @@ public class PlayerHUD : MonoBehaviour
         {
             screenEffect.Play("ScreenEffects_Heal");
         }
+    }
+    public void ShowHealthMessage()
+    {
+        if (!messageShown)
+        {
+            healthMessageText.SetActive(true);
+            messageShown = true;
+
+            StartCoroutine(HideMessageAfterDelay(4f));
+        }
+    }
+
+    public void HideHealthMessage()
+    {
+        if (messageShown)
+        {
+            healthMessageText.SetActive(false);
+            messageShown = false;
+        }
+    }
+    private IEnumerator HideMessageAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        // Hide the message
+        HideHealthMessage();
     }
 }

@@ -10,8 +10,8 @@ public class AttackCollisions : MonoBehaviour
 	{
 		if (collider.gameObject.layer == LayerMask.NameToLayer("Enemy"))
 		{
-			collider.transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(60f,true);
-			Player.GetComponent<PlayerHealth>().Revenge(10);
+			collider.transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(30f,true);
+			//Player.GetComponent<PlayerHealth>().Revenge(10);
 		}
 	}
 }
