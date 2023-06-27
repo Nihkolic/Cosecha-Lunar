@@ -11,8 +11,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private PlayerHUD playerHUD;
     //public PlayerSfx playerSfx;
 
-    [SerializeField]
-    private LevelChange levelChange;
+    [SerializeField] private LevelChange levelChange;
+    [SerializeField] private ScoreSystem scoreSystem;
 
     public static bool PLAYER_IS_DEAD;
     private void Update()
@@ -32,6 +32,7 @@ public class PlayerHealth : MonoBehaviour
         CheckHP();
         playerHUD.UpdateHpBar(CurrentHealth, MaxHealth);
         playerHUD.ScreenEffect(0);
+        scoreSystem.SkillReduceScore(amount);
         //playerSfx.PlayHurt();
     }
     public void Heal(int amount)
@@ -76,7 +77,7 @@ public class PlayerHealth : MonoBehaviour
         float healthPercentage = (float)CurrentHealth / MaxHealth;
 
         // Check if health is below 10%
-        if (healthPercentage < 0.15f)
+        if (healthPercentage < 0.55f)
         {
             playerHUD.ShowHealthMessage();   
         }

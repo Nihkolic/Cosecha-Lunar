@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyHealth2 : MonoBehaviour
 {
+    [SerializeField] private bool isEnemyAGunmen;
+    private ScoreSystem scoreSystem;
+
     [Header("Materials")]
     [SerializeField] Renderer[] enemyModel;
 
@@ -25,6 +28,7 @@ public class EnemyHealth2 : MonoBehaviour
         isEnemyDead = false;
         //_normalColor = model.GetComponent<Renderer>().material.color;
         enemyHealth = 160f;
+        scoreSystem = FindAnyObjectByType<ScoreSystem>();
     }
     private void Update()
     {
@@ -72,13 +76,25 @@ public class EnemyHealth2 : MonoBehaviour
     {
         if (isEnemyDead == false)
         {
-            
+            EnemyScore();
             GameObject newGameObject = Instantiate(enemyExp, transform.position, transform.rotation); 
             Destroy(newGameObject, 0.5f);
 
+            Destroy(transform.parent.gameObject);
             isEnemyDead = true;
         }
-        Destroy(transform.parent.gameObject);
+        
+    }
+    void EnemyScore()
+    {
+        if (isEnemyAGunmen)
+        {
+            scoreSystem.SlaughterAddScore(2);
+        }
+        else
+        {
+            scoreSystem.SlaughterAddScore(1);
+        }
     }
     IEnumerator Back()
     {

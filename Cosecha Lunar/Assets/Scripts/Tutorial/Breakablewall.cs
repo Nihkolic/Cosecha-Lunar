@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Breakablewall : MonoBehaviour
-{
+{/*
     [SerializeField] Renderer[] enemyModel;
 
     [SerializeField] private Material matCurrent;
@@ -13,7 +13,7 @@ public class Breakablewall : MonoBehaviour
     [SerializeField] private float enemyHealth = 100f;
     [SerializeField] private bool isEnemyDead;
 
-    [SerializeField] private GameObject deathVFX;
+    [SerializeField] private GameObject deathVFX;*/
 
     private void OnDestroy()
     {

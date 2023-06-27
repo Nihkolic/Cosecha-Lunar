@@ -7,7 +7,7 @@ public class LevelChange : MonoBehaviour
     [SerializeField] private PointSystem pointSystem;
     public static bool GAME_CANT_BE_PAUSED = false;
 
-    private GameObject _player;
+    [SerializeField] private GameObject _player;
     [SerializeField] private Transform position_0;
     [SerializeField] private Transform position_1;
     [SerializeField] private Transform position_2;
@@ -17,7 +17,7 @@ public class LevelChange : MonoBehaviour
 
     [SerializeField] private GameAudio gameAudio;
 
-    [SerializeField] private GameObject playerBody;
+    //[SerializeField] private GameObject playerBody;
     [SerializeField] private GameObject playerCamera;
 
     public static int CURRENT_LEVEL;
@@ -27,15 +27,17 @@ public class LevelChange : MonoBehaviour
     [SerializeField] private PauseMenu pauseMenu;
     private void Awake()
     {
-        _player = GameObject.FindWithTag("Player");
+        //_player = GameObject.FindWithTag("Player");
         _player.transform.position = position_0.transform.position;
         CURRENT_LEVEL = 0;
+
+        endPanel.SetActive(false);
+        deathPanel.SetActive(false);
 
     }
     private void Start()
     {
-        endPanel.SetActive(false);
-        deathPanel.SetActive(false);
+        
     }
     public void PlayerDeath()
     {
@@ -93,24 +95,22 @@ public class LevelChange : MonoBehaviour
 
         }
         if (currentArea == 2)
-        {/*
+        {
             pointSystem.ToResultsMenu(2);
             _player.transform.position = position_3.transform.position;
             CURRENT_LEVEL = 3;
-            Debug.Log(2 + " End");*/
-            pointSystem.ToResultsMenu(3);
-            LevelEnd();
+            Debug.Log(2 + " End");
         }
         if (currentArea == 3)
         {
             pointSystem.ToResultsMenu(3);
-            LevelEnd();
+            GameEnd();
 
             Debug.Log(3 + " End");
         }
         GAME_CANT_BE_PAUSED = true;
     }
-    public void LevelEnd()
+    public void GameEnd()
     {
         endPanel.SetActive(true);
 
@@ -153,4 +153,28 @@ public class LevelChange : MonoBehaviour
             gameAudio.PlayBackground(3);
         }
     }
+    void NextArea(int nextArea) 
+    { 
+        if(nextArea == 0)
+        {
+            CURRENT_LEVEL = 0;
+            print("Area Zero");
+        }
+        else if(nextArea == 1)
+        {
+            CURRENT_LEVEL = 1;
+            print("Area Uno");
+        }
+        else if (nextArea == 2)
+        {
+            CURRENT_LEVEL = 2;
+            print("Nivel Dos");
+        }
+        else if (nextArea == 2)
+        {
+            CURRENT_LEVEL = 3;
+            print("Nivel Tres");
+        }
+    }
+
 }

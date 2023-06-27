@@ -15,7 +15,10 @@ public class PointSystem : MonoBehaviour
 
     int currentLevel;
 
-    private void Start()
+    [SerializeField] private ScoreSystem scoreSystem;
+    [SerializeField] private TMP_Text skillText;
+    [SerializeField] private TMP_Text slaugtherText;
+    private void Awake()
     {
         resultsPanel.SetActive(false);
     }
@@ -48,6 +51,9 @@ public class PointSystem : MonoBehaviour
         pauseMenu.PauseSettings();
         resultsPanel.SetActive(true);
         gameAudio.PlayResults();
+
+        skillText.text = scoreSystem.SkillGetScore().ToString();
+        slaugtherText.text = scoreSystem.SlaughterGetScore().ToString();
 
         if (nivel == 0)
         {

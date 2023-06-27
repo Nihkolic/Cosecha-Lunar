@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7528a666031e97a478206c454d1871e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnemyAGunmen: 1
   enemyModel:
   - {fileID: 8432351842793636107}
   - {fileID: 7531376217512605651}
