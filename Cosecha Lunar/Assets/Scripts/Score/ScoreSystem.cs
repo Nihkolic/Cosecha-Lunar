@@ -16,8 +16,6 @@ public class ScoreSystem : MonoBehaviour
     [SerializeField] private TMP_Text slaugtherText;
     [SerializeField] private TMP_Text skillText;
 
-    private int score = 0;   
-
     void Start()
     {
         ResetScore();
@@ -31,7 +29,7 @@ public class ScoreSystem : MonoBehaviour
     }
     public void SkillReduceScore(int damageTaken)
     {
-        skillPoints -= damageTaken;
+        skillPoints -= (damageTaken*20);
        
         skillText.text = "Skill: " + skillPoints.ToString();
     }

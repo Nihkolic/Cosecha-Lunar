@@ -27,7 +27,6 @@ public class EnemyHealth2 : MonoBehaviour
     {
         isEnemyDead = false;
         //_normalColor = model.GetComponent<Renderer>().material.color;
-        enemyHealth = 160f;
         scoreSystem = FindAnyObjectByType<ScoreSystem>();
     }
     private void Update()

@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7528a666031e97a478206c454d1871e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isEnemyAGunmen: 0
   enemyModel:
   - {fileID: 8495904251708695258}
   - {fileID: 877797016671730063}
@@ -227,7 +228,7 @@ MonoBehaviour:
   rendBody: {fileID: 526759019934874817}
   matCurrent: {fileID: 2100000, guid: cca47217b348e4042ae2c264977a8ecc, type: 2}
   matHurt: {fileID: 2100000, guid: a182fd7de8d9ccd429663ffc13082d6a, type: 2}
-  enemyHealth: 80
+  enemyHealth: 160
   isEnemyDead: 0
   meleeDeath: {fileID: 7240565817734809396, guid: 1b360fc14f1aa3845918ed1397500456,
     type: 3}

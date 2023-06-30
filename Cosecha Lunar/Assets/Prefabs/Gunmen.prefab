@@ -67,7 +67,7 @@ MonoBehaviour:
   rendBody: {fileID: 4585234799542220969}
   matCurrent: {fileID: 2100000, guid: 990a06ffeda43734e864d545330e132e, type: 2}
   matHurt: {fileID: 2100000, guid: a182fd7de8d9ccd429663ffc13082d6a, type: 2}
-  enemyHealth: 100
+  enemyHealth: 80
   isEnemyDead: 0
   meleeDeath: {fileID: 7240565817734809396, guid: 1b360fc14f1aa3845918ed1397500456,
     type: 3}

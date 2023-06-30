@@ -10,7 +10,6 @@ public class PlayerHUD : MonoBehaviour
 
     [SerializeField] private Animator screenEffect;
     [SerializeField] private TMP_Text textHP;
-    [SerializeField] private TMP_Text textRoomName;
 
     public GameObject healthMessageText;
     private bool messageShown = false;
