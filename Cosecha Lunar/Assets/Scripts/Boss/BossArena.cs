@@ -8,7 +8,7 @@ public class BossArena : MonoBehaviour
     [SerializeField] GameObject[] round_2;
 
     bool hasBeenActivated, hasEntered;
-    public static int numberOfEnemies;
+    //public static int numberOfEnemies;
     bool _isEnemyCheckOn;
     Animator _animatorDoors;
 
@@ -21,6 +21,7 @@ public class BossArena : MonoBehaviour
     [SerializeField] private BossAI bossAI;
 
     public static bool IS_BULLA_ENABLED;
+
     private void Awake()
     {
         _animatorDoors = GetComponentInChildren<Animator>();
@@ -38,14 +39,15 @@ public class BossArena : MonoBehaviour
             EnemyCheck();
 
         Reset();
+        Debug.Log(EnemyRoomSpawn.numberOfEnemies + "szdfasf");
     }
     void EnemyCheck()
     {
-        if (numberOfEnemies == 0 && hasEntered) //check if all the enemies are dead
+        if (EnemyRoomSpawn.numberOfEnemies == 0 && hasEntered) //check if all the enemies are dead
         {
             _isEnemyCheckOn = false;
             bossAI.NextBossPhase();
-
+            hasEntered = false;
            
         }
     }
@@ -94,8 +96,7 @@ public class BossArena : MonoBehaviour
         {
             Instantiate(nibbler, round_1[i].transform.position, round_1[i].transform.rotation);
         }
-        _isEnemyCheckOn = true;
-        hasEntered = true;
+        StartCoroutine(DelayMethod());
         Debug.Log("spawn 01");
     }
     public void SpawnRound_2()
@@ -104,8 +105,19 @@ public class BossArena : MonoBehaviour
         {
             Instantiate(nibbler, round_2[i].transform.position, round_2[i].transform.rotation);
         }
+        StartCoroutine(DelayMethod());
+        Debug.Log("spawn 02");
+    }
+    private IEnumerator DelayMethod()
+    {
+        Debug.Log("Method execution started.");
+
+        yield return new WaitForSeconds(0.5f); // Delay for 1 second
+
+        Debug.Log("Method execution resumed after 1 second.");
+       
         _isEnemyCheckOn = true;
         hasEntered = true;
-        Debug.Log("spawn 02");
+
     }
 }

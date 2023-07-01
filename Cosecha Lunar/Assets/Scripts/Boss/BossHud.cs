@@ -15,6 +15,17 @@ public class BossHud : MonoBehaviour
     {
         HealthBar.SetActive(false);
     }
+    private void Update()
+    {
+        if (BossArena.IS_BULLA_ENABLED)
+        {
+            HealthBar.SetActive(true);
+        }
+        else
+        {
+            HealthBar.SetActive(false);
+        }
+    }
     public void UpdateHpBar(int currentHealth, int maxHealth, int healthNum)
     {
         if(healthNum == 1)

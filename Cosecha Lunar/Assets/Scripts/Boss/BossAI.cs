@@ -53,6 +53,7 @@ public class BossAI : MonoBehaviour
     public void NextBossPhase()
     {
         currentPhase++;
+
     }
     public void NextNibblerPhase()
     {

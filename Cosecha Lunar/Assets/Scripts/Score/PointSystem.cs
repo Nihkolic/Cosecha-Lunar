@@ -18,6 +18,7 @@ public class PointSystem : MonoBehaviour
     [SerializeField] private ScoreSystem scoreSystem;
     [SerializeField] private TMP_Text skillText;
     [SerializeField] private TMP_Text slaugtherText;
+    [SerializeField] private TMP_Text totalText;
     private void Awake()
     {
         resultsPanel.SetActive(false);
@@ -54,6 +55,7 @@ public class PointSystem : MonoBehaviour
 
         skillText.text = scoreSystem.SkillGetScore().ToString();
         slaugtherText.text = scoreSystem.SlaughterGetScore().ToString();
+        totalText.text = (scoreSystem.SkillGetScore()+ scoreSystem.SlaughterGetScore()).ToString();
 
         if (nivel == 0)
         {
