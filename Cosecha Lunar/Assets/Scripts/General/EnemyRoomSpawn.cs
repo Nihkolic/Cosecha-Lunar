@@ -132,7 +132,7 @@ public class EnemyRoomSpawn : MonoBehaviour
             round02[i].SetActive(true);
         }
         _isEnemyCheckOn = true;
-        numRounds=0;
+        numRounds = 0;
     }
     void EnemyCheck()
     {

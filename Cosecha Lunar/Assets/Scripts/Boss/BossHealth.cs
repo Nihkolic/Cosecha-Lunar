@@ -15,7 +15,9 @@ public class BossHealth : MonoBehaviour
     [SerializeField] private Material matHurt;
 
     [Header("Other")]
-    private int _currentHealth;
+    private int _currentHealth_1;
+    private int _currentHealth_2;
+    private int _currentHealth_3;
     [SerializeField] private int maxHealth;
     [SerializeField] private bool isEnemyDead;
     private bool _isBossResting;
@@ -24,15 +26,19 @@ public class BossHealth : MonoBehaviour
     [SerializeField] private GameObject meleeDeath;
     [SerializeField] private GameObject bulletDeath;
 
-    [SerializeField] private GameObject goEnemySpawn;
+    //[SerializeField] private GameObject goEnemySpawn;
     [SerializeField] private GameObject healthPrefab;
+    BossAI bossAI;
     private void Start()
     {
         isEnemyDead = false;
         _isBossResting = false;
         //_normalColor = model.GetComponent<Renderer>().material.color;
         scoreSystem = FindAnyObjectByType<ScoreSystem>();
-        _currentHealth = maxHealth;
+        _currentHealth_1 = maxHealth;
+        _currentHealth_2 = maxHealth;
+        _currentHealth_3 = maxHealth;
+        bossAI = GetComponentInParent<BossAI>();
     }
     private void Update()
     {
@@ -40,7 +46,6 @@ public class BossHealth : MonoBehaviour
         {
             Destroy(transform.parent.gameObject);
         }
-        print("BULLA: "+ _currentHealth);
     }
     private void OnDestroy()
     {
@@ -51,29 +56,41 @@ public class BossHealth : MonoBehaviour
     {
         //EnemyRoomSpawn.numberOfEnemies++;
 
-        GameObject newGameObject = Instantiate(goEnemySpawn, transform.position, transform.rotation); ;
-        Destroy(newGameObject, 0.5f);
+        //GameObject newGameObject = Instantiate(goEnemySpawn, transform.position, transform.rotation);
+        //Destroy(newGameObject, 0.5f);
+
+        _currentHealth_1 = maxHealth;
+        _currentHealth_2 = maxHealth;
+        _currentHealth_3 = maxHealth;
     }
     public void DamageEnemy(int deductHealth, bool isWeaponMelee)
     {
         if (!isEnemyDead && !_isBossResting)
         {
-            TakeDamage(deductHealth);
+            TakeDamage(deductHealth, bossAI.GetCurrentPhase());
         }
-        if (_currentHealth <= 0)
+        if (_currentHealth_1 <= 0 && bossAI.GetCurrentPhase() == 1)
+        {
+            bossAI.NextNibblerPhase();
+        }
+        if (_currentHealth_2 <= 0 && bossAI.GetCurrentPhase() == 3)
+        {
+            bossAI.NextNibblerPhase();
+        }
+        if (_currentHealth_3 <= 0 && bossAI.GetCurrentPhase() == 5)
         {
             BossDeath();
         }
 
     }
-    void BossRest()
+    public void BossRest()
     {
         if (!_isBossResting)
         {
             _isBossResting = true;
         }
     }
-    void BossAwake()
+    public void BossAwake()
     {
         if (_isBossResting)
         {
@@ -98,14 +115,26 @@ public class BossHealth : MonoBehaviour
         scoreSystem.SlaughterAddScore(3);
 
     }
-    void TakeDamage(int deductHealth)
+    void TakeDamage(int deductHealth, int currentPhase)
     {
-        _currentHealth -= deductHealth;
+        switch (currentPhase)
+        {
+            case 1:
+                _currentHealth_1 -= deductHealth;
+                bossHud.UpdateHpBar(_currentHealth_1, maxHealth, 1);
+                break;
+            case 3:
+                _currentHealth_2 -= deductHealth;
+                bossHud.UpdateHpBar(_currentHealth_2, maxHealth, 2);
+                break;
+            case 5:
+                _currentHealth_3 -= deductHealth;
+                bossHud.UpdateHpBar(_currentHealth_3, maxHealth, 3);
+                break;
+        }
         //rendBody.material = matHurt;
         //sfx here
         //rendBody.material.color = Color.red;
-
-        bossHud.UpdateHpBar(_currentHealth, maxHealth);
 
         for (int i = 0; i < enemyModel.Length; i++)
         {
