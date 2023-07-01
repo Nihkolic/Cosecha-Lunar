@@ -10,4 +10,12 @@ public class AnimEvents : MonoBehaviour
     {
         compAttack.Play(animIdle);
     }
+    public void ToIddle() //nibler
+    {
+        GetComponent<Animator>().Play("Walk");
+    }
+    public void ToIddleGunmen() 
+    {
+        GetComponent<Animator>().Play("Idle");
+    }
 }

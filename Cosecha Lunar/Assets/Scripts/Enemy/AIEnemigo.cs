@@ -19,12 +19,14 @@ public class AIEnemigo : MonoBehaviour
     [SerializeField] private GameObject nib_Idlee;
     [SerializeField] private GameObject nib_Attack;
     [SerializeField] private GameObject nib_Chase;
+    Animator _animator;
 
     private void Awake()
     {
         IA = GetComponent<NavMeshAgent>();
-        ChangePose(true, false, false);
+        //ChangePose(true, false, false);
         Target = GameObject.FindWithTag("Player").transform;
+        _animator = GetComponentInChildren<Animator>();
     }
     private void Start()
     {
@@ -47,7 +49,8 @@ public class AIEnemigo : MonoBehaviour
         {
 
             //meshRenderer.material = idleMaterial;
-            ChangePose(false, false, true);
+            //ChangePose(false, false, true);
+            _animator.Play("Walk");
             // Asigna un material al Mesh Renderer cuando el objeto está en movimiento.
 
             while (Vector3.Distance(Target.position, transform.position) > distance) 
@@ -58,7 +61,8 @@ public class AIEnemigo : MonoBehaviour
             }
 
             //meshRenderer.material = attackMaterial;
-            ChangePose(false, true, false);
+            //ChangePose(false, true, false);
+            _animator.Play("Attack");
             // Asigna un material al mesh renderer cuando está en "Ataque"
 
             Rigidbody rigidbody = gameObject.AddComponent<Rigidbody>(); 

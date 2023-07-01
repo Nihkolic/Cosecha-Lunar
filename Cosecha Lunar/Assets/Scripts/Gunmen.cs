@@ -32,11 +32,13 @@ public class Gunmen : MonoBehaviour
 
     [SerializeField] private GameObject gun_idle;
     [SerializeField] private GameObject gun_run;
+    Animator _animator;
     private void Awake()
     {
         player = GameObject.FindWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
-        ChangePose(true, false);
+        //ChangePose(true, false);
+        _animator = GetComponentInChildren<Animator>();
     }
     void ChangePose(bool idlee, bool run)
     {
@@ -58,14 +60,13 @@ public class Gunmen : MonoBehaviour
             if (playerInAttackRange && playerInSightRange) AttackPlayer();*/
 
             //if (!playerInSightRange && !playerInAttackRange) Idle();
-            //if (playerInSightRange && playerInAttackRange) RunFromPlayer();
+            if (playerInSightRange && playerInAttackRange) Idle();
             if (playerInAttackRange && !playerInSightRange) AttackPlayer();
         }
     }
     void Idle()
     {
-        //agent.SetDestination(transform.position);
-        ChangePose(true, false);
+        _animator.Play("Idle");
     }
     void RunFromPlayer()
     {
@@ -121,7 +122,8 @@ public class Gunmen : MonoBehaviour
     private void AttackPlayer()
     {
         if (isDead) return;
-        ChangePose(true, false);
+        _animator.Play("Idle");
+
         //Make sure enemy doesn't move
         //agent.SetDestination(transform.position);
         if (!playerInSightRange)
