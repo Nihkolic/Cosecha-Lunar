@@ -39,7 +39,6 @@ public class BossArena : MonoBehaviour
             EnemyCheck();
 
         Reset();
-        Debug.Log(EnemyRoomSpawn.numberOfEnemies + "szdfasf");
     }
     void EnemyCheck()
     {
