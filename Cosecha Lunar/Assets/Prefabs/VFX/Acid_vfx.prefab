@@ -9638,7 +9638,7 @@ GameObject:
   - component: {fileID: 5546944127065442123}
   - component: {fileID: 5546944127065442122}
   m_Layer: 0
-  m_Name: Acid_vfx
+  m_Name: Acid_VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

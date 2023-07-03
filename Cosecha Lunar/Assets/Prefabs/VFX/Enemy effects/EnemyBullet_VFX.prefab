@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2880430484823951290}
   - component: {fileID: 2788535064897013532}
   m_Layer: 5
-  m_Name: gunmen
+  m_Name: EnemyBullet_VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.42352942, g: 0.92941177, b: 0.92941177, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

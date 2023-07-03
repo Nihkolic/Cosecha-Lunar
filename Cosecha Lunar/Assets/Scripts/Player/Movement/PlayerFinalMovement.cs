@@ -64,6 +64,8 @@ public class PlayerFinalMovement : MonoBehaviour
     [SerializeField] private TMP_Text saltoText;
 
     PlayerAudio playerAudio;
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -276,6 +278,7 @@ public class PlayerFinalMovement : MonoBehaviour
             if (hasFallen)
             {
                 //playerSfx.PlayFall();
+
                 hasFallen = false;
                 jumps = true;
             }
@@ -285,6 +288,7 @@ public class PlayerFinalMovement : MonoBehaviour
             hasFallen = true;
         }
     }
+
     void Drop()
     {/*
         if (!IsGrounded())

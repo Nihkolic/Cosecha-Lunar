@@ -21,21 +21,39 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: NibblerHurt_MAT
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ValidKeywords:
-  - _EMISSION
-  - _METALLICSPECGLOSSMAP
+  m_Shader: {fileID: -6465566751694194690, guid: e88c9b44b880bea4fa0aee0f7c62be3b,
+    type: 3}
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_2D8E0C75:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_4d49ef5f23294253aa47dac7885c8334:
+        m_Texture: {fileID: 2800000, guid: 9184f324da1d7e34ca80687f674b0841, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_D52397A5:
+        m_Texture: {fileID: 2800000, guid: 16ecae9738e19c3498d51787c879026c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_ac46e04d2b4343fbb2bcd89116968393:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_cc9d94643ccc48259f5e1411558a08bf:
+        m_Texture: {fileID: 2800000, guid: 891753f1da9addd4a9925ae4d3e9bb69, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: 1dd3ed7c894f55f458909ceac4b33d08, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -57,7 +75,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 700b6d458eecb5a4897ad89707cc6a5f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -94,6 +112,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - Vector1_3803E86D: 0.05
+    - Vector1_4258C632: 0.1
+    - Vector1_48d0e16c4adc47ceac62aeecf775d4a6: 20
+    - Vector1_4b578aa85dc646d6824c471363527dc7: 5
+    - Vector1_8ADEDED5: 0.6
+    - Vector1_8BB708FF: 5
+    - Vector1_A41DB2B3: 0.1
+    - Vector1_B847FAE5: 5
+    - Vector1_f819045e97b84581b65b98b13899bcc6: 0.6
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 0
@@ -111,6 +138,7 @@ Material:
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 1
@@ -121,8 +149,17 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_5A29FF9E: {r: 0.4710306, g: 0.6886792, b: 0.4828513, a: 0}
+    - Color_7b8a7a110a084231bd06c3becd83ecda: {r: 1, g: 1, b: 1, a: 0}
+    - Color_9ee652ee4d5643228996135d7e861b6f: {r: 3.105882, g: 3.105882, b: 3.105882,
+        a: 1}
+    - Color_BB588D2D: {r: 2, g: 0.6980392, b: 0.1803922, a: 0}
+    - Color_BE04FA87: {r: 0, g: 4.481675, b: 7.999999, a: 0}
+    - Color_c6631fcbb4a84d798427e57487ffed3d: {r: 0.8396226, g: 0.8396226, b: 0.8396226,
+        a: 1}
+    - Vector2_2181DF03: {r: 1, g: 3, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 1.8509804, g: 0.03137255, b: 0, a: 1}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

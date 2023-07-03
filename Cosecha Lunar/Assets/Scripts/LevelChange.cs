@@ -96,9 +96,10 @@ public class LevelChange : MonoBehaviour
         }
         if (currentArea == 2)
         {
+            GameEnd();/*
             pointSystem.ToResultsMenu(2);
             _player.transform.position = position_3.transform.position;
-            CURRENT_LEVEL = 3;
+            CURRENT_LEVEL = 3;*/
             Debug.Log(2 + " End");
         }
         if (currentArea == 3)
