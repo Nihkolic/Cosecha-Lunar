@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelChange : MonoBehaviour
 {
-    [SerializeField] private PointSystem pointSystem;
+    [SerializeField] private ResultsMenu pointSystem;
     public static bool GAME_CANT_BE_PAUSED = false;
 
     [SerializeField] private GameObject _player;
@@ -118,6 +118,8 @@ public class LevelChange : MonoBehaviour
         pauseMenu.PauseSettings();
 
         GAME_CANT_BE_PAUSED = true;
+
+        pointSystem.SaveScore();
     }
     private void LevelChangeDebug()
     {

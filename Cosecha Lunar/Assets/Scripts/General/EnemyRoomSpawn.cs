@@ -129,7 +129,8 @@ public class EnemyRoomSpawn : MonoBehaviour
     {
         for (int i = 0; i < round02.Length; i++)
         {
-            round02[i].SetActive(true);
+            //round02[i].SetActive(true);
+            Instantiate(nibbler, round02[i].transform.position, round02[i].transform.rotation);
         }
         _isEnemyCheckOn = true;
         numRounds = 0;

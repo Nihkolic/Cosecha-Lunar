@@ -6,12 +6,10 @@ using TMPro;
 
 public class ScoreSystem : MonoBehaviour
 {
-    public int scorePerKill = 100;   //points awarded for each kill
-    public int scorePerHeadshot = 50;
-    int skillPoints;
-    int skillFull;
+    private int skillPoints;
+    private int skillFull;
 
-    int slaugtherPoints;
+    private int slaugtherPoints;
 
     [SerializeField] private TMP_Text slaugtherText;
     [SerializeField] private TMP_Text skillText;
@@ -60,5 +58,9 @@ public class ScoreSystem : MonoBehaviour
     public int SlaughterGetScore()
     {
         return slaugtherPoints;
+    }
+    public int GetTotalScore()
+    {
+        return SlaughterGetScore() + SkillGetScore();
     }
 }
