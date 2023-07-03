@@ -12,8 +12,7 @@ public class Leaderboard : MonoBehaviour
     private int currentScore;
     private void Awake()
     {
-        currentScore = PlayerPrefs.GetInt("Score");
-
+        PlayerScore();
         entryTemplate.gameObject.SetActive(false);
 
         string jsonString = PlayerPrefs.GetString("highscoreTable");
@@ -27,8 +26,6 @@ public class Leaderboard : MonoBehaviour
             AddHighscoreEntry(872931, "DAV");
             AddHighscoreEntry(785123, "CAT");
             AddHighscoreEntry(542024, "MAX");
-            AddHighscoreEntry(currentScore, "YOU");
-
             // Reload
             jsonString = PlayerPrefs.GetString("highscoreTable");
             highscores = JsonUtility.FromJson<Highscores>(jsonString);
@@ -84,35 +81,6 @@ public class Leaderboard : MonoBehaviour
 
         string name = highscoreEntry.name;
         entryTransform.Find("Name_Text").GetComponent<TMP_Text>().text = name;
-        /*
-        // Set background visible odds and evens, easier to read
-        entryTransform.Find("background").gameObject.SetActive(rank % 2 == 1);
-        
-        //Highlight First
-        if (rank == 1)
-        {
-            entryTransform.Find("Rank_Text").GetComponent<TMP_Text>().color = Color.green;
-            entryTransform.Find("Score_Text").GetComponent<TMP_Text>().color = Color.green;
-            entryTransform.Find("Name_Text").GetComponent<TMP_Text>().color = Color.green;
-        }*/
-        /*
-        // Set tropy
-        switch (rank)
-        {
-            default:
-                entryTransform.Find("trophy").gameObject.SetActive(false);
-                break;
-            case 1:
-                entryTransform.Find("trophy").GetComponent<Image>().color = UtilsClass.GetColorFromString("FFD200");
-                break;
-            case 2:
-                entryTransform.Find("trophy").GetComponent<Image>().color = UtilsClass.GetColorFromString("C6C6C6");
-                break;
-            case 3:
-                entryTransform.Find("trophy").GetComponent<Image>().color = UtilsClass.GetColorFromString("B76F56");
-                break;
-
-        }*/
 
         transformList.Add(entryTransform);
     }
@@ -143,7 +111,12 @@ public class Leaderboard : MonoBehaviour
         PlayerPrefs.SetString("highscoreTable", json);
         PlayerPrefs.Save();
     }
-
+    void PlayerScore()
+    {
+        currentScore = PlayerPrefs.GetInt("Score");
+        if(currentScore != 0)
+        AddHighscoreEntry(currentScore, "YOU");
+    }
     private class Highscores
     {
         public List<HighscoreEntry> highscoreEntryList;
