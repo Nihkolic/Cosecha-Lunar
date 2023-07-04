@@ -6,13 +6,11 @@ using UnityEngine.Networking;
 
 public class RankingController : MonoBehaviour
 {
-    [SerializeField]
-    private RankingArrayData rankingArrayData;
+    [SerializeField] private RankingArrayData rankingArrayData;
     public void GetRanking(Action<RankingArrayData> callback)
     {
         StartCoroutine(SendRankingRequest(callback));
     }
-
     IEnumerator SendRankingRequest(Action<RankingArrayData> callback)
     {
 
