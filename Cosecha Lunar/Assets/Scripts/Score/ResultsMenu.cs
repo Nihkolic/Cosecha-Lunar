@@ -71,7 +71,7 @@ public class ResultsMenu : MonoBehaviour
         {
             areaText.text = ("Area: DOS");
             currentLevel = 2;
-            SaveScore();
+        
         }
         if (nivel == 3)
         {

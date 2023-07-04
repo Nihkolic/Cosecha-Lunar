@@ -20,7 +20,7 @@ public class ScoreSystem : MonoBehaviour
     }
     public void ResetScore()
     {
-        skillFull = 2000;
+        skillFull = 20000;
         skillPoints = skillFull;
 
         slaugtherPoints = 0;

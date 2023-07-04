@@ -96,10 +96,12 @@ public class LevelChange : MonoBehaviour
         }
         if (currentArea == 2)
         {
-            GameEnd();/*
+            //GameEnd();
             pointSystem.ToResultsMenu(2);
             _player.transform.position = position_3.transform.position;
-            CURRENT_LEVEL = 3;*/
+            CURRENT_LEVEL = 3;
+
+            pointSystem.SaveScore();
             Debug.Log(2 + " End");
         }
         if (currentArea == 3)
@@ -119,7 +121,7 @@ public class LevelChange : MonoBehaviour
 
         GAME_CANT_BE_PAUSED = true;
 
-        pointSystem.SaveScore();
+       
     }
     private void LevelChangeDebug()
     {
