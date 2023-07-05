@@ -19,6 +19,9 @@ public class ResultsMenu : MonoBehaviour
     [SerializeField] private TMP_Text skillText;
     [SerializeField] private TMP_Text slaugtherText;
     [SerializeField] private TMP_Text totalText;
+    [SerializeField]
+    private SendScoreView sendScoreView;
+
     private void Awake()
     {
         resultsPanel.SetActive(false);
@@ -81,6 +84,7 @@ public class ResultsMenu : MonoBehaviour
     }
     public void SaveScore()
     {
-        PlayerPrefs.SetInt("Score", scoreSystem.GetTotalScore());
+        //PlayerPrefs.SetInt("Score", scoreSystem.GetTotalScore());
+        sendScoreView.OnSendScore("YOU", scoreSystem.GetTotalScore());
     }
 }

@@ -25,6 +25,7 @@ public class LevelChange : MonoBehaviour
 
     [SerializeField] private GameObject deathPanel;
     [SerializeField] private PauseMenu pauseMenu;
+
     private void Awake()
     {
         //_player = GameObject.FindWithTag("Player");
@@ -102,6 +103,7 @@ public class LevelChange : MonoBehaviour
             CURRENT_LEVEL = 3;
 
             pointSystem.SaveScore();
+            
             Debug.Log(2 + " End");
         }
         if (currentArea == 3)
