@@ -61,8 +61,8 @@ public class Gunmen : MonoBehaviour
 
             //if (!playerInSightRange && !playerInAttackRange) Idle();
             if (playerInSightRange && playerInAttackRange) Idle();
-            //if (playerInAttackRange && !playerInSightRange) AttackPlayer();
-            if (playerInAttackRange) AttackPlayer();
+            if (playerInAttackRange && !playerInSightRange) AttackPlayer();
+            //if (playerInAttackRange) AttackPlayer();
         }
     }
     void Idle()
