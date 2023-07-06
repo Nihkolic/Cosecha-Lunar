@@ -36,10 +36,6 @@ public class LevelChange : MonoBehaviour
         deathPanel.SetActive(false);
 
     }
-    private void Start()
-    {
-        
-    }
     public void PlayerDeath()
     {
         deathPanel.SetActive(true);
@@ -159,7 +155,7 @@ public class LevelChange : MonoBehaviour
             CURRENT_LEVEL = 3;
             gameAudio.PlayBackground(3);
         }
-    }
+    }/*
     void NextArea(int nextArea) 
     { 
         if(nextArea == 0)
@@ -182,6 +178,9 @@ public class LevelChange : MonoBehaviour
             CURRENT_LEVEL = 3;
             print("Nivel Tres");
         }
-    }
+    }*/
+    void Level_01()
+    {
 
+    }
 }
