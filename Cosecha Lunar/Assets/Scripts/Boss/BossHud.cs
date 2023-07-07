@@ -10,16 +10,20 @@ public class BossHud : MonoBehaviour
     [SerializeField] private Image healthBar_3;
 
     [SerializeField] private GameObject HealthBar;
+    [SerializeField] private GameObject anim;
 
     private void Start()
     {
         HealthBar.SetActive(false);
+        anim.SetActive(false);
+
     }
     private void Update()
     {
         if (BossArena.IS_BULLA_ENABLED)
         {
-            HealthBar.SetActive(true);
+            HealthBar.SetActive(false);
+            anim.SetActive(true);
         }
         else
         {

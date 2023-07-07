@@ -25,6 +25,7 @@ public class EnemyRoomSpawn : MonoBehaviour
 
     string animOpen = "Doors_Open";
     string animClose = "Doors_Close";
+    string animOpenExit = "Doors_OpenExit";
 
     [Header("Hallway")]
     [SerializeField] Animator animatorDoor;
@@ -74,8 +75,7 @@ public class EnemyRoomSpawn : MonoBehaviour
     {
         if (!hasBeenActivated)
         {
-
-            DoorsAnimation(animOpen);
+            DoorsAnimation(animOpenExit);
             hasBeenActivated = true;
         }
         else

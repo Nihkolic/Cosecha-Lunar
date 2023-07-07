@@ -5,12 +5,10 @@ using UnityEngine;
 public class BossHealth : MonoBehaviour
 {
     private ScoreSystem scoreSystem;
-    
+    [SerializeField] private BossManager bossManager;
+
     [Header("Materials")]
     [SerializeField] Renderer[] enemyModel;
-    
-    [Header("Materials")]
-    //[SerializeField] private Renderer rendBody;
     [SerializeField] private Material matCurrent;
     [SerializeField] private Material matHurt;
 
@@ -21,24 +19,18 @@ public class BossHealth : MonoBehaviour
     [SerializeField] private int maxHealth;
     [SerializeField] private bool isEnemyDead;
     private bool _isBossResting;
-    [SerializeField] private BossHud bossHud;
 
-    [SerializeField] private GameObject meleeDeath;
-    [SerializeField] private GameObject bulletDeath;
-
-    //[SerializeField] private GameObject goEnemySpawn;
-    [SerializeField] private GameObject healthPrefab;
-    BossAI bossAI;
+    [SerializeField] private GameObject death_effect;
+    
     private void Start()
     {
         isEnemyDead = false;
         _isBossResting = false;
-        //_normalColor = model.GetComponent<Renderer>().material.color;
+
         scoreSystem = FindAnyObjectByType<ScoreSystem>();
         _currentHealth_1 = maxHealth;
         _currentHealth_2 = maxHealth;
         _currentHealth_3 = maxHealth;
-        bossAI = GetComponentInParent<BossAI>();
     }
     private void Update()
     {
@@ -63,21 +55,21 @@ public class BossHealth : MonoBehaviour
         _currentHealth_2 = maxHealth;
         _currentHealth_3 = maxHealth;
     }
-    public void DamageEnemy(int deductHealth, bool isWeaponMelee)
+    public void DamageEnemy(int deductHealth)
     {
         if (!isEnemyDead && !_isBossResting)
         {
-            TakeDamage(deductHealth, bossAI.GetCurrentPhase());
+            TakeDamage(deductHealth, bossManager.bossAI.GetCurrentPhase());
         }
-        if (_currentHealth_1 <= 0 && bossAI.GetCurrentPhase() == 1)
+        if (_currentHealth_1 <= 0 && bossManager.bossAI.GetCurrentPhase() == 1)
         {
-            bossAI.NextNibblerPhase();
+            bossManager.bossAI.NextNibblerPhase();
         }
-        if (_currentHealth_2 <= 0 && bossAI.GetCurrentPhase() == 3)
+        if (_currentHealth_2 <= 0 && bossManager.bossAI.GetCurrentPhase() == 3)
         {
-            bossAI.NextNibblerPhase();
+            bossManager.bossAI.NextNibblerPhase();
         }
-        if (_currentHealth_3 <= 0 && bossAI.GetCurrentPhase() == 5)
+        if (_currentHealth_3 <= 0 && bossManager.bossAI.GetCurrentPhase() == 5)
         {
             BossDeath();
         }
@@ -102,6 +94,7 @@ public class BossHealth : MonoBehaviour
         if (isEnemyDead == false)
         {
             EnemyScore();
+            bossManager.bossArena.OpenTheDoors();
             //GameObject newGameObject = Instantiate(enemyExp, transform.position, transform.rotation);
             //Destroy(newGameObject, 0.5f);
 
@@ -121,15 +114,15 @@ public class BossHealth : MonoBehaviour
         {
             case 1:
                 _currentHealth_1 -= deductHealth;
-                bossHud.UpdateHpBar(_currentHealth_1, maxHealth, 1);
+                bossManager.bossHud.UpdateHpBar(_currentHealth_1, maxHealth, 1);
                 break;
             case 3:
                 _currentHealth_2 -= deductHealth;
-                bossHud.UpdateHpBar(_currentHealth_2, maxHealth, 2);
+                bossManager.bossHud.UpdateHpBar(_currentHealth_2, maxHealth, 2);
                 break;
             case 5:
                 _currentHealth_3 -= deductHealth;
-                bossHud.UpdateHpBar(_currentHealth_3, maxHealth, 3);
+                bossManager.bossHud.UpdateHpBar(_currentHealth_3, maxHealth, 3);
                 break;
         }
         //rendBody.material = matHurt;
@@ -155,7 +148,7 @@ public class BossHealth : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Acid"))
         {
-            DamageEnemy(300, false);
+            DamageEnemy(300);
         }
 
     }

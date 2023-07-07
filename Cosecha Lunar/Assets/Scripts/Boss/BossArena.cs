@@ -18,7 +18,7 @@ public class BossArena : MonoBehaviour
     [Header("Enemies")]
     [SerializeField] GameObject nibbler;
     [SerializeField] GameObject bulla;
-    [SerializeField] private BossAI bossAI;
+    [SerializeField] private BossManager bossManager;
 
     public static bool IS_BULLA_ENABLED;
 
@@ -45,7 +45,7 @@ public class BossArena : MonoBehaviour
         if (EnemyRoomSpawn.numberOfEnemies == 0 && hasEntered) //check if all the enemies are dead
         {
             _isEnemyCheckOn = false;
-            bossAI.NextBossPhase();
+            bossManager.bossAI.NextBossPhase();
             hasEntered = false;
            
         }

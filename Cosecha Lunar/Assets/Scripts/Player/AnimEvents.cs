@@ -19,4 +19,8 @@ public class AnimEvents : MonoBehaviour
     {
         GetComponent<Animator>().Play("Idle");
     }
+    public void ChangeAnimation()
+    {
+        GetComponent<Animator>().Play(animIdle);
+    }
 }

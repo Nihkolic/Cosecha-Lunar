@@ -13,5 +13,10 @@ public class AttackCollisions : MonoBehaviour
 			collider.transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(40f,true);
 			//Player.GetComponent<PlayerHealth>().Revenge(10);
 		}
+		if (collider.gameObject.layer == LayerMask.NameToLayer("Boss"))
+		{
+			//GetComponent<Collider>().transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(20f);
+			collider.transform.gameObject.GetComponent<BossHealth>().DamageEnemy(50);
+		}
 	}
 }
