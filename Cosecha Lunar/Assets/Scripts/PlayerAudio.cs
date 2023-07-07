@@ -10,7 +10,7 @@ public class PlayerAudio : MonoBehaviour
     public AudioClip heal2Clip;
     public AudioClip hurtClip;
 
-    public AudioClip stepsClip;
+    public AudioClip[] stepsClips;
     public AudioClip jumpClip;
     public AudioClip fallClip;
     public AudioClip dashClip;
@@ -18,28 +18,35 @@ public class PlayerAudio : MonoBehaviour
 
     public void PlayHurt()
     {
-        audioSource.PlayOneShot(hurtClip, Random.Range(0.1f, 0.4f));
+        audioSource.PlayOneShot(hurtClip, Random.Range(0.4f, 0.65f));
     }
     public void PlayHeal()
     {
-        audioSource.PlayOneShot(healClip, 0.15f);
-        audioSource2.PlayOneShot(heal2Clip, Random.Range(0.4f, 0.55f));
+        audioSource.PlayOneShot(healClip, Random.Range(0.5f, 0.75f));
     }
     public void PlaySteps()
     {
         //audioSource.PlayOneShot(stepsClip, Random.Range(0.05f,0.2f));
-        audioSource.PlayOneShot(stepsClip, Random.Range(0.5f, 0.7f));
+        //audioSource.PlayOneShot(stepsClip, Random.Range(0.7f, 0.7f)); //0.5
+
+        if (!audioSource.isPlaying)
+        {
+            audioSource.clip = stepsClips[Random.Range(0, stepsClips.Length)];
+            audioSource.volume = Random.Range(0.15f, 0.2f);
+            audioSource.PlayDelayed(0.15f);
+        }
+
     }
     public void PlayJump()
     {
-        //audioSource.PlayOneShot(jumpClip, 0.75f);
+        audioSource.PlayOneShot(jumpClip, 0.75f);
     }
     public void PlayFall()
     {
-        audioSource.PlayOneShot(fallClip, Random.Range(0.02f, 0.1f));
+        audioSource.PlayOneShot(fallClip, Random.Range(0.15f, 0.2f));
     }
     public void PlayDash()
     {
-        audioSource.PlayOneShot(dashClip, Random.Range(0.1f, 0.1f));
+        audioSource.PlayOneShot(dashClip, Random.Range(0.5f, 0.75f));
     }
 }

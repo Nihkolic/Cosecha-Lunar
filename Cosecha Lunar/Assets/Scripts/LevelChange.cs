@@ -30,11 +30,11 @@ public class LevelChange : MonoBehaviour
     {
         //_player = GameObject.FindWithTag("Player");
         _player.transform.position = position_0.transform.position;
+
         CURRENT_LEVEL = 0;
 
         endPanel.SetActive(false);
         deathPanel.SetActive(false);
-
     }
     public void PlayerDeath()
     {
@@ -155,30 +155,7 @@ public class LevelChange : MonoBehaviour
             CURRENT_LEVEL = 3;
             gameAudio.PlayBackground(3);
         }
-    }/*
-    void NextArea(int nextArea) 
-    { 
-        if(nextArea == 0)
-        {
-            CURRENT_LEVEL = 0;
-            print("Area Zero");
-        }
-        else if(nextArea == 1)
-        {
-            CURRENT_LEVEL = 1;
-            print("Area Uno");
-        }
-        else if (nextArea == 2)
-        {
-            CURRENT_LEVEL = 2;
-            print("Nivel Dos");
-        }
-        else if (nextArea == 2)
-        {
-            CURRENT_LEVEL = 3;
-            print("Nivel Tres");
-        }
-    }*/
+    }
     void Level_01()
     {
 

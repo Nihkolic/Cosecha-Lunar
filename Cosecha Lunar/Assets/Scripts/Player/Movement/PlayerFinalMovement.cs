@@ -97,6 +97,7 @@ public class PlayerFinalMovement : MonoBehaviour
         ParaElPrototipo();
         Land();
         Drop();
+        Steps();
     }
 
     private void FixedUpdate()
@@ -212,6 +213,7 @@ public class PlayerFinalMovement : MonoBehaviour
 
         // turn gravity off while on slope
         rb.useGravity = !OnSlope();
+       
     }
 
     private void SpeedControl()
@@ -249,6 +251,8 @@ public class PlayerFinalMovement : MonoBehaviour
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
         jumps = false;
+
+        playerAudio.PlayJump();
     }
     private void ResetJump()
     {
@@ -277,7 +281,7 @@ public class PlayerFinalMovement : MonoBehaviour
         {
             if (hasFallen)
             {
-                //playerSfx.PlayFall();
+                playerAudio.PlayFall();
 
                 hasFallen = false;
                 jumps = true;
@@ -321,6 +325,12 @@ public class PlayerFinalMovement : MonoBehaviour
         velocidadText.text = "- Velocidad: " + walkSpeed.ToString();
         saltoText.text = "- Salto: " + jumpForce.ToString();
     }
-
+    void Steps()
+    {
+        if (IsGrounded() && (horizontalInput != 0 || verticalInput != 0))
+        {
+            playerAudio.PlaySteps();
+        }
+    }
 }
 
