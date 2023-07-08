@@ -10,6 +10,10 @@ public class AnimEvents : MonoBehaviour
     {
         compAttack.Play(animIdle);
     }
+    public void BlasterLower()
+    {
+
+    }
     public void ToIddle() //nibler
     {
         GetComponent<Animator>().Play(animIdle);
