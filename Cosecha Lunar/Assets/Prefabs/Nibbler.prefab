@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackClip: {fileID: 0}
-  hurtClip: {fileID: 8300000, guid: 7687129ec6eb9ac44a3748d402052ee4, type: 3}
+  hurtClip: {fileID: 8300000, guid: ce923fd7a82982f41821e32240d641df, type: 3}
   shotClip: {fileID: 0}
   spawnClip: {fileID: 0}
   jumpClip: {fileID: 0}
@@ -25022,6 +25022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   compAttack: {fileID: 0}
   animIdle: 
+  playerRanged: {fileID: 0}
 --- !u!4 &6428111528993708990 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6862016080648329714, guid: 4e6fb51ee3f1b1f4da07fbdcddc8cab5,

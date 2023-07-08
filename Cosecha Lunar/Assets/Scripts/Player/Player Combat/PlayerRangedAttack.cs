@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerRangedAttack : MonoBehaviour
 { 
     [SerializeField] private PlayerAudio playerAudio;
+    [SerializeField] private Animator blasterAnim;
     //bullet 
     public GameObject bulletBasic;
     public GameObject bulletFury;
@@ -37,6 +38,8 @@ public class PlayerRangedAttack : MonoBehaviour
 
     //bug fixing :D
     public bool allowInvoke = true;
+
+    bool isUp;
     void Update()
     {/*
         if (Input.GetButtonDown("Fire1"))
@@ -62,6 +65,10 @@ public class PlayerRangedAttack : MonoBehaviour
 
         PlayerCombat.FURY_CAN_BE_ON = true;
     }
+    private void OnEnable()
+    {
+        isUp = true;
+    }
     private void MyInput()
     {
         //Input
@@ -69,7 +76,7 @@ public class PlayerRangedAttack : MonoBehaviour
         else shooting = Input.GetKeyDown(KeyCode.Mouse0);
 
         //Shoot
-        if (readyToShoot && shooting)
+        if (readyToShoot && shooting && isUp)
         {
             Shoot(); //Function has to be after bulletsShot = bulletsPerTap
         }
@@ -100,6 +107,7 @@ public class PlayerRangedAttack : MonoBehaviour
         //Calc Direction with Spread
         Vector3 directionWithSpread = directionWithoutSpread + new Vector3(x, y, 0);
 
+        blasterAnim.Play("Shoot");
         //Instantiate bullet/projectile
         GameObject currentBullet = Instantiate(_currentBullet, attackPoint.position, Quaternion.identity);
         Destroy(currentBullet, 2f);
@@ -119,6 +127,7 @@ public class PlayerRangedAttack : MonoBehaviour
     }
     void ShootSFX()
     {
+        
         if (furyHasBeenActivated)
         {
             playerAudio.PlayFurySHot();
@@ -154,5 +163,14 @@ public class PlayerRangedAttack : MonoBehaviour
             furyHasBeenActivated = false;
         }
     }
-
+    public void PlayDown()
+    {
+        blasterAnim.Play("Down");
+        isUp = false;
+    }
+    public void PlayUp()
+    {
+        blasterAnim.Play("Up");
+        isUp = true;
+    }
 }

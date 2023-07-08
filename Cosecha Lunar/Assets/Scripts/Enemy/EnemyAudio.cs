@@ -32,7 +32,7 @@ public class EnemyAudio : MonoBehaviour
     }
     public void PlaySpawn()
     {
-        audioSource.PlayOneShot(spawnClip, Random.Range(0.5f, 0.75f));
+        //audioSource.PlayOneShot(spawnClip, Random.Range(0.5f, 0.75f));
     }
     public void PlayDeath()
     {

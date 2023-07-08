@@ -33,7 +33,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         attackTimer -= Time.deltaTime;
         if (attackTimer < 0)
         {
-            if (Input.GetMouseButtonDown(0) && !PauseMenu.GAME_IS_PAUSED)
+            if (Input.GetMouseButtonDown(1) && !PauseMenu.GAME_IS_PAUSED)
             {
                 compAttack.Play(animAttack1);
                 playerAudio.PlayAttack();

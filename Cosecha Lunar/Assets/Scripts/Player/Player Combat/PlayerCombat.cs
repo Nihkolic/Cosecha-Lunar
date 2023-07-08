@@ -30,7 +30,7 @@ public class PlayerCombat : MonoBehaviour
         FURY_CAN_BE_ON = false;
     }
     void Update()
-    {
+    {/*
         if (Input.GetAxis("Mouse ScrollWheel") != 0f)
         {
             if (hasBlaster)
@@ -44,7 +44,7 @@ public class PlayerCombat : MonoBehaviour
                     Melee();
                 }
             }
-        }
+        }*/
 
 
     }
@@ -63,8 +63,8 @@ public class PlayerCombat : MonoBehaviour
         rangedCam.SetActive(true);
         rangedScript.SetActive(true);
 
-        meleeCam.SetActive(false);
-        meleeScript.SetActive(false);
+        meleeCam.SetActive(true);
+        meleeScript.SetActive(true);
     }
     public void BlasterGet()
     {

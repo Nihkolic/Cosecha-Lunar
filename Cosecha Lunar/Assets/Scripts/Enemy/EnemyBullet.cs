@@ -5,7 +5,19 @@ using UnityEngine;
 public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] private GameObject blasterBulletDeath;
+    Transform player;
+    private Vector3 targetDirection;
+    private void Start()
+    {
+        // Find the player's transform
+        player = GameObject.FindGameObjectWithTag("Player").transform;
 
+        // Calculate the direction towards the player
+        targetDirection = (player.position - transform.position).normalized;
+
+        // Move the bullet in the calculated direction
+        GetComponent<Rigidbody>().velocity = targetDirection * Random.Range(45f, 65f);
+    }
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))

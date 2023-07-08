@@ -152,4 +152,10 @@ public class BossHealth : MonoBehaviour
         }
 
     }
+    public void ResetHp()
+    {/*
+        _currentHealth_1 = maxHealth;
+        _currentHealth_2 = maxHealth;
+        _currentHealth_3 = maxHealth;*/
+    }
 }

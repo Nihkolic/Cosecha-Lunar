@@ -10,10 +10,19 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private Slider sensitivitySlider;
 
     [SerializeField] private AudioMixer mixer;
+
+    private float sensitivity;
+    private float volume;
+
+    private const string SensitivityKey = "Sensitivity";
+    private const string VolumeKey = "Volume";
     private void Start()
     {
-        PlayerPrefs.GetFloat("volume", 1f);
-        PlayerPrefs.GetFloat("sensitivity", 2f);
+        sensitivity = PlayerPrefs.GetFloat(SensitivityKey, 1f);
+        volume = PlayerPrefs.GetFloat(VolumeKey, 0.5f);
+
+        sensitivitySlider.value = sensitivity;
+        volumeSlider.value = volume;
     }
     public void SetLevel(float newVolume)
     {
@@ -21,10 +30,17 @@ public class SettingsManager : MonoBehaviour
         //PlayerPrefs.SetFloat("MusicVolume", sliderValue);
         PlayerPrefs.SetFloat("volume", newVolume);
     }
-    public void SetSensitivity(float newSensitivity)
+    public void SetSensitivity(float value)
     {
+        sensitivity = value;
+        // Save sensitivity to PlayerPrefs
+        PlayerPrefs.SetFloat(SensitivityKey, sensitivity);
+    }
 
-        
-        PlayerPrefs.SetFloat("volume", newSensitivity);
+    public void SetVolume(float value)
+    {
+        volume = value;
+        // Save volume to PlayerPrefs
+        PlayerPrefs.SetFloat(VolumeKey, volume);
     }
 }

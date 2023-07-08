@@ -6,13 +6,18 @@ public class AnimEvents : MonoBehaviour
 {
     public Animator compAttack;
     public string animIdle;
+    public PlayerRangedAttack playerRanged;
     public void ResetAttack()
     {
         compAttack.Play(animIdle);
     }
     public void BlasterLower()
     {
-
+        playerRanged.PlayDown();
+    }
+    public void BlasterUp()
+    {
+        playerRanged.PlayUp();
     }
     public void ToIddle() //nibler
     {

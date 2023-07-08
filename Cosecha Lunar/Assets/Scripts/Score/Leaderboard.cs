@@ -21,11 +21,11 @@ public class Leaderboard : MonoBehaviour
         if (highscores == null)
         {
             Debug.Log("base data");
-            AddHighscoreEntry(100000, "CMK");
-            AddHighscoreEntry(897621, "JOE");
-            AddHighscoreEntry(872931, "DAV");
-            AddHighscoreEntry(785123, "CAT");
-            AddHighscoreEntry(542024, "MAX");
+            AddHighscoreEntry(500, "CMK");
+            AddHighscoreEntry(1000, "JOE");
+            AddHighscoreEntry(1500, "DAV");
+            AddHighscoreEntry(2000, "CAT");
+            AddHighscoreEntry(2500, "MAX");
             // Reload
             jsonString = PlayerPrefs.GetString("highscoreTable");
             highscores = JsonUtility.FromJson<Highscores>(jsonString);
@@ -63,24 +63,34 @@ public class Leaderboard : MonoBehaviour
 
         int rank = transformList.Count + 1;
         string rankString;
-        switch (rank) //no se preocupen por esto, es para polish que hare despues
+        string scoreString;
+        string nameString;
+        switch (rank)
         {
             default:
-                rankString = rank + "°"; break;
+                rankString = rank + "°";
+                scoreString = highscoreEntry.score.ToString();
+                nameString = highscoreEntry.name;
+                break;
+            case 1:
+                rankString = "<#ABEF09>1°</color>";
+                scoreString = $"<#ABEF09>{highscoreEntry.score}</color>";
+                nameString = $"<#ABEF09>{highscoreEntry.name}</color>";
+                break;/*
 
-            case 1: rankString = "1°"; break;
-            case 2: rankString = "2°"; break;
-            case 3: rankString = "3°"; break;
+            case 2: 
+                rankString = "<#00FFFF>2°</color>";
+                scoreString = "2";
+                break;
+
+            case 3: 
+                rankString = "<#FFFF00>3°</color>";
+                scoreString = "2";
+                break;*/
         }
-
         entryTransform.Find("Rank_Text").GetComponent<TMP_Text>().text = rankString;
-
-        int score = highscoreEntry.score;
-
-        entryTransform.Find("Score_Text").GetComponent<TMP_Text>().text = score.ToString();
-
-        string name = highscoreEntry.name;
-        entryTransform.Find("Name_Text").GetComponent<TMP_Text>().text = name;
+        entryTransform.Find("Score_Text").GetComponent<TMP_Text>().text = scoreString;
+        entryTransform.Find("Name_Text").GetComponent<TMP_Text>().text = nameString;
 
         transformList.Add(entryTransform);
     }
@@ -113,9 +123,13 @@ public class Leaderboard : MonoBehaviour
     }
     void PlayerScore()
     {
-        currentScore = PlayerPrefs.GetInt("Score");
-        if(currentScore != 0)
-        AddHighscoreEntry(currentScore, "YOU");
+            currentScore = PlayerPrefs.GetInt("Score");
+
+            if (currentScore != 0)
+                AddHighscoreEntry(currentScore, "YOU");
+      
+
+        
     }
     private class Highscores
     {

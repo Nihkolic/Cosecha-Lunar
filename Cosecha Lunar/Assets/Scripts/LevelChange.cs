@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelChange : MonoBehaviour
 {
@@ -12,8 +13,6 @@ public class LevelChange : MonoBehaviour
     [SerializeField] private Transform position_1;
     [SerializeField] private Transform position_2;
     [SerializeField] private Transform position_3;
-
-    [SerializeField] private GameObject endPanel;     //change later
 
     [SerializeField] private GameAudio gameAudio;
 
@@ -33,7 +32,6 @@ public class LevelChange : MonoBehaviour
 
         CURRENT_LEVEL = 0;
 
-        endPanel.SetActive(false);
         deathPanel.SetActive(false);
     }
     public void PlayerDeath()
@@ -98,13 +96,13 @@ public class LevelChange : MonoBehaviour
             _player.transform.position = position_3.transform.position;
             CURRENT_LEVEL = 3;
 
-            pointSystem.SaveScore();
+            
             
             Debug.Log(2 + " End");
         }
         if (currentArea == 3)
         {
-            pointSystem.ToResultsMenu(3);
+            pointSystem.SaveScore();
             GameEnd();
 
             Debug.Log(3 + " End");
@@ -113,13 +111,11 @@ public class LevelChange : MonoBehaviour
     }
     public void GameEnd()
     {
-        endPanel.SetActive(true);
+        SceneManager.LoadScene(2);
 
-        pauseMenu.PauseSettings();
+        //pauseMenu.PauseSettings();
 
-        GAME_CANT_BE_PAUSED = true;
-
-       
+        //GAME_CANT_BE_PAUSED = true;
     }
     private void LevelChangeDebug()
     {
@@ -155,9 +151,5 @@ public class LevelChange : MonoBehaviour
             CURRENT_LEVEL = 3;
             gameAudio.PlayBackground(3);
         }
-    }
-    void Level_01()
-    {
-
     }
 }

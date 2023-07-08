@@ -10,20 +10,20 @@ public class BossHud : MonoBehaviour
     [SerializeField] private Image healthBar_3;
 
     [SerializeField] private GameObject HealthBar;
-    [SerializeField] private GameObject anim;
+    //[SerializeField] private GameObject anim;
 
     private void Start()
     {
         HealthBar.SetActive(false);
-        anim.SetActive(false);
+        //anim.SetActive(false);
 
     }
     private void Update()
     {
         if (BossArena.IS_BULLA_ENABLED)
         {
-            HealthBar.SetActive(false);
-            anim.SetActive(true);
+            HealthBar.SetActive(true);
+            //anim.SetActive(true);
         }
         else
         {
@@ -32,7 +32,7 @@ public class BossHud : MonoBehaviour
     }
     public void UpdateHpBar(int currentHealth, int maxHealth, int healthNum)
     {
-        if(healthNum == 1)
+        if (healthNum == 1)
             healthBar_1.fillAmount = GetHealthPercent(currentHealth, maxHealth);
         if (healthNum == 2)
             healthBar_2.fillAmount = GetHealthPercent(currentHealth, maxHealth);
@@ -43,5 +43,10 @@ public class BossHud : MonoBehaviour
     public float GetHealthPercent(int currentHealth, int maxHealth)
     {
         return (float)currentHealth / maxHealth;
+    }
+    public void ResetHUD()
+    {
+        UpdateHpBar(1000, 1000, 1);
+        HealthBar.SetActive(false);
     }
 }

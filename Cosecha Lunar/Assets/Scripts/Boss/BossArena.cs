@@ -52,7 +52,7 @@ public class BossArena : MonoBehaviour
     }
     private void Reset()
     {
-        if (PlayerHealth.PLAYER_IS_DEAD && (hasBeenActivated || hasEntered))
+        if (PlayerHealth.PLAYER_IS_DEAD)
         {
             hasBeenActivated = false;
             hasEntered = false;
@@ -62,6 +62,8 @@ public class BossArena : MonoBehaviour
             Debug.Log("reset on");
             IS_BULLA_ENABLED = false;
             bulla.SetActive(false);
+            bossManager.bossHealth.ResetHp();
+            bossManager.bossHud.ResetHUD();
         }
     }
     public void OpenTheDoors()

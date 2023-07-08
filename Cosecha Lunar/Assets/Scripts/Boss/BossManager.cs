@@ -7,4 +7,5 @@ public class BossManager : MonoBehaviour
     public BossAI bossAI;
     public BossArena bossArena;
     public BossHud bossHud;
+    public BossHealth bossHealth;
 }

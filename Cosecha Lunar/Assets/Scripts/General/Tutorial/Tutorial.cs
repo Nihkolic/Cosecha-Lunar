@@ -20,7 +20,7 @@ public class Tutorial : MonoBehaviour
         }
         if (tutorialNumber == 2)
         {
-            estadoText.text = "Presiona <#FFFF00>[CLIC IZQUIERDO]</color> para <#00FFFF>ATACAR</color>";
+            estadoText.text = "Presiona <#FFFF00>[CLIC DERECHO]</color> para <#00FFFF>ATACAR CON TU HOZ</color>";
         }
         if (tutorialNumber == 3)
         {
@@ -36,7 +36,7 @@ public class Tutorial : MonoBehaviour
         }
         if (tutorialNumber == 6)
         {
-            estadoText.text = "Usa la <#FFFF00>[RUEDA DEL MOUSE]</color> para <#00FFFF>CAMBIAR DE ARMA</color>";
+            estadoText.text = "Usa el <#FFFF00>[CLIC IZQUIERDO]</color> para <#00FFFF>DISPARAR</color>";
         }
         if (tutorialNumber == 10)
         {

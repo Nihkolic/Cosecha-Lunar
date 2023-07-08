@@ -147,14 +147,7 @@ public class Gunmen : MonoBehaviour
 
 
             //Add forces to bullet
-            currentBullet.GetComponent<Rigidbody>().AddForce(transform.forward * 50f, ForceMode.Impulse);
-            //currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up, ForceMode.Impulse);
-
-            /*
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8, ForceMode.Impulse);*/
+            //currentBullet.GetComponent<Rigidbody>().AddForce(transform.forward * 50f, ForceMode.Impulse);    
 
             alreadyAttacked = true;
             Invoke("ResetAttack", timeBetweenAttacks);

@@ -1844,7 +1844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackClip: {fileID: 0}
-  hurtClip: {fileID: 0}
+  hurtClip: {fileID: 8300000, guid: ce923fd7a82982f41821e32240d641df, type: 3}
   shotClip: {fileID: 0}
   spawnClip: {fileID: 0}
   jumpClip: {fileID: 0}

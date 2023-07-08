@@ -84,7 +84,8 @@ public class ResultsMenu : MonoBehaviour
     }
     public void SaveScore()
     {
-        //PlayerPrefs.SetInt("Score", scoreSystem.GetTotalScore());
-        sendScoreView.OnSendScore("YOU", scoreSystem.GetTotalScore());
+        PlayerPrefs.SetInt("Score", scoreSystem.GetTotalScore());
+
+        //sendScoreView.OnSendScore("YOU", scoreSystem.GetTotalScore());
     }
 }
