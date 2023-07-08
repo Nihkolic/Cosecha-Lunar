@@ -16,11 +16,7 @@ public class EnemyAttackCollisions : MonoBehaviour
 			if (isAttacking)
 			{
 				Attack(collider);
-			}/*
-			else if (isAttacking)
-			{
-
-			}*/
+			}
 		}
 	}
 	void Attack(Collider collider)

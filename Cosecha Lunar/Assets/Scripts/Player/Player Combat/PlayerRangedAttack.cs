@@ -4,11 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerRangedAttack : MonoBehaviour
-{/*
-    public GameObject bulletPrefab; 
-    public Transform bulletSpawnPoint; 
-    public float bulletSpeed = 100f;
-    */
+{ 
+    [SerializeField] private PlayerAudio playerAudio;
     //bullet 
     public GameObject bulletBasic;
     public GameObject bulletFury;
@@ -106,7 +103,7 @@ public class PlayerRangedAttack : MonoBehaviour
         //Instantiate bullet/projectile
         GameObject currentBullet = Instantiate(_currentBullet, attackPoint.position, Quaternion.identity);
         Destroy(currentBullet, 2f);
-
+        ShootSFX();
         //Rotate bullet to shoot direction
         currentBullet.transform.forward = directionWithSpread.normalized;
 
@@ -118,6 +115,17 @@ public class PlayerRangedAttack : MonoBehaviour
         {
             Invoke("ShotReset", timeBetweenShooting);
             allowInvoke = false;
+        }
+    }
+    void ShootSFX()
+    {
+        if (furyHasBeenActivated)
+        {
+            playerAudio.PlayFurySHot();
+        }
+        else
+        {
+            playerAudio.PlaySHot();
         }
     }
     private void ShotReset()

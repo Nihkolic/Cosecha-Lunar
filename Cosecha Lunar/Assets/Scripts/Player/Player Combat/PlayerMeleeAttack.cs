@@ -13,7 +13,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     public string animIdle;
 
     bool anim = false;
-    //public AttackSfx attackSfx;
+    [SerializeField] private PlayerAudio playerAudio;
     void Start()
     {
         //WeaponCollider.SetActive(false);
@@ -36,7 +36,7 @@ public class PlayerMeleeAttack : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && !PauseMenu.GAME_IS_PAUSED)
             {
                 compAttack.Play(animAttack1);
-                //attackSfx.PlayAttack(num);
+                playerAudio.PlayAttack();
                 attackTimer = _attackTimer;
                 anim = !anim;
 

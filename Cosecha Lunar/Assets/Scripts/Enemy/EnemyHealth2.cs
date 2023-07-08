@@ -23,6 +23,7 @@ public class EnemyHealth2 : MonoBehaviour
     [SerializeField] private GameObject bulletDeath;
     [SerializeField] private GameObject goEnemySpawn;
     [SerializeField] private GameObject healthPrefab;
+    [SerializeField] private EnemyAudio enemyAudio;
     private void Start()
     {
         isEnemyDead = false;
@@ -47,12 +48,15 @@ public class EnemyHealth2 : MonoBehaviour
 
         GameObject newGameObject = Instantiate(goEnemySpawn, transform.position, transform.rotation); ;
         Destroy(newGameObject, 0.5f);
+
+        enemyAudio.PlaySpawn();
     }
     public void DamageEnemy(float deductHealth, bool isWeaponMelee)
     {
         if (!isEnemyDead)
         {
             TakeDamage(deductHealth);
+            enemyAudio.PlayHurt();
         }
         if (enemyHealth <= 0)
         {
@@ -60,8 +64,9 @@ public class EnemyHealth2 : MonoBehaviour
             {
                 EnemyDead(meleeDeath);
                 GameObject sphere = Instantiate(healthPrefab, transform.position, Quaternion.identity);
+                
 
-                if(PlayerCombat.FURY_CAN_BE_ON)
+                if (PlayerCombat.FURY_CAN_BE_ON)
                     FurySystem.FURY_IS_ACTIVE = true;
             }
             else
@@ -78,6 +83,8 @@ public class EnemyHealth2 : MonoBehaviour
             EnemyScore();
             GameObject newGameObject = Instantiate(enemyExp, transform.position, transform.rotation); 
             Destroy(newGameObject, 0.5f);
+
+            enemyAudio.PlayDeath();
 
             Destroy(transform.parent.gameObject);
             isEnemyDead = true;

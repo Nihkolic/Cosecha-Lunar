@@ -5,15 +5,17 @@ using UnityEngine;
 public class PlayerAudio : MonoBehaviour
 {
     public AudioSource audioSource;
-    public AudioSource audioSource2;
     public AudioClip healClip;
-    public AudioClip heal2Clip;
     public AudioClip hurtClip;
 
     public AudioClip[] stepsClips;
     public AudioClip jumpClip;
     public AudioClip fallClip;
     public AudioClip dashClip;
+
+    public AudioClip attackClip;
+    public AudioClip shotClip;
+    public AudioClip furyShotClip;
     //int randomSound=1;
 
     public void PlayHurt()
@@ -48,5 +50,17 @@ public class PlayerAudio : MonoBehaviour
     public void PlayDash()
     {
         audioSource.PlayOneShot(dashClip, Random.Range(0.5f, 0.75f));
+    }
+    public void PlayAttack()
+    {
+        audioSource.PlayOneShot(attackClip, Random.Range(0.5f, 0.75f));
+    }
+    public void PlaySHot()
+    {
+        audioSource.PlayOneShot(shotClip, Random.Range(0.5f, 0.75f));
+    }
+    public void PlayFurySHot()
+    {
+        audioSource.PlayOneShot(furyShotClip, Random.Range(0.5f, 0.75f));
     }
 }
