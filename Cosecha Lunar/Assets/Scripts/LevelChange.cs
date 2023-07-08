@@ -17,7 +17,7 @@ public class LevelChange : MonoBehaviour
     [SerializeField] private GameAudio gameAudio;
 
     //[SerializeField] private GameObject playerBody;
-    [SerializeField] private GameObject playerCamera;
+    //[SerializeField] private GameObject playerCamera;
 
     public static int CURRENT_LEVEL;
     private Transform _nextPosition;
@@ -42,7 +42,7 @@ public class LevelChange : MonoBehaviour
     }
     private void Update()
     {
-        LevelChangeDebug();
+      
     }
     public void Continue_Button() //Player Respawn
     {
@@ -116,7 +116,7 @@ public class LevelChange : MonoBehaviour
         //pauseMenu.PauseSettings();
 
         //GAME_CANT_BE_PAUSED = true;
-    }
+    }/*
     private void LevelChangeDebug()
     {
         if (Input.GetKeyDown(KeyCode.Alpha0))
@@ -125,15 +125,15 @@ public class LevelChange : MonoBehaviour
             _player.transform.position = position_0.transform.position;
             print("Nivel 0");
             CURRENT_LEVEL = 0;
-            gameAudio.PlayBackground(1);
+            //gameAudio.PlayBackground(1);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        else if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             _player.GetComponent<PlayerCombat>().BlasterGet();
             _player.transform.position = position_1.transform.position;
             print("Nivel 1");
             CURRENT_LEVEL = 1;
-            gameAudio.PlayBackground(1);
+            //gameAudio.PlayBackground(1);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -141,7 +141,7 @@ public class LevelChange : MonoBehaviour
             _player.transform.position = position_2.transform.position;
             print("Nivel 2");
             CURRENT_LEVEL = 2;
-            gameAudio.PlayBackground(2);
+            //gameAudio.PlayBackground(2);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
@@ -149,7 +149,42 @@ public class LevelChange : MonoBehaviour
             _player.transform.position = position_3.transform.position;
             print("Nivel 3");
             CURRENT_LEVEL = 3;
-            gameAudio.PlayBackground(3);
+            //gameAudio.PlayBackground(3);
+        }
+    }*/
+    public void LevelChangeDebug(int num)
+    {
+        if (num == 0)
+        {
+            _player.GetComponent<PlayerCombat>().BlasterRevert();
+            _player.transform.position = position_0.transform.position;
+            print("Nivel 0");
+            CURRENT_LEVEL = 0;
+            //gameAudio.PlayBackground(1);
+        }
+        if (num == 1)
+        {
+            _player.GetComponent<PlayerCombat>().BlasterGet();
+            _player.transform.position = position_1.transform.position;
+            print("Nivel 1");
+            CURRENT_LEVEL = 1;
+            //gameAudio.PlayBackground(1);
+        }
+        if (num == 2)
+        {
+            _player.GetComponent<PlayerCombat>().BlasterGet();
+            _player.transform.position = position_2.transform.position;
+            print("Nivel 2");
+            CURRENT_LEVEL = 2;
+            //gameAudio.PlayBackground(2);
+        }
+        if (num == 3)
+        {
+            _player.GetComponent<PlayerCombat>().BlasterGet();
+            _player.transform.position = position_3.transform.position;
+            print("Nivel 3");
+            CURRENT_LEVEL = 3;
+            //gameAudio.PlayBackground(3);
         }
     }
 }

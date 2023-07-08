@@ -20,11 +20,11 @@ public class EnemyAudio : MonoBehaviour
     }
     public void PlayHurt()
     {
-        audioSource.PlayOneShot(hurtClip, Random.Range(0.4f, 0.65f));
+        audioSource.PlayOneShot(hurtClip, Random.Range(0.1f, 0.2f));
     }
     public void PlayAttack()
     {
-        audioSource.PlayOneShot(attackClip, Random.Range(0.5f, 0.75f));
+        audioSource.PlayOneShot(attackClip, Random.Range(0.25f, 0.35f));
     }
     public void PlayShot()
     {
@@ -36,6 +36,8 @@ public class EnemyAudio : MonoBehaviour
     }
     public void PlayDeath()
     {
-        audioSource.PlayOneShot(spawnClip, Random.Range(0.5f, 0.75f));
+        //audioSource.PlayOneShot(spawnClip, Random.Range(0.5f, 0.75f));
+
+        audioSource.PlayOneShot(hurtClip, Random.Range(0.1f, 0.2f));
     }
 }
