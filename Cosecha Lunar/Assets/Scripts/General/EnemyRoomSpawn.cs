@@ -103,8 +103,8 @@ public class EnemyRoomSpawn : MonoBehaviour
         }
         else if (type == SpawnType.hallway)
         {
-            animatorDoor.Play(anim);
-            animatorExit.Play(anim);
+            animatorDoor.Play(animClose);
+            animatorExit.Play(animOpen);
         }
     }
     void SpawnRound01()
