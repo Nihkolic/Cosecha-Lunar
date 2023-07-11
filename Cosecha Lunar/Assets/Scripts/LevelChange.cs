@@ -54,17 +54,17 @@ public class LevelChange : MonoBehaviour
         if (CURRENT_LEVEL == 0)
         {
             _player.transform.position = position_0.transform.position;
-            gameAudio.PlayBackground(1);
+            //gameAudio.PlayBackground(1);
         }
         if (CURRENT_LEVEL == 1)
         {
             _player.transform.position = position_1.transform.position;
-            gameAudio.PlayBackground(1);
+            //gameAudio.PlayBackground(1);
         }
         if (CURRENT_LEVEL == 2)
         {
-            _player.transform.position = position_2.transform.position;
-            gameAudio.PlayBackground(2);
+            _player.transform.position = position_3.transform.position;
+            //gameAudio.PlayBackground(2);
         }
         if (CURRENT_LEVEL == 3)
         {
@@ -102,6 +102,7 @@ public class LevelChange : MonoBehaviour
         }
         if (currentArea == 3)
         {
+
             pointSystem.SaveScore();
             GameEnd();
 
