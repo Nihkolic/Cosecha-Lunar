@@ -17,7 +17,9 @@ public class EnemyAudio : MonoBehaviour
     private void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
+        PlaySpawn();
     }
+
     public void PlayHurt()
     {
         audioSource.PlayOneShot(hurtClip, Random.Range(0.1f, 0.2f));
@@ -32,7 +34,7 @@ public class EnemyAudio : MonoBehaviour
     }
     public void PlaySpawn()
     {
-        //audioSource.PlayOneShot(spawnClip, Random.Range(0.5f, 0.75f));
+        audioSource.PlayOneShot(spawnClip, Random.Range(0.9f, 1f));
     }
     public void PlayDeath()
     {

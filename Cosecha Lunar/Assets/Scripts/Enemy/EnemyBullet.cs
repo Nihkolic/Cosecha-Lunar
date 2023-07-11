@@ -16,16 +16,20 @@ public class EnemyBullet : MonoBehaviour
         targetDirection = (player.position - transform.position).normalized;
 
         // Move the bullet in the calculated direction
-        GetComponent<Rigidbody>().velocity = targetDirection * Random.Range(45f, 65f);
+        GetComponent<Rigidbody>().velocity = targetDirection * Random.Range(65f, 75f);
     }
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            other.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(10);
+            other.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(20);
             DestroyBullet();
         }
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            DestroyBullet();
+        }
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player_Attack"))
         {
             DestroyBullet();
         }
@@ -34,10 +38,14 @@ public class EnemyBullet : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            other.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(10);
+            other.transform.gameObject.GetComponent<PlayerHealth>().TakeDamage(20);
             DestroyBullet();
         }
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            DestroyBullet();
+        }
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player_Attack"))
         {
             DestroyBullet();
         }

@@ -57,7 +57,7 @@ public class PlayerAudio : MonoBehaviour
     }
     public void PlaySHot()
     {
-        audioSource.PlayOneShot(shotClip, Random.Range(0.5f, 0.75f));
+        audioSource.PlayOneShot(shotClip, Random.Range(0.9f, 1f));
     }
     public void PlayFurySHot()
     {

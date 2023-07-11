@@ -65,6 +65,8 @@ public class EnemyHealth2 : MonoBehaviour
                 EnemyDead(meleeDeath);
                 GameObject sphere = Instantiate(healthPrefab, transform.position, Quaternion.identity);
                 
+                
+
 
                 if (PlayerCombat.FURY_CAN_BE_ON)
                     FurySystem.FURY_IS_ACTIVE = true;
@@ -110,12 +112,15 @@ public class EnemyHealth2 : MonoBehaviour
     }
     void TakeDamage(float deductHealth)
     {
-        enemyHealth -= deductHealth;
+        if (isEnemyAGunmen)
+            enemyHealth -= (deductHealth*2);
+        else
+            enemyHealth -= deductHealth;
         //rendBody.material = matHurt;
         //sfx here
         //rendBody.material.color = Color.red;
 
-        
+
         for (int i = 0; i < enemyModel.Length; i++)
         {
             enemyModel[i].material = matHurt;

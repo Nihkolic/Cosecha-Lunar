@@ -17,6 +17,7 @@ public class BossArena : MonoBehaviour
 
     [Header("Enemies")]
     [SerializeField] GameObject nibbler;
+    [SerializeField] GameObject gunmen;
     [SerializeField] GameObject bulla;
     [SerializeField] private BossManager bossManager;
 
@@ -104,10 +105,23 @@ public class BossArena : MonoBehaviour
     {
         for (int i = 0; i < round_2.Length; i++)
         {
-            Instantiate(nibbler, round_2[i].transform.position, round_2[i].transform.rotation);
+            Instantiate(gunmen, round_2[i].transform.position, round_2[i].transform.rotation);
         }
         StartCoroutine(DelayMethod());
         Debug.Log("spawn 02");
+    }
+    public void SpawnRound_3()
+    {
+        for (int i = 0; i < round_1.Length; i++)
+        {
+            Instantiate(nibbler, round_1[i].transform.position, round_1[i].transform.rotation);
+        }
+        for (int i = 0; i < round_2.Length; i++)
+        {
+            Instantiate(gunmen, round_2[i].transform.position, round_2[i].transform.rotation);
+        }
+        StartCoroutine(DelayMethod());
+        Debug.Log("spawn 03");
     }
     private IEnumerator DelayMethod()
     {

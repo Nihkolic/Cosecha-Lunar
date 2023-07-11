@@ -63,7 +63,7 @@ public class LevelChange : MonoBehaviour
         }
         if (CURRENT_LEVEL == 2)
         {
-            _player.transform.position = position_3.transform.position;
+            _player.transform.position = position_2.transform.position;
             //gameAudio.PlayBackground(2);
         }
         if (CURRENT_LEVEL == 3)

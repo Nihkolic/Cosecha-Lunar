@@ -9,7 +9,7 @@ public class HealthPickup : MonoBehaviour
     {
         if (collider.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            collider.transform.gameObject.GetComponent<PlayerHealth>().Heal(20);
+            collider.transform.gameObject.GetComponent<PlayerHealth>().Heal(50);
 
             GameObject newGameObject = Instantiate(healVFX, transform.position, transform.rotation);
             Destroy(newGameObject, 0.5f);

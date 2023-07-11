@@ -27,6 +27,8 @@ public class BossAI : MonoBehaviour
     private void OnEnable()
     {
         currentState = State.Spawn;
+        currentPhase = 1;
+        barrier.SetActive(false);
     }
     void Update()
     {
@@ -55,6 +57,12 @@ public class BossAI : MonoBehaviour
             case 5:
                 currentState = State.Awake;
                 break;
+            case 6:
+                currentState = State.Rest;
+                break;
+            case 7:
+                currentState = State.Awake;
+                break;
         }
     }
     public void NextBossPhase()
@@ -70,6 +78,8 @@ public class BossAI : MonoBehaviour
             bossArena.SpawnRound_1();
         else if(currentPhase==4)
             bossArena.SpawnRound_2();
+        else if (currentPhase == 6)
+            bossArena.SpawnRound_3();
 
     }
     void States()
@@ -221,7 +231,7 @@ public class BossAI : MonoBehaviour
     }
     private void AttackPlayer()
     {
-        if (currentPhase == 2 || currentPhase == 4) return;
+        if (currentPhase == 2 || currentPhase == 4 || currentPhase == 6) return;
         _animator.Play("Shoot");
         GunmenShoot();
         //Make sure enemy doesn't move

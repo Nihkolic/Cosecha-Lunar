@@ -1846,7 +1846,7 @@ MonoBehaviour:
   attackClip: {fileID: 0}
   hurtClip: {fileID: 8300000, guid: ce923fd7a82982f41821e32240d641df, type: 3}
   shotClip: {fileID: 8300000, guid: 550b03abdefdcbb43becf4e3c2828030, type: 3}
-  spawnClip: {fileID: 0}
+  spawnClip: {fileID: 8300000, guid: df4f686e3182ce742b2691e2e7a324a2, type: 3}
   jumpClip: {fileID: 0}
   fallClip: {fileID: 0}
   dashClip: {fileID: 8300000, guid: d30f6d18fc1e6d94288c015d67a7f919, type: 3}
@@ -1860,8 +1860,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: df4f686e3182ce742b2691e2e7a324a2, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1906,7 +1906,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
