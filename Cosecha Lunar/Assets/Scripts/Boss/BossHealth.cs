@@ -16,6 +16,7 @@ public class BossHealth : MonoBehaviour
     private int _currentHealth_1;
     private int _currentHealth_2;
     private int _currentHealth_3;
+    private int _currentHealth_4;
     [SerializeField] private int maxHealth;
     [SerializeField] private bool isEnemyDead;
     private bool _isBossResting;
@@ -31,6 +32,7 @@ public class BossHealth : MonoBehaviour
         _currentHealth_1 = maxHealth;
         _currentHealth_2 = maxHealth;
         _currentHealth_3 = maxHealth;
+        _currentHealth_4 = maxHealth;
     }
     private void Update()
     {
@@ -54,6 +56,7 @@ public class BossHealth : MonoBehaviour
         _currentHealth_1 = maxHealth;
         _currentHealth_2 = maxHealth;
         _currentHealth_3 = maxHealth;
+        _currentHealth_4 = maxHealth;
     }
     public void DamageEnemy(int deductHealth)
     {
@@ -70,6 +73,10 @@ public class BossHealth : MonoBehaviour
             bossManager.bossAI.NextNibblerPhase();
         }
         if (_currentHealth_3 <= 0 && bossManager.bossAI.GetCurrentPhase() == 5)
+        {
+            bossManager.bossAI.NextNibblerPhase();
+        }
+        if (_currentHealth_4 <= 0 && bossManager.bossAI.GetCurrentPhase() == 7)
         {
             BossDeath();
         }
@@ -123,6 +130,10 @@ public class BossHealth : MonoBehaviour
             case 5:
                 _currentHealth_3 -= deductHealth;
                 bossManager.bossHud.UpdateHpBar(_currentHealth_3, maxHealth, 3);
+                break;
+            case 7:
+                _currentHealth_4 -= deductHealth;
+                bossManager.bossHud.UpdateHpBar(_currentHealth_4, maxHealth, 4);
                 break;
         }
         //rendBody.material = matHurt;

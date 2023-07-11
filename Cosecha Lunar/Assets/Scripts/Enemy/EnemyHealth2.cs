@@ -49,7 +49,6 @@ public class EnemyHealth2 : MonoBehaviour
         GameObject newGameObject = Instantiate(goEnemySpawn, transform.position, transform.rotation); ;
         Destroy(newGameObject, 0.5f);
 
-        enemyAudio.PlaySpawn();
     }
     public void DamageEnemy(float deductHealth, bool isWeaponMelee)
     {

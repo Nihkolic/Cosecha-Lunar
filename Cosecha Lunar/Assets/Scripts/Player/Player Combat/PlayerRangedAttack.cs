@@ -4,7 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerRangedAttack : MonoBehaviour
-{ 
+{
+    [SerializeField]
+    private SkinnedMeshRenderer gunModel;
+
+    [SerializeField] private Material matGreen;
+    [SerializeField] private Material matRed;
+    private bool hasFuryMessageAppeared;
+    int furyCount;
+    [SerializeField]
+    private GameObject furyMessage;
+
     [SerializeField] private PlayerAudio playerAudio;
     [SerializeField] private Animator blasterAnim;
     //bullet 
@@ -48,12 +58,28 @@ public class PlayerRangedAttack : MonoBehaviour
             bullet.GetComponent<Rigidbody>().velocity = bulletSpawnPoint.forward * bulletSpeed;
             Destroy(bullet, 5f);
         }*/
+
+        if(LevelChange.CURRENT_LEVEL >= 1)
+        {
+            PlayerCombat.FURY_CAN_BE_ON = true;
+        }
         if (!PauseMenu.GAME_IS_PAUSED)
         {
             MyInput();
         }
         FuryOn();
-
+        FuryMessage();
+    }
+    void FuryMessage()
+    {
+        if (furyCount == 1)
+        {
+            furyMessage.SetActive(true);
+        }
+        else
+        {
+            furyMessage.SetActive(false);
+        }
     }
     private void Start()
     {
@@ -63,7 +89,9 @@ public class PlayerRangedAttack : MonoBehaviour
 
         allowButtonHold = false;
 
-        PlayerCombat.FURY_CAN_BE_ON = true;
+        PlayerCombat.FURY_CAN_BE_ON = false;
+
+        furyMessage.SetActive(false);
     }
     private void OnEnable()
     {
@@ -131,10 +159,12 @@ public class PlayerRangedAttack : MonoBehaviour
         if (furyHasBeenActivated)
         {
             playerAudio.PlayFurySHot();
+
         }
         else
         {
             playerAudio.PlaySHot();
+
         }
     }
     private void ShotReset()
@@ -151,6 +181,8 @@ public class PlayerRangedAttack : MonoBehaviour
             timeBetweenShooting = 0.1f;
             Debug.Log("FURYYY FURY");
             _currentBullet = bulletFury;
+            gunModel.material = matRed;
+            furyCount++;
 
             furyHasBeenActivated = true;
         }
@@ -159,6 +191,7 @@ public class PlayerRangedAttack : MonoBehaviour
             shootForce = 125;
             timeBetweenShooting = 0.15f;
             _currentBullet = bulletBasic;
+            gunModel.material = matGreen;
 
             furyHasBeenActivated = false;
         }

@@ -8,6 +8,7 @@ public class BossHud : MonoBehaviour
     [SerializeField] private Image healthBar_1;
     [SerializeField] private Image healthBar_2;
     [SerializeField] private Image healthBar_3;
+    [SerializeField] private Image healthBar_4;
 
     [SerializeField] private GameObject HealthBar;
     //[SerializeField] private GameObject anim;
@@ -38,6 +39,8 @@ public class BossHud : MonoBehaviour
             healthBar_2.fillAmount = GetHealthPercent(currentHealth, maxHealth);
         if (healthNum == 3)
             healthBar_3.fillAmount = GetHealthPercent(currentHealth, maxHealth);
+        if (healthNum == 4)
+            healthBar_4.fillAmount = GetHealthPercent(currentHealth, maxHealth);
     }
 
     public float GetHealthPercent(int currentHealth, int maxHealth)

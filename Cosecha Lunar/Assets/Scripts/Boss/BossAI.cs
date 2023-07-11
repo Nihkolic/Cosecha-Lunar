@@ -43,7 +43,7 @@ public class BossAI : MonoBehaviour
         switch (currentPhase)
         {
             case 1:
-                
+                currentState = State.Awake;
                 break;
             case 2:
                 currentState = State.Rest;
