@@ -30,8 +30,8 @@ public class ResultsMenu : MonoBehaviour
     {
         pauseMenu.ResumeSettings();
         resultsPanel.SetActive(false);
-        LevelChange.GAME_CANT_BE_PAUSED = false;
-        gameAudio.PlayResults();
+        NewLevelChange.GAME_CANT_BE_PAUSED = false;
+        //gameAudio.PlayResults();
 
         if (currentLevel == 0)
         {
@@ -39,7 +39,7 @@ public class ResultsMenu : MonoBehaviour
         }
         if (currentLevel == 1)
         {
-            gameAudio.PlayBackground(2);
+           
         }
         if (currentLevel == 2)
         {
@@ -86,6 +86,6 @@ public class ResultsMenu : MonoBehaviour
     {
         PlayerPrefs.SetInt("Score", scoreSystem.GetTotalScore());
 
-        //sendScoreView.OnSendScore("YOU", scoreSystem.GetTotalScore());
+        sendScoreView.OnSendScore("YOU", scoreSystem.GetTotalScore());
     }
 }

@@ -59,7 +59,7 @@ public class PlayerRangedAttack : MonoBehaviour
             Destroy(bullet, 5f);
         }*/
 
-        if(LevelChange.CURRENT_LEVEL >= 1)
+        if(NewLevelChange.CURRENT_LEVEL >= 1)
         {
             PlayerCombat.FURY_CAN_BE_ON = true;
         }
@@ -67,6 +67,7 @@ public class PlayerRangedAttack : MonoBehaviour
         {
             MyInput();
         }
+
         FuryOn();
         FuryMessage();
     }
@@ -76,7 +77,7 @@ public class PlayerRangedAttack : MonoBehaviour
         {
             furyMessage.SetActive(true);
         }
-        else
+        else if (furyCount < 1)
         {
             furyMessage.SetActive(false);
         }
@@ -194,6 +195,7 @@ public class PlayerRangedAttack : MonoBehaviour
             gunModel.material = matGreen;
 
             furyHasBeenActivated = false;
+            furyMessage.SetActive(false);
         }
     }
     public void PlayDown()

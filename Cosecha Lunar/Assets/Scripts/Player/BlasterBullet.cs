@@ -14,7 +14,7 @@ public class BlasterBullet : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             //GetComponent<Collider>().transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(20f);
-            other.transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(20f, false); //40
+            other.transform.gameObject.GetComponent<EnemyHealth2>().DamageEnemy(40f, false); //40
             DestroyBullet();
         }
         if (other.gameObject.layer == LayerMask.NameToLayer("Boss"))
