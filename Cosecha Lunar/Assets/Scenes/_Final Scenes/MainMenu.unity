@@ -1282,7 +1282,7 @@ RectTransform:
   - {fileID: 108010856}
   - {fileID: 1359928330}
   - {fileID: 1853733707}
-  - {fileID: 1391950293}
+  - {fileID: 1859104904}
   m_Father: {fileID: 3521956495362629563}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3257,7 +3257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &932320800
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4014,17 +4014,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391950292}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 285243940}
-  m_RootOrder: 3
+  m_Father: {fileID: 1859104904}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -176}
+  m_AnchoredPosition: {x: 0, y: -1476}
   m_SizeDelta: {x: 922.923, y: 1844.236}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1391950294
@@ -4047,18 +4047,21 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>LA PAPA CALIENTE</b>\r\n\r\n<b>Programaci\xF3n</b>\r\nAlberto Augusto
-    Nikolic Ponce Balc\xE1zar\r\n\r\n<b>Programaci\xF3n de Niblers</b>\r\nDiego Alejandro
-    Arredondo Palacios\r\n\r\n<b>Modelado</b>\r\nAnthony Sebastian Nicolas Abarca
-    Rodriguez\r\nJeremy Jahaziel Guerra Cieza\r\nFranz Edward Pe\xF1a Gutierrez\r\nDiego
-    Alejandro Arredondo Palacios\r\n\r\n<b>Texturizado</b>\r\nAnthony Sebastian Nicolas
-    Abarca Rodriguez\r\nJeremy Jahaziel Guerra Cieza\r\nFranz Edward Pe\xF1a Gutierrez\r\nDiego
-    Alejandro Arredondo Palacios\r\nOscar Andres Carrillo Torres\r\n\r\n<b>Rigging</b>\r\nAnthony
-    Sebastian Nicolas Abarca Rodriguez\r\n\r\n<b>Animaci\xF3n</b>\r\nAndres Antonio
-    Caycho Vargas\r\n\r\n<b>Arte Tecnico</b>\r\nAlberto Augusto Nikolic Ponce Balc\xE1zar\r\n\r\n<b>Dise\xF1o
-    de Nivel</b>\r\nAndres Antonio Caycho Vargas\r\n\r\n<b>Dise\xF1o de Mec\xE1nicas</b>\r\nAndres
-    Antonio Caycho Vargas\r\nOscar Andres Carrillo Torres\r\n\r\n<b>Agradecimientos
-    Especiales</b>\r\nDiego del Solar Gonzales\r\nAndr\xE9 Carlos del Carpio Peralta\r\n"
+  m_text: "Un juego de\r\n<b>LA PAPA CALIENTE</b>\r\n\r\n<b>Arte conceptual</b>\r\nAnthony
+    Sebastian Nicolas Abarca Rodriguez\r\nJeremy Jahaziel Guerra Cieza\r\nFranz Edward
+    Pe\xF1a Gutierrez\r\n\r\n<b>Ilustraciones y Portada</b>\r\nFranz Edward Pe\xF1a
+    Gutierrez\r\n\r\n<b>Modelado</b>\r\nAnthony Sebastian Nicolas Abarca Rodriguez\r\nJeremy
+    Jahaziel Guerra Cieza\r\nFranz Edward Pe\xF1a Gutierrez\r\nDiego Alejandro Arredondo
+    Palacios\r\n\r\n<b>Texturizado</b>\r\nAnthony Sebastian Nicolas Abarca Rodriguez\r\nJeremy
+    Jahaziel Guerra Cieza\r\nFranz Edward Pe\xF1a Gutierrez\r\nDiego Alejandro Arredondo
+    Palacios\r\nOscar Andres Carrillo Torres\r\n\r\n<b>Rigging</b>\r\nAnthony Sebastian
+    Nicolas Abarca Rodriguez\r\n\r\n<b>Animaci\xF3n</b>\r\nAndres Antonio Caycho
+    Vargas\r\n\r\n<b>Arte T\xE9cnico</b>\r\nAlberto Augusto Nikolic Ponce Balc\xE1zar\r\n\r\n<b>Programaci\xF3n</b>\r\nAlberto
+    Augusto Nikolic Ponce Balc\xE1zar\r\n\r\n<b>Programaci\xF3n de Niblers</b>\r\nDiego
+    Alejandro Arredondo Palacios\r\n\r\n<b>Dise\xF1o de Nivel</b>\r\nAndres Antonio
+    Caycho Vargas\r\n\r\n<b>Dise\xF1o de Mec\xE1nicas</b>\r\nAndres Antonio Caycho
+    Vargas\r\nOscar Andres Carrillo Torres\r\n\r\n<b>Agradecimientos Especiales</b>\r\nDiego
+    del Solar Gonzales\r\nAndr\xE9 Carlos del Carpio Peralta\r\nRicardo Tanaka Terukina\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2dcaa9a2b3a00b04dbe7fa9db2c5f618, type: 2}
   m_sharedMaterial: {fileID: -7705314377055119250, guid: 2dcaa9a2b3a00b04dbe7fa9db2c5f618,
@@ -4417,7 +4420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1483262727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4577,7 +4580,8 @@ MonoBehaviour:
   m_text: Audio
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2dcaa9a2b3a00b04dbe7fa9db2c5f618, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: -7705314377055119250, guid: 2dcaa9a2b3a00b04dbe7fa9db2c5f618,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5325,6 +5329,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1853733706}
   m_CullTransparentMesh: 1
+--- !u!1 &1859104903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1859104904}
+  - component: {fileID: 1859104905}
+  m_Layer: 5
+  m_Name: Credits
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1859104904
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859104903}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1391950293}
+  m_Father: {fileID: 285243940}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1859104905
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859104903}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 79304fc7b15e6864fabf4e989208f5d4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1909235954
 GameObject:
   m_ObjectHideFlags: 0
@@ -7991,7 +8054,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6168.3965, y: 3462.2822}
+  m_AnchoredPosition: {x: 5001, y: 4602}
   m_SizeDelta: {x: 700, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4268456430021013758
