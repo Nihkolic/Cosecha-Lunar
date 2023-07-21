@@ -65,7 +65,17 @@ public class EnemyRoomSpawn : MonoBehaviour
             hasBeenActivated = false;
             hasEntered = false;
             _isEnemyCheckOn = false;
-            DoorsAnimation(animOpen);
+
+            if (type == SpawnType.room)
+            {
+                _animatorDoors.Play(animOpen);
+            }
+            else if (type == SpawnType.hallway)
+            {
+                animatorDoor.Play(animOpen);
+                animatorExit.Play(animOpen);
+            }
+
             numRounds = _totalRounds;
 
             Debug.Log("reset on");
@@ -75,7 +85,7 @@ public class EnemyRoomSpawn : MonoBehaviour
     {
         if (!hasBeenActivated)
         {
-            DoorsAnimation(animOpenExit);
+            DoorsOpenAnim();
             hasBeenActivated = true;
         }
         else
@@ -92,19 +102,31 @@ public class EnemyRoomSpawn : MonoBehaviour
             //Invoke("SpawnRound01_Gunmen", 1.0f);
             SpawnRound01_Gunmen();
         }
-        DoorsAnimation(animClose);
+        DoorsCloseAnim();
         hasEntered = true;
     }
-    void DoorsAnimation(string anim)
+    void DoorsOpenAnim()
     {
         if (type == SpawnType.room)
         {
-            _animatorDoors.Play(anim);
+            _animatorDoors.Play(animOpenExit);
         }
         else if (type == SpawnType.hallway)
         {
             animatorDoor.Play(animClose);
             animatorExit.Play(animOpen);
+        }
+    }
+    void DoorsCloseAnim()
+    {
+        if (type == SpawnType.room)
+        {
+            _animatorDoors.Play(animClose);
+        }
+        else if (type == SpawnType.hallway)
+        {
+            animatorDoor.Play(animClose);
+            animatorExit.Play(animClose);
         }
     }
     void SpawnRound01()
@@ -154,7 +176,8 @@ public class EnemyRoomSpawn : MonoBehaviour
             OpenTheDoors();
             if (type == SpawnType.hallway)
             {
-                animatorDoor.Play(animClose);
+                OpenTheDoors();
+                //animatorDoor.Play(animClose);
             }
         }
     }
